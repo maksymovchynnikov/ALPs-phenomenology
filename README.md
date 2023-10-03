@@ -26,7 +26,4 @@ Currently, the fully supported models are ALPs with flavor-diagonal universal co
 
 This is a beta-version of the notebook, so there may be issues. You are very welcome to report about them.
 
-
-
-# ALPs-phenomenology
  
