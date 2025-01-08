@@ -1,0 +1,549 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     21084,        541]
+NotebookOptionsPosition[     20368,        520]
+NotebookOutlinePosition[     20781,        536]
+CellTagsIndexPosition[     20738,        533]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Drell-Yan", "Chapter",
+ CellChangeTimes->{{3.905484692091611*^9, 3.905484698087249*^9}, {
+  3.9057048959442477`*^9, 
+  3.9057049000928984`*^9}},ExpressionUUID->"a8bcdd31-fc78-6d4c-8f5a-\
+b30d4121d35b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["cGval"], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"bd0498ef-c08c-0b46-9540-2fdbf6bb16ee"],
+
+Cell[BoxData[
+ FormBox["1.`", TraditionalForm]], "Output",
+ CellChangeTimes->{3.9452737449881306`*^9},
+ CellLabel->
+  "Out[534]=",ExpressionUUID->"5ee6c59b-1bdd-3c41-acd5-6c8558d67aa3"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+   "\[Sigma]DrellYanDataALPFromGluonTemp", "[", "\"\<FermilabBD\>\"", "]"}], 
+   "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], "//", "ParentDirectory"}], 
+         "//", "ParentDirectory"}], ",", 
+        "\"\<phenomenology/ALPs with gluon coupling/branching \
+ratios/sigma-prod-ALP-gluon-Drell-Yan-FNAL.txt\>\""}], "}"}], "]"}], ",", 
+     "\"\<Table\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Sigma]DrellYanDataALPFromGluonTemp", "[", "\"\<SPS\>\"", "]"}], 
+   "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], "//", "ParentDirectory"}], 
+         "//", "ParentDirectory"}], ",", 
+        "\"\<phenomenology/ALPs with gluon coupling/branching \
+ratios/sigma-prod-ALP-gluon-Drell-Yan-SPS.txt\>\""}], "}"}], "]"}], ",", 
+     "\"\<Table\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Sigma]DrellYanDataALPFromGluonTemp", "[", "\"\<LHC\>\"", "]"}], 
+   "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], "//", "ParentDirectory"}], 
+         "//", "ParentDirectory"}], ",", 
+        "\"\<phenomenology/ALPs with gluon coupling/branching \
+ratios/sigma-prod-ALP-gluon-Drell-Yan-LHC.txt\>\""}], "}"}], "]"}], ",", 
+     "\"\<Table\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\[Sigma]ppFacility", "[", "\"\<FermilabBD\>\"", "]"}], ",", 
+     RowBox[{"\[Sigma]ppFacility", "[", "\"\<SPS\>\"", "]"}], ",", 
+     RowBox[{"\[Sigma]ppFacility", "[", "\"\<LHC\>\"", "]"}]}], "}"}], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"40", "*", 
+      SuperscriptBox["10", "9"], "*", 
+      SuperscriptBox["12", 
+       RowBox[{"-", "0.29"}]]}], ",", 
+     RowBox[{"40", "*", 
+      SuperscriptBox["10", "9"], "*", 
+      SuperscriptBox["96", 
+       RowBox[{"-", "0.29"}]]}], ",", 
+     RowBox[{"78", "*", 
+      SuperscriptBox["10", "9"]}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Do", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"cGval", "[", 
+       RowBox[{"ma_", ",", "model", ",", "\[CapitalLambda]_"}], "]"}], "=", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"cG", "+", 
+         RowBox[{"cGGeff", "[", 
+          RowBox[{
+          "ma", ",", "cu", ",", "cd", ",", "cs", ",", "cc", ",", "cb", ",", 
+           "ct", ",", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<u\>\"", ",", "\"\<d\>\"", ",", "\"\<s\>\"", ",", "\"\<c\>\"",
+              ",", "\"\<b\>\"", ",", "\"\<t\>\""}], "}"}]}], "]"}]}], ")"}], "/.", 
+       RowBox[{"tableValuesReplacement", "[", 
+        RowBox[{"model", ",", "\[CapitalLambda]"}], "]"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Do", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"PALPprod", "[", 
+          RowBox[{
+          "\"\<Drell-Yan\>\"", ",", "model", ",", "facility", ",", "ma_", ",",
+            "f_", ",", "\[CapitalLambda]_"}], "]"}], "=", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"ma", ">=", "1.5"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{"\[Sigma]ppFacility", "[", "facility", "]"}]], 
+             FractionBox["1", 
+              SuperscriptBox["f", "2"]], 
+             SuperscriptBox[
+              RowBox[{"Abs", "[", 
+               RowBox[{"cGval", "[", 
+                RowBox[{"ma", ",", "model", ",", "\[CapitalLambda]"}], "]"}], 
+               "]"}], "2"], 
+             RowBox[{"10", "^", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Interpolation", "[", 
+                 RowBox[{
+                  RowBox[{"Log10", "[", 
+                   RowBox[{
+                    RowBox[{
+                    "\[Sigma]DrellYanDataALPFromGluonTemp", "[", "facility", 
+                    "]"}], "[", 
+                    RowBox[{"[", 
+                    RowBox[{"All", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "2"}], "}"}]}], "]"}], "]"}], "]"}], 
+                  ",", 
+                  RowBox[{"InterpolationOrder", "->", "1"}]}], "]"}], "[", 
+                RowBox[{"Log10", "[", "ma", "]"}], "]"}], ")"}]}]}], "]"}], 
+           ",", "0"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"PALPprodLower", "[", 
+          RowBox[{
+          "\"\<Drell-Yan\>\"", ",", "model", ",", "facility", ",", "ma_", ",",
+            "f_", ",", "\[CapitalLambda]_"}], "]"}], "=", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"ma", ">=", "1.5"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{"\[Sigma]ppFacility", "[", "facility", "]"}]], 
+             FractionBox["1", 
+              SuperscriptBox["f", "2"]], 
+             SuperscriptBox[
+              RowBox[{"Abs", "[", 
+               RowBox[{"cGval", "[", 
+                RowBox[{"ma", ",", "model", ",", "\[CapitalLambda]"}], "]"}], 
+               "]"}], "2"], 
+             RowBox[{"10", "^", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Interpolation", "[", 
+                 RowBox[{
+                  RowBox[{"Log10", "[", 
+                   RowBox[{
+                    RowBox[{
+                    "\[Sigma]DrellYanDataALPFromGluonTemp", "[", "facility", 
+                    "]"}], "[", 
+                    RowBox[{"[", 
+                    RowBox[{"All", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "3"}], "}"}]}], "]"}], "]"}], "]"}], 
+                  ",", 
+                  RowBox[{"InterpolationOrder", "->", "1"}]}], "]"}], "[", 
+                RowBox[{"Log10", "[", "ma", "]"}], "]"}], ")"}]}]}], "]"}], 
+           ",", "0"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"PALPprodUpper", "[", 
+          RowBox[{
+          "\"\<Drell-Yan\>\"", ",", "model", ",", "facility", ",", "ma_", ",",
+            "f_", ",", "\[CapitalLambda]_"}], "]"}], "=", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"ma", ">=", "1.5"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{"\[Sigma]ppFacility", "[", "facility", "]"}]], 
+             FractionBox["1", 
+              SuperscriptBox["f", "2"]], 
+             SuperscriptBox[
+              RowBox[{"Abs", "[", 
+               RowBox[{"cGval", "[", 
+                RowBox[{"ma", ",", "model", ",", "\[CapitalLambda]"}], "]"}], 
+               "]"}], "2"], 
+             RowBox[{"10", "^", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Interpolation", "[", 
+                 RowBox[{
+                  RowBox[{"Log10", "[", 
+                   RowBox[{
+                    RowBox[{
+                    "\[Sigma]DrellYanDataALPFromGluonTemp", "[", "facility", 
+                    "]"}], "[", 
+                    RowBox[{"[", 
+                    RowBox[{"All", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "4"}], "}"}]}], "]"}], "]"}], "]"}], 
+                  ",", 
+                  RowBox[{"InterpolationOrder", "->", "1"}]}], "]"}], "[", 
+                RowBox[{"Log10", "[", "ma", "]"}], "]"}], ")"}]}]}], "]"}], 
+           ",", "0"}], "]"}]}], ";"}], "\[IndentingNewLine]", ",", 
+       RowBox[{"{", 
+        RowBox[{"facility", ",", "listFacility"}], "}"}]}], "]"}]}], 
+    "\[IndentingNewLine]", ",", 
+    RowBox[{"{", 
+     RowBox[{"model", ",", "ModelListAll"}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fval", "=", 
+   SuperscriptBox["10", "6."]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"DISuncertainty", "=", 
+  RowBox[{"Show", "[", 
+   RowBox[{
+    RowBox[{"LogLogPlot", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PALPprod", "[", 
+         RowBox[{
+         "\"\<Drell-Yan\>\"", ",", "\"\<Fermion universal\>\"", ",", 
+          "\"\<LHC\>\"", ",", "ma", ",", "fval", ",", 
+          SuperscriptBox["10", "3"]}], "]"}], ",", 
+        RowBox[{"PALPprodLower", "[", 
+         RowBox[{
+         "\"\<Drell-Yan\>\"", ",", "\"\<Fermion universal\>\"", ",", 
+          "\"\<LHC\>\"", ",", "ma", ",", "fval", ",", 
+          SuperscriptBox["10", "3"]}], "]"}], ",", 
+        RowBox[{"PALPprodUpper", "[", 
+         RowBox[{
+         "\"\<Drell-Yan\>\"", ",", "\"\<Fermion universal\>\"", ",", 
+          "\"\<LHC\>\"", ",", "ma", ",", "fval", ",", 
+          SuperscriptBox["10", "3"]}], "]"}], ",", 
+        RowBox[{"PALPprod", "[", 
+         RowBox[{
+         "\"\<Drell-Yan\>\"", ",", "\"\<Fermion universal\>\"", ",", 
+          "\"\<SPS\>\"", ",", "ma", ",", "fval", ",", 
+          SuperscriptBox["10", "3"]}], "]"}], ",", 
+        RowBox[{"PALPprodLower", "[", 
+         RowBox[{
+         "\"\<Drell-Yan\>\"", ",", "\"\<Fermion universal\>\"", ",", 
+          "\"\<SPS\>\"", ",", "ma", ",", "fval", ",", 
+          SuperscriptBox["10", "3"]}], "]"}], ",", 
+        RowBox[{"PALPprodUpper", "[", 
+         RowBox[{
+         "\"\<Drell-Yan\>\"", ",", "\"\<Fermion universal\>\"", ",", 
+          "\"\<SPS\>\"", ",", "ma", ",", "fval", ",", 
+          SuperscriptBox["10", "3"]}], "]"}], ",", 
+        RowBox[{"PALPprod", "[", 
+         RowBox[{
+         "\"\<Drell-Yan\>\"", ",", "\"\<Fermion universal\>\"", ",", 
+          "\"\<FermilabBD\>\"", ",", "ma", ",", "fval", ",", 
+          SuperscriptBox["10", "3"]}], "]"}], ",", 
+        RowBox[{"PALPprodLower", "[", 
+         RowBox[{
+         "\"\<Drell-Yan\>\"", ",", "\"\<Fermion universal\>\"", ",", 
+          "\"\<FermilabBD\>\"", ",", "ma", ",", "fval", ",", 
+          SuperscriptBox["10", "3"]}], "]"}], ",", 
+        RowBox[{"PALPprodUpper", "[", 
+         RowBox[{
+         "\"\<Drell-Yan\>\"", ",", "\"\<Fermion universal\>\"", ",", 
+          "\"\<FermilabBD\>\"", ",", "ma", ",", "fval", ",", 
+          SuperscriptBox["10", "3"]}], "]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"ma", ",", "1.5", ",", "10"}], "}"}], ",", 
+      RowBox[{"PlotStyle", "->", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Blue"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Thickness", "[", "0.002", "]"}], ",", 
+           RowBox[{"Lighter", "@", "Blue"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Thickness", "[", "0.002", "]"}], ",", 
+           RowBox[{"Lighter", "@", "Blue"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", 
+           RowBox[{"Darker", "@", "Red"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Thickness", "[", "0.002", "]"}], ",", 
+           RowBox[{"Lighter", "@", "Red"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Thickness", "[", "0.002", "]"}], ",", 
+           RowBox[{"Lighter", "@", "Red"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", 
+           RowBox[{"Darker", "@", 
+            RowBox[{"Darker", "@", "Green"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Thickness", "[", "0.002", "]"}], ",", 
+           RowBox[{"Lighter", "@", "Green"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Thickness", "[", "0.002", "]"}], ",", 
+           RowBox[{"Lighter", "@", "Green"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Cyan"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Magenta"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Purple"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Black", ",", 
+           RowBox[{"Dashing", "[", "0.02", "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Blue"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Thickness", "[", "0.003", "]"}], ",", "Gray", ",", 
+           RowBox[{"Dashing", "[", "0.01", "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", " ", 
+           RowBox[{"Darker", "@", "Red"}], ",", 
+           RowBox[{"Dashing", "[", "0.02", "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", 
+           RowBox[{"Darker", "@", 
+            RowBox[{"Darker", "@", "Green"}]}], ",", 
+           RowBox[{"Dashing", "[", "0.02", "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Orange", ",", 
+           RowBox[{"Dashing", "[", "0.02", "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Cyan", ",", 
+           RowBox[{"Dashing", "[", "0.02", "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Magenta", ",", 
+           RowBox[{"Dashing", "[", "0.02", "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Purple", ",", 
+           RowBox[{"Dashing", "[", "0.02", "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Blue", ",", 
+           RowBox[{"Dashing", "[", "0.02", "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", 
+           RowBox[{"Darker", "@", "Cyan"}], ",", 
+           RowBox[{"Dashing", "[", "0.02", "]"}]}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"Frame", "\[Rule]", " ", "True"}], ",", 
+      RowBox[{"FrameLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<\!\(\*SubscriptBox[\(m\), \(a\)]\) [GeV]\>\"", " ", ",", " ", 
+         "\"\<\!\(\*SubscriptBox[\(P\), \(prod, DIS\)]\)\>\""}], "}"}]}], ",", 
+      RowBox[{"FrameStyle", "\[Rule]", 
+       RowBox[{"Directive", "[", 
+        RowBox[{"Black", ",", " ", "23"}], "]"}]}], ",", 
+      RowBox[{"ImageSize", "->", "Large"}], ",", 
+      RowBox[{"PlotRange", "->", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1.5", ",", "10"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+              FractionBox[
+               SuperscriptBox["10", "3"], "fval"], ")"}], "2"], 
+            SuperscriptBox["10", 
+             RowBox[{"-", "13"}]]}], ",", 
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+              FractionBox[
+               SuperscriptBox["10", "3"], "fval"], ")"}], "2"], "2", "*", 
+            SuperscriptBox["10", 
+             RowBox[{"-", "7"}]]}]}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"Filling", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"2", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", "3", "}"}], ",", 
+            RowBox[{"Directive", "[", 
+             RowBox[{"Blue", ",", 
+              RowBox[{"Opacity", "[", "0.1", "]"}]}], "]"}]}], "}"}]}], ",", 
+         RowBox[{"5", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", "6", "}"}], ",", 
+            RowBox[{"Directive", "[", 
+             RowBox[{"Red", ",", 
+              RowBox[{"Opacity", "[", "0.1", "]"}]}], "]"}]}], "}"}]}], ",", 
+         RowBox[{"8", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", "9", "}"}], ",", 
+            RowBox[{"Directive", "[", 
+             RowBox[{"Green", ",", 
+              RowBox[{"Opacity", "[", "0.1", "]"}]}], "]"}]}], "}"}]}]}], 
+        "}"}]}], ",", 
+      RowBox[{"PlotLabel", "\[Rule]", 
+       RowBox[{"Style", "[", 
+        RowBox[{
+         RowBox[{"Row", "[", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<\!\(\*SubscriptBox[\(c\), \(q\)]\) = \
+\!\(\*SubscriptBox[\(c\), \(l\)]\) = 1, f = \>\"", "<>", 
+            RowBox[{"ToString", "[", 
+             RowBox[{
+              SuperscriptBox["10", 
+               RowBox[{"-", "6."}]], "fval"}], "]"}], "<>", 
+            "\"\< PeV, \[CapitalLambda] = 1 TeV\>\""}], "}"}], "]"}], ",", 
+         "22", ",", "Black"}], "]"}]}]}], "]"}], ",", 
+    RowBox[{"LogLogPlot", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        SuperscriptBox["x", "2"], ",", 
+        SuperscriptBox["x", "3"]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "1.5", ",", "10"}], "}"}], ",", 
+      RowBox[{"PlotStyle", "->", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", "Blue"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", 
+           RowBox[{"Darker", "@", "Red"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Thick", ",", 
+           RowBox[{"Darker", "@", 
+            RowBox[{"Darker", "@", "Green"}]}]}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"PlotLegends", "\[Rule]", 
+       RowBox[{"Placed", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"#", ",", "20"}], "]"}], "&"}], "/@", 
+          RowBox[{"Join", "[", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<LHC\>\"", ",", "\"\<SPS\>\"", ",", "\"\<FermilabBD\>\""}], 
+            "}"}], "]"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0.13", ",", "0.2"}], "}"}]}], "]"}]}]}], "]"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], "//", "ParentDirectory"}], "//",
+        "ParentDirectory"}], ",", 
+      "\"\<plots/DIS-production-uncertainty.pdf\>\""}], "}"}], "]"}], ",", 
+   "DISuncertainty"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.9022164766795197`*^9, 3.9022165507150154`*^9}, {
+   3.902216652699136*^9, 3.9022166948791447`*^9}, {3.9022167467097507`*^9, 
+   3.902216864569315*^9}, {3.902216951440974*^9, 3.9022169617551346`*^9}, {
+   3.902218824516503*^9, 3.902218948390286*^9}, 3.9022195120581827`*^9, {
+   3.90222015737252*^9, 3.9022201663042135`*^9}, {3.9022203489721036`*^9, 
+   3.9022204364974117`*^9}, {3.902224194884698*^9, 3.9022242323812623`*^9}, {
+   3.9030733412428865`*^9, 3.9030733426123233`*^9}, {3.9035048329855614`*^9, 
+   3.9035049806564217`*^9}, {3.903505195394627*^9, 3.9035054442353044`*^9}, {
+   3.903505479274538*^9, 3.9035055097621803`*^9}, {3.9035055790381393`*^9, 
+   3.9035057475716715`*^9}, {3.9035058022103453`*^9, 
+   3.9035061264026766`*^9}, {3.9038946882859755`*^9, 
+   3.9038947019508877`*^9}, {3.9152754128382597`*^9, 3.915275529406786*^9}, {
+   3.915275580961988*^9, 3.9152755901009493`*^9}, {3.915275667903117*^9, 
+   3.9152756686808157`*^9}, {3.9301298496520405`*^9, 
+   3.9301298496749544`*^9}, {3.945273380600519*^9, 3.945273418566929*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"bae34e82-4c52-2244-a910-145f7e76157d"]
+}, Open  ]]
+},
+WindowSize->{1142.1, 647.6999999999999},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f2a7ff16-db37-9640-998c-348e1cbb3f84"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 207, 4, 67, "Chapter",ExpressionUUID->"a8bcdd31-fc78-6d4c-8f5a-b30d4121d35b"],
+Cell[CellGroupData[{
+Cell[808, 30, 109, 1, 28, "Input",ExpressionUUID->"bd0498ef-c08c-0b46-9540-2fdbf6bb16ee"],
+Cell[920, 33, 185, 4, 31, "Output",ExpressionUUID->"5ee6c59b-1bdd-3c41-acd5-6c8558d67aa3"]
+}, Open  ]],
+Cell[1120, 40, 19232, 477, 1061, "Input",ExpressionUUID->"bae34e82-4c52-2244-a910-145f7e76157d"]
+}, Open  ]]
+}
+]
+*)
+

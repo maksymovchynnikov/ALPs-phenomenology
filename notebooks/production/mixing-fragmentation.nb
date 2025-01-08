@@ -1,0 +1,276 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      9280,        268]
+NotebookOptionsPosition[      8407,        243]
+NotebookOutlinePosition[      8847,        260]
+CellTagsIndexPosition[      8804,        257]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Mixing with neutral mesons", "Chapter",
+ CellChangeTimes->{{3.905484692091611*^9, 
+  3.905484698087249*^9}},ExpressionUUID->"72d9fa29-9d7e-f142-8e73-\
+0325fa101029"],
+
+Cell[CellGroupData[{
+
+Cell["Yields of light mesons", "Section",
+ CellChangeTimes->{{3.9452431080799656`*^9, 
+  3.9452431119629345`*^9}},ExpressionUUID->"d74e597b-1692-324c-b6c4-\
+4bfd7380c96c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"LightMesonsYield", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"NotebookDirectory", "[", "]"}], "//", "ParentDirectory"}], 
+         "//", "ParentDirectory"}], ",", "\"\<auxiliary data\>\"", ",", 
+        "\"\<YieldMesons.mx\>\""}], "}"}], "]"}], ",", "\"\<MX\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"correspondence", "[", "\"\<Pi0\>\"", "]"}], ",", 
+     RowBox[{"correspondence", "[", "\"\<Eta\>\"", "]"}], ",", 
+     RowBox[{"correspondence", "[", "\"\<EtaPr\>\"", "]"}]}], "}"}], "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"correspondence", "[", "\"\<Mixing-Pi0\>\"", "]"}], ",", 
+      RowBox[{"correspondence", "[", "\"\<Mixing-Eta\>\"", "]"}], ",", 
+      RowBox[{"correspondence", "[", "\"\<Mixing-EtaPr\>\"", "]"}]}], "}"}], 
+    "=", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(0\)]\)\>\"", ",", 
+      "\"\<\[Eta]\>\"", ",", "\"\<\[Eta]'\>\""}], "}"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Do", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"fac", ",", "mes"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"fac", ",", "mes"}], "}"}], "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"LightMesonsYield", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}], ",", 
+         RowBox[{"correspondence", "[", 
+          RowBox[{
+           RowBox[{"LightMesonsYield", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "2", "]"}], "]"}], "]"}]}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\[Chi]particle", "[", 
+        RowBox[{"mes", ",", "fac"}], "]"}], "=", 
+       RowBox[{
+        RowBox[{"LightMesonsYield", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "[", 
+        RowBox[{"[", "3", "]"}], "]"}]}]}]}], "\[IndentingNewLine]", "]"}], 
+   "\[IndentingNewLine]", ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", 
+     RowBox[{"Length", "[", "LightMesonsYield", "]"}], ",", "1"}], "}"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"YieldsXdata", "[", "mX_", "]"}], "=", 
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{"Import", "[", 
+        RowBox[{
+         RowBox[{"FileNameJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"NotebookDirectory", "[", "]"}], "//", 
+              "ParentDirectory"}], "//", "ParentDirectory"}], ",", 
+            "\"\<auxiliary data\>\"", ",", "\"\<YieldsInt.mx\>\""}], "}"}], 
+          "]"}], ",", "\"\<MX\>\""}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"MemberQ", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Mixing-Pi0\>\"", ",", "\"\<Mixing-Eta\>\"", ",", 
+            "\"\<Mixing-EtaPr\>\""}], "}"}], ",", 
+          RowBox[{"#", "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "&"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Do", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Module", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"type", ",", "fac"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"fac", ",", "type"}], "}"}], "=", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"YieldsXdata", "[", "mX", "]"}], "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", 
+            RowBox[{"correspondence", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"YieldsXdata", "[", "mX", "]"}], "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "[", 
+              RowBox[{"[", "2", "]"}], "]"}], "]"}]}], "}"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"\[Chi]particle", "[", 
+           RowBox[{"type", ",", "fac", ",", "ma_"}], "]"}], "=", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"YieldsXdata", "[", "ma", "]"}], "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "3", "]"}], "]"}]}]}]}], "\[IndentingNewLine]", "]"}],
+       "\[IndentingNewLine]", ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"Length", "[", 
+         RowBox[{"YieldsXdata", "[", "mX", "]"}], "]"}], ",", "1"}], "}"}]}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.945243053158041*^9, 3.945243057590145*^9}, {
+  3.9452431310775433`*^9, 3.945243135096672*^9}, {3.945360622415119*^9, 
+  3.9453606383121815`*^9}},ExpressionUUID->"35fd4c1b-8496-0548-b3f1-\
+5c49983549b8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Defining mixing angles", "Section",
+ CellChangeTimes->{{3.9452557898552475`*^9, 
+  3.9452557935256023`*^9}},ExpressionUUID->"80a85e48-c68f-1843-bb5e-\
+784a4f86bb0f"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"PALPprod", "[", 
+      RowBox[{
+       RowBox[{"\"\<Mixing-\>\"", "<>", "particle"}], ",", "model", ",", 
+       "facility", ",", "ma_", ",", "fa_", ",", "\[CapitalLambda]_"}], "]"}], 
+     "=", 
+     RowBox[{
+      RowBox[{"\[Chi]particle", "[", 
+       RowBox[{"particle", ",", "facility"}], "]"}], "*", 
+      SuperscriptBox[
+       RowBox[{"\[Theta]m0a", "[", 
+        RowBox[{
+        "model", ",", "\[CapitalLambda]", ",", "particle", ",", "ma", ",", 
+         "fa"}], "]"}], "2"]}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"particle", ",", "listMesonP0"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"model", ",", "ModelListAll"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"facility", ",", 
+      RowBox[{"Join", "[", 
+       RowBox[{"listFacility", ",", 
+        RowBox[{"{", "\"\<Serpukhov\>\"", "}"}]}], "]"}]}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"PALPprodNew", "[", 
+      RowBox[{
+       RowBox[{"\"\<Mixing-\>\"", "<>", "particle"}], ",", "model", ",", 
+       "facility", ",", "ma_", ",", "fa_", ",", "\[CapitalLambda]_"}], "]"}], 
+     "=", 
+     RowBox[{
+      RowBox[{"\[Chi]particle", "[", 
+       RowBox[{"particle", ",", "facility", ",", "ma"}], "]"}], "*", 
+      SuperscriptBox[
+       RowBox[{"\[Theta]m0a", "[", 
+        RowBox[{
+        "model", ",", "\[CapitalLambda]", ",", "particle", ",", "ma", ",", 
+         "fa"}], "]"}], "2"]}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"particle", ",", "listMesonP0"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"model", ",", "ModelListAll"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"facility", ",", 
+      RowBox[{"Join", "[", 
+       RowBox[{"listFacility", ",", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Serpukhov\>\"", ",", "\"\<FCC-hh\>\""}], "}"}]}], 
+       "]"}]}], "}"}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.9452741112881775`*^9, 3.9452741236803207`*^9}},
+ CellLabel->
+  "In[563]:=",ExpressionUUID->"92113966-d673-5043-8baf-071cd95990b5"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1152, 652.5},
+WindowMargins->{{
+  Automatic, -4.7999999999999545`}, {-4.7999999999999545`, Automatic}},
+FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"3369a1fc-8562-2e47-9601-7fba44774286"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 171, 3, 67, "Chapter",ExpressionUUID->"72d9fa29-9d7e-f142-8e73-0325fa101029"],
+Cell[CellGroupData[{
+Cell[772, 29, 171, 3, 66, "Section",ExpressionUUID->"d74e597b-1692-324c-b6c4-4bfd7380c96c"],
+Cell[946, 34, 5112, 137, 392, "Input",ExpressionUUID->"35fd4c1b-8496-0548-b3f1-5c49983549b8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6095, 176, 171, 3, 66, "Section",ExpressionUUID->"80a85e48-c68f-1843-bb5e-784a4f86bb0f"],
+Cell[6269, 181, 2110, 58, 95, "Input",ExpressionUUID->"92113966-d673-5043-8baf-071cd95990b5"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

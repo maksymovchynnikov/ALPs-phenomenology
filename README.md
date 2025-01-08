@@ -15,7 +15,7 @@ To run the notebook, one tool has to be installed: [FeynCalc](https://feyncalc.g
 
 The main notebook is _Phenomenology. ALPs.nb_. It has sections **Definitions**, **ALP decay widths calculation**, **Plots: decay widths**, and **ALP production**. The code is modular, with various modules located in the folder `notebooks`. 
 
-The section **Definitions** defines the available ALP models based on the pattern of the couplings to B bosons, gluons, fermions, W bosons (the module _alp-models.nb_), evaluate the RG flow of the couplings for various initial patterns defined at the scale Lambda following 2110.10698 and 1708.00443 (_alp-running.nb_), find the model-independent diagonalization of the quadratic Lagrangian of ALPs and neutral pseudoscalar mesons (_alp-diagonalization.nb_), compute the total Lagrangian of the interaction of ALPs with pseudoscalar, scalar, vector, and tensor mesons (_alp-SVT.nb_ and _lagrangian-widths.nb_), as well as define Feynman rules for various vertex (_feynman-rules.nb_) and kinematics of n-body decays (_n-body-decays.nb_). 
+The section **Definitions** defines the available ALP models based on the pattern of the couplings to B bosons, gluons, fermions, W bosons (the module _alp-models.nb_), various functions and parameters (_parameters-functions_), evaluates the RG flow of the couplings for various initial patterns defined at the scale Lambda following 2110.10698 and 1708.00443 (_alp-running.nb_), finds the model-independent diagonalization of the quadratic Lagrangian of ALPs and neutral pseudoscalar mesons (_alp-diagonalization.nb_), computes the total Lagrangian of the interaction of ALPs with pseudoscalar, scalar, vector, and tensor mesons (_alp-SVT.nb_ and _lagrangian-widths.nb_), as well as defines Feynman rules for various vertex (_feynman-rules.nb_) and kinematics of n-body decays (_n-body-decays.nb_). 
 
 If you want to compute and export ALP decay widths, launch the chapter **ALP decay widths calculation**. It first evaluates squared matrix elements of various decays (_defining-decay-matrix-elements_ and _calculating-decay-matrix-elements_), and finally exports the widths and squared matrix elements assuming the coupling f = 1 GeV (see Eq. 2 of the associated paper [2310.03524](https://arxiv.org/abs/2310.03524) for the definition of f). The f dependence may be recovered taking into account that the scaling of the widths with f is f^-2. When exporting, it calculates the matching ALP mass where the hadronic width in terms of ChPT gets converted into the width in terms of perturbative QCD. The exporting is in the .csv format, the file is located in the directory `phenomenology/<model>/decays`. 
 
@@ -34,4 +34,5 @@ For the ALPs coupled to gluons, the implemented exclusive decay modes produce to
 
 This is a beta-version of the notebook, so there may be issues. You are very welcome to report about them.
 
+Some parts of the code works much slower on Mathematica < 14.1
  

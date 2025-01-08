@@ -1,0 +1,625 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     26875,        617]
+NotebookOptionsPosition[     25200,        582]
+NotebookOutlinePosition[     25640,        599]
+CellTagsIndexPosition[     25597,        596]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["ALP models and typical scales used in this notebook", "Chapter",
+ CellChangeTimes->{{3.903198197105345*^9, 3.903198204657548*^9}, {
+  3.903370922062874*^9, 
+  3.903370930298075*^9}},ExpressionUUID->"dc497e5d-f6a7-8742-a3c0-\
+1f47933c0dc0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    SubscriptBox["c", "u"], ",", 
+    SubscriptBox["c", "d"], ",", 
+    SubscriptBox["c", "s"], ",", 
+    SubscriptBox["c", "c"], ",", 
+    SubscriptBox["c", "b"], ",", 
+    SubscriptBox["c", "t"], ",", " ", 
+    SubscriptBox["c", "G"], ",", " ", 
+    SubscriptBox["c", "e"], ",", 
+    SubscriptBox["c", "\[Mu]"], ",", 
+    SubscriptBox["c", "\[Tau]"], ",", " ", 
+    SubscriptBox["c", "W"], ",", " ", 
+    RowBox[{
+     SubscriptBox["c", "B"], " ", "assuming", " ", "the", " ", 
+     "definition"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+   "Print", "[", 
+    "\"\<Definition of the couplings: L = \!\(\*FractionBox[SubscriptBox[\(\
+\[Alpha]\), \(s\)], \(4  \[Pi]\)]\)\!\(\*FractionBox[\(a\), \
+\(f\)]\)\!\(\*SubscriptBox[\(c\), \(G\)]\) \!\(\*SuperscriptBox[SubscriptBox[\
+\(G\), \(\[Mu]\[Nu]\)], \(a\)]\)\!\(\*SuperscriptBox[OverscriptBox[\(G\), \(~\
+\)], \(a, \[Mu]\[Nu]\)]\)+\!\(\*FractionBox[\(\*SuperscriptBox[\(\[Delta]\), \
+\(\[Mu]\)] a\), \(f\)]\)\!\(\*SubscriptBox[\(\[Sum]\), \
+\(q\)]\)\!\(\*SubscriptBox[\(c\), \(q\)]\) \!\(\*OverscriptBox[\(q\), \
+\(_\)]\)\!\(\*SubscriptBox[\(\[Gamma]\), \(\[Mu]\)]\)\!\(\*SubscriptBox[\(\
+\[Gamma]\), \(5\)]\)q+\!\(\*FractionBox[\(\*SuperscriptBox[\(\[Delta]\), \(\
+\[Mu]\)] a\), \(f\)]\)\!\(\*SubscriptBox[\(\[Sum]\), \
+\(l\)]\)\!\(\*SubscriptBox[\(c\), \(l\)]\) \!\(\*OverscriptBox[\(l\), \
+\(_\)]\)\!\(\*SubscriptBox[\(\[Gamma]\), \(\[Mu]\)]\)\!\(\*SubscriptBox[\(\
+\[Gamma]\), \(5\)]\)l+\!\(\*FractionBox[SubscriptBox[\(\[Alpha]\), \(1\)], \
+\(4  \[Pi]\)]\)\!\(\*FractionBox[\(a\), \(f\)]\)\!\(\*SubscriptBox[\(c\), \(B\
+\)]\)\!\(\*SubscriptBox[\(B\), \
+\(\[Mu]\[Nu]\)]\)\!\(\*SuperscriptBox[OverscriptBox[\(B\), \(~\)], \(\[Mu]\
+\[Nu]\)]\)+\!\(\*FractionBox[SubscriptBox[\(\[Alpha]\), \(2\)], \(4  \[Pi]\)]\
+\)\!\(\*FractionBox[\(a\), \(f\)]\)\!\(\*SubscriptBox[\(c\), \
+\(W\)]\)\!\(\*SuperscriptBox[SubscriptBox[\(W\), \(\[Mu]\[Nu]\)], \
+\(a\)]\)\!\(\*SuperscriptBox[OverscriptBox[\(W\), \(~\)], \(a, \
+\[Mu]\[Nu]\)]\)\>\"", "]"}], "\[IndentingNewLine]", 
+   RowBox[{
+   "Print", "[", 
+    "\"\<List of the ALP couplings considered in this notebook:\>\"", "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Names", " ", "of", " ", "the", " ", "couplings"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"ALPcouplingslist", "=", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<cu\>\"", ",", "\"\<cd\>\"", ",", "\"\<cs\>\"", ",", "\"\<cc\>\"", 
+      ",", "\"\<cb\>\"", ",", "\"\<ct\>\"", ",", "\"\<cG\>\"", ",", 
+      "\"\<ce\>\"", ",", "\"\<c\[Mu]\>\"", ",", "\"\<c\[Tau]\>\"", ",", 
+      "\"\<cW\>\"", ",", "\"\<cB\>\""}], "}"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ALPcouplingsSymbols", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Symbol", "[", "#", "]"}], "&"}], "/@", "ALPcouplingslist"}]}],
+     ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Values", " ", "of", " ", "the", " ", "couplings", " ", "at", " ", "a", 
+     " ", "scale", " ", "\[CapitalLambda]"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+     "couplingPatternOverall", "[", "\"\<Fermion universal\>\"", "]"}], "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "0", ",", 
+       "1", ",", "1", ",", "1", ",", "0", ",", "0"}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"couplingPatternOverall", "[", "\"\<Quark universal\>\"", "]"}], 
+     "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "0", ",", 
+       "0", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"couplingPatternOverall", "[", "\"\<Gluon\>\"", "]"}], "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", 
+       "0", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"ALPs", " ", "coupled", " ", "to", " ", "gluons"}], ",", " ", 
+     RowBox[{"with", " ", "the", " ", "coefficient", " ", 
+      SubscriptBox["c", "G"], " ", "fixed", " ", "to", " ", "match", " ", 
+      "1811.03474", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Eq", ".", " ", "S1"}], " ", "expressed", " ", "in", " ", 
+        "terms", " ", "of", " ", 
+        SubscriptBox["f", "a"]}], ")"}]}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"couplingPatternOverall", "[", "\"\<Gluon 1811.03474\>\"", "]"}],
+      "=", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+       FractionBox["1", "2"], ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+       "0"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"couplingPatternOverall", "[", "\"\<W\>\"", "]"}], "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+       "0", ",", "0", ",", "0", ",", "1", ",", "0"}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"couplingPatternOverall", "[", "\"\<B\>\"", "]"}], "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+       "0", ",", "0", ",", "0", ",", "0", ",", "1"}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"List", " ", "of", " ", "descriptions"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ModelDescription", "[", "\"\<W\>\"", "]"}], "=", 
+     "\"\<Coupling only to Ws, L = \
+\!\(\*FractionBox[SubscriptBox[\(\[Alpha]\), \(2\)], \(4  \
+\[Pi]\)]\)\!\(\*FractionBox[\(a\), \(f\)]\)\!\(\*SuperscriptBox[SubscriptBox[\
+\(W\), \(\[Mu]\[Nu]\)], \(a\)]\)\!\(\*SuperscriptBox[OverscriptBox[\(W\), \(~\
+\)], \(a, \[Mu]\[Nu]\)]\)\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ModelDescription", "[", "\"\<B\>\"", "]"}], "=", 
+     "\"\<Coupling only to B field, L = \!\(\*FractionBox[SubscriptBox[\(\
+\[Alpha]\), \(1\)], \(4  \[Pi]\)]\)\!\(\*FractionBox[\(a\), \
+\(f\)]\)\!\(\*SubscriptBox[\(B\), \
+\(\[Mu]\[Nu]\)]\)\!\(\*SuperscriptBox[OverscriptBox[\(B\), \(~\)], \(\[Mu]\
+\[Nu]\)]\)\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ModelDescription", "[", "\"\<Fermion universal\>\"", "]"}], 
+     "=", "\"\<Universal coupling to all fermions (at scale \
+\[CapitalLambda]), L = \!\(\*FractionBox[\(\*SuperscriptBox[\(\[Delta]\), \(\
+\[Mu]\)] a\), \(f\)]\)\!\(\*SubscriptBox[\(\[Sum]\), \
+\(q\)]\)\!\(\*SubscriptBox[\(c\), \(q\)]\) \!\(\*OverscriptBox[\(q\), \
+\(_\)]\)\!\(\*SubscriptBox[\(\[Gamma]\), \(\[Mu]\)]\)\!\(\*SubscriptBox[\(\
+\[Gamma]\), \(5\)]\)q+\!\(\*FractionBox[\(\*SuperscriptBox[\(\[Delta]\), \(\
+\[Mu]\)] a\), \(f\)]\)\!\(\*SubscriptBox[\(\[Sum]\), \
+\(l\)]\)\!\(\*SubscriptBox[\(c\), \(l\)]\) \!\(\*OverscriptBox[\(l\), \
+\(_\)]\)\!\(\*SubscriptBox[\(\[Gamma]\), \(\[Mu]\)]\)\!\(\*SubscriptBox[\(\
+\[Gamma]\), \(5\)]\)l with \!\(\*SubscriptBox[\(c\), \(q\)]\) = \
+\!\(\*SubscriptBox[\(c\), \(l\)]\) = 1\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ModelDescription", "[", "\"\<Quark universal\>\"", "]"}], "=", 
+     "\"\<Universal coupling to all quarks (at scale \[CapitalLambda]), L = \
+\!\(\*FractionBox[\(\*SuperscriptBox[\(\[Delta]\), \(\[Mu]\)] a\), \(f\)]\)\!\
+\(\*SubscriptBox[\(\[Sum]\), \(q\)]\)\!\(\*SubscriptBox[\(c\), \(q\)]\) \
+\!\(\*OverscriptBox[\(q\), \(_\)]\)\!\(\*SubscriptBox[\(\[Gamma]\), \
+\(\[Mu]\)]\)\!\(\*SubscriptBox[\(\[Gamma]\), \(5\)]\)q with \
+\!\(\*SubscriptBox[\(c\), \(q\)]\) = 1\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ModelDescription", "[", "\"\<Gluon\>\"", "]"}], "=", 
+     "\"\<Coupling only to gluons, L = \!\(\*FractionBox[SubscriptBox[\(\
+\[Alpha]\), \(s\)], \(4  \[Pi]\)]\)\!\(\*FractionBox[\(a\), \
+\(f\)]\)\!\(\*SubscriptBox[\(c\), \(G\)]\) \!\(\*SuperscriptBox[SubscriptBox[\
+\(G\), \(\[Mu]\[Nu]\)], \(a\)]\)\!\(\*SuperscriptBox[OverscriptBox[\(G\), \(~\
+\)], \(a, \[Mu]\[Nu]\)]\) with \!\(\*SubscriptBox[\(c\), \(G\)]\) = 1\>\""}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ModelDescription", "[", "\"\<Gluon 1811.03474\>\"", "]"}], "=", 
+     "\"\<Coupling only to gluons, L = \!\(\*FractionBox[SubscriptBox[\(\
+\[Alpha]\), \(s\)], \(4  \[Pi]\)]\)\!\(\*FractionBox[\(a\), \
+\(f\)]\)\!\(\*SubscriptBox[\(c\), \(G\)]\) \!\(\*SuperscriptBox[SubscriptBox[\
+\(G\), \(\[Mu]\[Nu]\)], \(a\)]\)\!\(\*SuperscriptBox[OverscriptBox[\(G\), \(~\
+\)], \(a, \[Mu]\[Nu]\)]\) with \!\(\*SubscriptBox[\(c\), \(G\)]\) = \
+-1/2\>\""}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+   "Print", "[", "\"\<List of models implemented in this notebook:\>\"", 
+    "]"}], "\[IndentingNewLine]", 
+   RowBox[{"ModelListAll", "=", 
+    RowBox[{
+     RowBox[{"Keys", "[", 
+      RowBox[{"DownValues", "@", "couplingPatternOverall"}], "]"}], "[", 
+     RowBox[{"[", 
+      RowBox[{"All", ",", "1", ",", "1"}], "]"}], "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+   "Print", "[", 
+    "\"\<Coupling pattern (defined at some scale \[CapitalLambda]):\>\"", 
+    "]"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"Join", "[", 
+        RowBox[{
+         RowBox[{"{", "\"\<Model\>\"", "}"}], ",", "ALPcouplingslist"}], 
+        "]"}], "}"}], ",", 
+      RowBox[{"Join", "[", 
+       RowBox[{
+        RowBox[{"Partition", "[", 
+         RowBox[{"ModelListAll", ",", "1"}], "]"}], ",", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"couplingPatternOverall", "[", "model", "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"model", ",", "ModelListAll"}], "}"}]}], "]"}], ",", "2"}],
+        "]"}]}], "]"}], "//", "TableForm"}], "\[IndentingNewLine]", 
+   RowBox[{"Do", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"couplingPattern", "[", 
+       RowBox[{"model", ",", 
+        RowBox[{"ALPcouplingslist", "[", 
+         RowBox[{"[", "i", "]"}], "]"}]}], "]"}], "=", 
+      RowBox[{
+       RowBox[{"couplingPatternOverall", "[", "model", "]"}], "[", 
+       RowBox[{"[", "i", "]"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"model", ",", "ModelListAll"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", 
+        RowBox[{"couplingPatternOverall", "[", "model", "]"}], "]"}], ",", 
+       "1"}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"MASS", "[", "\"\<t\>\"", "]"}], "=", "173."}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"scaleVal", "[", "\"\<EW\>\"", "]"}], ",", 
+       RowBox[{"scaleVal", "[", "\"\<1 TeV\>\"", "]"}], ",", 
+       RowBox[{"scaleVal", "[", "\"\<Neubert\>\"", "]"}]}], "}"}], "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"MASS", "[", "\"\<t\>\"", "]"}], ",", 
+       SuperscriptBox["10", "3"], ",", 
+       RowBox[{"4", "*", "Pi", "*", 
+        SuperscriptBox["10", "3"]}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+   "Print", "[", 
+    "\"\<List of reference scales \[CapitalLambda] (in TeV):\>\"", "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"scaleKeys", "=", 
+     RowBox[{
+      RowBox[{"Keys", "[", 
+       RowBox[{"DownValues", "@", "scaleVal"}], "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{"All", ",", "1", ",", "1"}], "]"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"Join", "[", 
+    RowBox[{
+     RowBox[{"{", "scaleKeys", "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"scaleVal", "[", "scale", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"scale", ",", "scaleKeys"}], "}"}]}], "]"}], "}"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.903198211144704*^9, 3.9031983492577333`*^9}, {
+   3.9032468896335945`*^9, 3.9032469826767683`*^9}, {3.9032479125614614`*^9, 
+   3.9032481002684493`*^9}, {3.903248247681605*^9, 3.9032482669998465`*^9}, {
+   3.9032486932505627`*^9, 3.9032487166900125`*^9}, {3.9033709196587553`*^9, 
+   3.903370919868904*^9}, {3.9033710786094685`*^9, 3.903371320927178*^9}, {
+   3.9033713966001973`*^9, 3.903371463126905*^9}, {3.903539760163327*^9, 
+   3.903539768443432*^9}, {3.903759886208723*^9, 3.90375988636538*^9}, {
+   3.9053557716271276`*^9, 3.905355817432657*^9}, {3.905355850093027*^9, 
+   3.9053559070250545`*^9}, 3.943671312316472*^9, {3.9453624351953716`*^9, 
+   3.94536258589155*^9}, {3.9453628419045715`*^9, 3.9453628626462097`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"f98dda57-fe63-6e43-ae9e-fa5a1f5e247c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox["\<\"Definition of the couplings: L = \
+\\!\\(\\*FractionBox[SubscriptBox[\\(\[Alpha]\\), \\(s\\)], \\(4  \
+\[Pi]\\)]\\)\\!\\(\\*FractionBox[\\(a\\), \
+\\(f\\)]\\)\\!\\(\\*SubscriptBox[\\(c\\), \\(G\\)]\\) \
+\\!\\(\\*SuperscriptBox[SubscriptBox[\\(G\\), \\(\[Mu]\[Nu]\\)], \
+\\(a\\)]\\)\\!\\(\\*SuperscriptBox[OverscriptBox[\\(G\\), \\(~\\)], \\(a, \
+\[Mu]\[Nu]\\)]\\)+\\!\\(\\*FractionBox[\\(\\*SuperscriptBox[\\(\[Delta]\\), \
+\\(\[Mu]\\)] a\\), \\(f\\)]\\)\\!\\(\\*SubscriptBox[\\(\[Sum]\\), \\(q\\)]\\)\
+\\!\\(\\*SubscriptBox[\\(c\\), \\(q\\)]\\) \\!\\(\\*OverscriptBox[\\(q\\), \
+\\(_\\)]\\)\\!\\(\\*SubscriptBox[\\(\[Gamma]\\), \
+\\(\[Mu]\\)]\\)\\!\\(\\*SubscriptBox[\\(\[Gamma]\\), \
+\\(5\\)]\\)q+\\!\\(\\*FractionBox[\\(\\*SuperscriptBox[\\(\[Delta]\\), \\(\
+\[Mu]\\)] a\\), \\(f\\)]\\)\\!\\(\\*SubscriptBox[\\(\[Sum]\\), \\(l\\)]\\)\\!\
+\\(\\*SubscriptBox[\\(c\\), \\(l\\)]\\) \\!\\(\\*OverscriptBox[\\(l\\), \
+\\(_\\)]\\)\\!\\(\\*SubscriptBox[\\(\[Gamma]\\), \
+\\(\[Mu]\\)]\\)\\!\\(\\*SubscriptBox[\\(\[Gamma]\\), \
+\\(5\\)]\\)l+\\!\\(\\*FractionBox[SubscriptBox[\\(\[Alpha]\\), \\(1\\)], \\(4 \
+ \[Pi]\\)]\\)\\!\\(\\*FractionBox[\\(a\\), \
+\\(f\\)]\\)\\!\\(\\*SubscriptBox[\\(c\\), \
+\\(B\\)]\\)\\!\\(\\*SubscriptBox[\\(B\\), \
+\\(\[Mu]\[Nu]\\)]\\)\\!\\(\\*SuperscriptBox[OverscriptBox[\\(B\\), \\(~\\)], \
+\\(\[Mu]\[Nu]\\)]\\)+\\!\\(\\*FractionBox[SubscriptBox[\\(\[Alpha]\\), \
+\\(2\\)], \\(4  \[Pi]\\)]\\)\\!\\(\\*FractionBox[\\(a\\), \
+\\(f\\)]\\)\\!\\(\\*SubscriptBox[\\(c\\), \
+\\(W\\)]\\)\\!\\(\\*SuperscriptBox[SubscriptBox[\\(W\\), \\(\[Mu]\[Nu]\\)], \
+\\(a\\)]\\)\\!\\(\\*SuperscriptBox[OverscriptBox[\\(W\\), \\(~\\)], \\(a, \
+\[Mu]\[Nu]\\)]\\)\"\>", TraditionalForm]], "Print",
+ CellChangeTimes->{3.9453611605994663`*^9, 3.945362573085541*^9, 
+  3.945362646747957*^9, 3.9453628645456276`*^9, 3.9453666865458984`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"f922258c-ecaf-5f4a-9f27-c1cc70134e43"],
+
+Cell[BoxData[
+ FormBox["\<\"List of the ALP couplings considered in this notebook:\"\>", 
+  TraditionalForm]], "Print",
+ CellChangeTimes->{3.9453611605994663`*^9, 3.945362573085541*^9, 
+  3.945362646747957*^9, 3.9453628645456276`*^9, 3.9453666865499*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"cecb18c9-9320-fe41-b39d-68b8d4f1a6f9"]
+}, Open  ]],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{"\<\"cu\"\>", ",", "\<\"cd\"\>", ",", "\<\"cs\"\>", 
+    ",", "\<\"cc\"\>", ",", "\<\"cb\"\>", ",", "\<\"ct\"\>", 
+    ",", "\<\"cG\"\>", ",", "\<\"ce\"\>", ",", "\<\"c\[Mu]\"\>", 
+    ",", "\<\"c\[Tau]\"\>", ",", "\<\"cW\"\>", ",", "\<\"cB\"\>"}], "}"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.945361160603464*^9, 3.945362573097534*^9, 
+  3.9453626467589664`*^9, 3.945362864551628*^9, 3.945366686554901*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"b982704a-3e47-d049-9959-316d02d36b78"],
+
+Cell[BoxData[
+ FormBox["\<\"List of models implemented in this notebook:\"\>", 
+  TraditionalForm]], "Print",
+ CellChangeTimes->{3.9453611605994663`*^9, 3.945362573085541*^9, 
+  3.945362646747957*^9, 3.9453628645456276`*^9, 3.945366686558901*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"885bb164-4e41-6841-ad45-4a92476b21d0"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{"\<\"B\"\>", ",", "\<\"Fermion universal\"\>", 
+    ",", "\<\"Gluon\"\>", ",", "\<\"Gluon 1811.03474\"\>", 
+    ",", "\<\"Quark universal\"\>", ",", "\<\"W\"\>"}], "}"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.945361160603464*^9, 3.945362573097534*^9, 
+  3.9453626467589664`*^9, 3.945362864551628*^9, 3.9453666865598984`*^9},
+ CellLabel->"Out[18]=",ExpressionUUID->"1c58016b-07bb-3f43-b065-f732fca2955a"],
+
+Cell[BoxData[
+ FormBox["\<\"Coupling pattern (defined at some scale \[CapitalLambda]):\"\>",
+   TraditionalForm]], "Print",
+ CellChangeTimes->{3.9453611605994663`*^9, 3.945362573085541*^9, 
+  3.945362646747957*^9, 3.9453628645456276`*^9, 3.945366686561901*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"ccd02d61-dc07-8949-94dd-8eed74cb1718"],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[GridBox[{
+     {"\<\"Model\"\>", "\<\"cu\"\>", "\<\"cd\"\>", "\<\"cs\"\>", \
+"\<\"cc\"\>", "\<\"cb\"\>", "\<\"ct\"\>", "\<\"cG\"\>", "\<\"ce\"\>", "\<\"c\
+\[Mu]\"\>", "\<\"c\[Tau]\"\>", "\<\"cW\"\>", "\<\"cB\"\>"},
+     {"\<\"B\"\>", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1"},
+     {"\<\"Fermion universal\"\>", "1", "1", "1", "1", "1", "1", "0", "1", 
+      "1", "1", "0", "0"},
+     {"\<\"Gluon\"\>", "0", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", 
+      "0"},
+     {"\<\"Gluon 1811.03474\"\>", "0", "0", "0", "0", "0", "0", 
+      FractionBox["1", "2"], "0", "0", "0", "0", "0"},
+     {"\<\"Quark universal\"\>", "1", "1", "1", "1", "1", "1", "0", "0", "0", 
+      "0", "0", "0"},
+     {"\<\"W\"\>", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}],
+   Function[BoxForm`e$, 
+    TableForm[BoxForm`e$]]], TraditionalForm]], "Output",
+ CellChangeTimes->{3.945361160603464*^9, 3.945362573097534*^9, 
+  3.9453626467589664`*^9, 3.945362864551628*^9, 3.9453666865628986`*^9},
+ CellLabel->
+  "Out[20]//TableForm=",ExpressionUUID->"ec0ce655-a898-dd48-8d58-\
+61190ee9e410"],
+
+Cell[BoxData[
+ FormBox["\<\"List of reference scales \[CapitalLambda] (in TeV):\"\>", 
+  TraditionalForm]], "Print",
+ CellChangeTimes->{3.9453611605994663`*^9, 3.945362573085541*^9, 
+  3.945362646747957*^9, 3.9453628645456276`*^9, 3.9453666865649014`*^9},
+ CellLabel->
+  "During evaluation of \
+In[1]:=",ExpressionUUID->"3ac1840f-fb7a-6941-9360-f90ba2d6b3ac"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"\<\"1 TeV\"\>", "\<\"EW\"\>", "\<\"Neubert\"\>"},
+     {"1000", "173.`", 
+      RowBox[{"4000", " ", "\[Pi]"}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.945361160603464*^9, 3.945362573097534*^9, 
+  3.9453626467589664`*^9, 3.945362864551628*^9, 3.9453666865702477`*^9},
+ CellLabel->"Out[26]=",ExpressionUUID->"7a6b254c-095b-4247-b113-96189758cbef"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Code selecting the model", "Section",
+ CellChangeTimes->{{3.945362654974436*^9, 3.945362657956129*^9}, 
+   3.9453639773466015`*^9},ExpressionUUID->"e7e6ed18-68c4-5d46-a2b6-\
+be1701ee590e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"selectionDialogExplanationOneOption", "[", 
+    RowBox[{"list_", ",", "descriptions_", ",", "phrase_", ",", 
+     RowBox[{"width_", ":", "200"}]}], "]"}], ":=", 
+   RowBox[{"DialogInput", "[", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"choice", "=", "Null"}], "}"}], ",", 
+      RowBox[{"(*", 
+       RowBox[{
+       "Create", " ", "an", " ", "association", " ", "for", " ", "easy", " ", 
+        "lookup", " ", "of", " ", 
+        RowBox[{"descriptions", "."}]}], "*)"}], 
+      RowBox[{"Module", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"optsAssoc", "=", 
+          RowBox[{"AssociationThread", "[", 
+           RowBox[{"list", "->", "descriptions"}], "]"}]}], "}"}], ",", 
+        RowBox[{"Column", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{"phrase", ",", "Bold", ",", "16"}], "]"}], ",", 
+            RowBox[{"Grid", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"Pane", "[", 
+                  RowBox[{
+                   RowBox[{"RadioButtonBar", "[", 
+                    RowBox[{
+                    RowBox[{"Dynamic", "[", "choice", "]"}], ",", "list", ",", 
+                    RowBox[{"Appearance", "->", "\"\<Vertical\>\""}]}], "]"}],
+                    ",", 
+                   RowBox[{"ImageSize", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"width", ",", "100"}], "}"}]}], ",", 
+                   RowBox[{"Scrollbars", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"False", ",", "True"}], "}"}]}], ",", 
+                   RowBox[{"Frame", "->", "True"}]}], "]"}], ",", 
+                 RowBox[{"Pane", "[", 
+                  RowBox[{
+                   RowBox[{"Dynamic", "[", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"choice", "===", "Null"}], ",", 
+                    "\"\<Please select an option to see its description.\>\"",
+                     ",", 
+                    RowBox[{"optsAssoc", "[", "choice", "]"}]}], "]"}], "]"}],
+                    ",", 
+                   RowBox[{"ImageSize", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"100", ",", "100"}], "}"}]}], ",", 
+                   RowBox[{"Scrollbars", "->", 
+                    RowBox[{"{", 
+                    RowBox[{"True", ",", "False"}], "}"}]}], ",", 
+                   RowBox[{"Frame", "->", "True"}], ",", 
+                   RowBox[{"Background", "->", "LightYellow"}], ",", 
+                   RowBox[{"Alignment", "->", "Left"}]}], "]"}]}], "}"}], 
+               "}"}], ",", 
+              RowBox[{"Spacings", "->", 
+               RowBox[{"{", 
+                RowBox[{"2", ",", "2"}], "}"}]}]}], "]"}], ",", 
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Button", "[", 
+                RowBox[{"\"\<OK\>\"", ",", 
+                 RowBox[{"DialogReturn", "[", "choice", "]"}], ",", 
+                 RowBox[{"Enabled", "->", 
+                  RowBox[{"Dynamic", "[", 
+                   RowBox[{"choice", "=!=", "Null"}], "]"}]}], ",", 
+                 RowBox[{"ImageSize", "->", 
+                  RowBox[{"{", 
+                   RowBox[{"80", ",", "30"}], "}"}]}]}], "]"}], ",", 
+               RowBox[{"Spacer", "[", "20", "]"}], ",", 
+               RowBox[{"Button", "[", 
+                RowBox[{"\"\<Cancel\>\"", ",", 
+                 RowBox[{"DialogReturn", "[", "None", "]"}], ",", 
+                 RowBox[{"ImageSize", "->", 
+                  RowBox[{"{", 
+                   RowBox[{"80", ",", "30"}], "}"}]}]}], "]"}]}], "}"}], 
+             "]"}], ",", 
+            RowBox[{"Spacer", "[", "5", "]"}]}], "}"}], ",", 
+          RowBox[{"Alignment", "->", "Center"}], ",", 
+          RowBox[{"Spacings", "->", "2"}]}], "]"}]}], "]"}]}], "]"}], "]"}]}],
+   ";"}], "\n", 
+ RowBox[{"ModelSelector", ":=", 
+  RowBox[{"selectionDialogExplanationOneOption", "[", 
+   RowBox[{"ModelListAll", ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"ModelDescription", "[", "#", "]"}], "&"}], "/@", 
+     "ModelListAll"}], ",", "\"\<Select the model\>\"", ",", "100"}], 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{{3.945362759206318*^9, 3.9453627592083187`*^9}, {
+   3.9453629035997257`*^9, 3.9453629142470875`*^9}, {3.945362944715542*^9, 
+   3.9453629481251144`*^9}, 3.9453629898733253`*^9},
+ CellLabel->"In[27]:=",ExpressionUUID->"0fadc6f3-9e18-6445-af68-6fd5e39ef0d1"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1152, 652.5},
+WindowMargins->{{
+  Automatic, -4.7999999999999545`}, {-4.7999999999999545`, Automatic}},
+FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"8f382cff-18c1-ef42-a838-4f0ac9fd855d"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 245, 4, 67, "Chapter",ExpressionUUID->"dc497e5d-f6a7-8742-a3c0-1f47933c0dc0"],
+Cell[CellGroupData[{
+Cell[846, 30, 12768, 285, 803, "Input",ExpressionUUID->"f98dda57-fe63-6e43-ae9e-fa5a1f5e247c"],
+Cell[CellGroupData[{
+Cell[13639, 319, 1966, 32, 38, "Print",ExpressionUUID->"f922258c-ecaf-5f4a-9f27-c1cc70134e43"],
+Cell[15608, 353, 358, 7, 21, "Print",ExpressionUUID->"cecb18c9-9320-fe41-b39d-68b8d4f1a6f9"]
+}, Open  ]],
+Cell[15981, 363, 551, 10, 31, "Output",ExpressionUUID->"b982704a-3e47-d049-9959-316d02d36b78"],
+Cell[16535, 375, 350, 7, 21, "Print",ExpressionUUID->"885bb164-4e41-6841-ad45-4a92476b21d0"],
+Cell[16888, 384, 469, 9, 31, "Output",ExpressionUUID->"1c58016b-07bb-3f43-b065-f732fca2955a"],
+Cell[17360, 395, 364, 7, 21, "Print",ExpressionUUID->"ccd02d61-dc07-8949-94dd-8eed74cb1718"],
+Cell[17727, 404, 1453, 31, 153, "Output",ExpressionUUID->"ec0ce655-a898-dd48-8d58-61190ee9e410"],
+Cell[19183, 437, 359, 7, 21, "Print",ExpressionUUID->"3ac1840f-fb7a-6941-9360-f90ba2d6b3ac"],
+Cell[19545, 446, 750, 17, 45, "Output",ExpressionUUID->"7a6b254c-095b-4247-b113-96189758cbef"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20332, 468, 194, 3, 66, "Section",ExpressionUUID->"e7e6ed18-68c4-5d46-a2b6-be1701ee590e"],
+Cell[20529, 473, 4643, 105, 199, "Input",ExpressionUUID->"0fadc6f3-9e18-6445-af68-6fd5e39ef0d1"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
