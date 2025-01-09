@@ -2,7 +2,7 @@
 
 ## What is it?
 
-Mathematica notebook summarizing the phenomenology of axion-like particles (ALPs). It produces decay widths and production probabilities of the ALPs depending on their coupling pattern as defined at some scale Lambda. Details of the phenomenology are summarized in the accompanying papers [2310.03524](https://arxiv.org/abs/2310.03524) and [2501.04525](https://arxiv.org/abs/2501.04525).
+Mathematica notebook summarizing the accelerator phenomenology of GeV-scale axion-like particles (ALPs) with hadronic couplings. It produces decay widths and production probabilities of the ALPs depending on their coupling pattern as defined at some scale Lambda. Details of the phenomenology are summarized in the accompanying papers [2310.03524](https://arxiv.org/abs/2310.03524) and [2501.04525](https://arxiv.org/abs/2501.04525).
 
 Updates compared to the previous version: added many new production channels, improved the description of the ALPs coupled to gluons, changed the interaction structure with scalar mesons to account for the proper eta-eta' mixing. 
 
