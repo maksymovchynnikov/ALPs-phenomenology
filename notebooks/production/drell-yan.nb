@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    943847,      16580]
-NotebookOptionsPosition[    943114,      16559]
-NotebookOutlinePosition[    943527,      16575]
-CellTagsIndexPosition[    943484,      16572]
+NotebookDataLength[    943904,      16581]
+NotebookOptionsPosition[    943177,      16560]
+NotebookOutlinePosition[    943584,      16576]
+CellTagsIndexPosition[    943541,      16573]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -42,10 +42,10 @@ Cell[BoxData[{
         RowBox[{
          RowBox[{
           RowBox[{"NotebookDirectory", "[", "]"}], "//", "ParentDirectory"}], 
-         "//", "ParentDirectory"}], ",", 
-        "\"\<phenomenology/ALPs with gluon coupling/branching \
-ratios/sigma-prod-ALP-gluon-Drell-Yan-FNAL.txt\>\""}], "}"}], "]"}], ",", 
-     "\"\<Table\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+         "//", "ParentDirectory"}], ",", "\"\<phenomenology\>\"", ",", 
+        "\"\<external data\>\"", ",", 
+        "\"\<sigma-prod-ALP-gluon-Drell-Yan-FNAL.txt\>\""}], "}"}], "]"}], 
+     ",", "\"\<Table\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"\[Sigma]DrellYanDataALPFromGluonTemp", "[", "\"\<SPS\>\"", "]"}], 
@@ -58,10 +58,10 @@ ratios/sigma-prod-ALP-gluon-Drell-Yan-FNAL.txt\>\""}], "}"}], "]"}], ",",
         RowBox[{
          RowBox[{
           RowBox[{"NotebookDirectory", "[", "]"}], "//", "ParentDirectory"}], 
-         "//", "ParentDirectory"}], ",", 
-        "\"\<phenomenology/ALPs with gluon coupling/branching \
-ratios/sigma-prod-ALP-gluon-Drell-Yan-SPS.txt\>\""}], "}"}], "]"}], ",", 
-     "\"\<Table\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+         "//", "ParentDirectory"}], ",", "\"\<phenomenology\>\"", ",", 
+        "\"\<external data\>\"", ",", 
+        "\"\<sigma-prod-ALP-gluon-Drell-Yan-SPS.txt\>\""}], "}"}], "]"}], 
+     ",", "\"\<Table\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"\[Sigma]DrellYanDataALPFromGluonTemp", "[", "\"\<LHC\>\"", "]"}], 
@@ -74,10 +74,10 @@ ratios/sigma-prod-ALP-gluon-Drell-Yan-SPS.txt\>\""}], "}"}], "]"}], ",",
         RowBox[{
          RowBox[{
           RowBox[{"NotebookDirectory", "[", "]"}], "//", "ParentDirectory"}], 
-         "//", "ParentDirectory"}], ",", 
-        "\"\<phenomenology/ALPs with gluon coupling/branching \
-ratios/sigma-prod-ALP-gluon-Drell-Yan-LHC.txt\>\""}], "}"}], "]"}], ",", 
-     "\"\<Table\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+         "//", "ParentDirectory"}], ",", "\"\<phenomenology\>\"", ",", 
+        "\"\<external data\>\"", ",", 
+        "\"\<sigma-prod-ALP-gluon-Drell-Yan-LHC.txt\>\""}], "}"}], "]"}], 
+     ",", "\"\<Table\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"{", 
@@ -504,9 +504,10 @@ ratios/sigma-prod-ALP-gluon-Drell-Yan-LHC.txt\>\""}], "}"}], "]"}], ",",
    3.9038947019508877`*^9}, {3.9152754128382597`*^9, 3.915275529406786*^9}, {
    3.915275580961988*^9, 3.9152755901009493`*^9}, {3.915275667903117*^9, 
    3.9152756686808157`*^9}, {3.9301298496520405`*^9, 
-   3.9301298496749544`*^9}, {3.945273380600519*^9, 3.945273418566929*^9}},
- CellLabel->
-  "In[218]:=",ExpressionUUID->"bae34e82-4c52-2244-a910-145f7e76157d"],
+   3.9301298496749544`*^9}, {3.945273380600519*^9, 3.945273418566929*^9}, {
+   3.961515287501078*^9, 
+   3.9615153168792467`*^9}},ExpressionUUID->"bae34e82-4c52-2244-a910-\
+145f7e76157d"],
 
 Cell[BoxData[
  FormBox[
@@ -16557,9 +16558,9 @@ phenomenology\\\\Temp\\\\plots\\\\DIS-production-uncertainty.pdf\"\>",
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1142.1, 647.6999999999999},
+WindowSize->{1016.25, 606.75},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (November 18, 2022)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"f2a7ff16-db37-9640-998c-348e1cbb3f84"
 ]
@@ -16575,11 +16576,11 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 207, 4, 67, "Chapter",ExpressionUUID->"a8bcdd31-fc78-6d4c-8f5a-b30d4121d35b"],
+Cell[576, 22, 207, 4, 69, "Chapter",ExpressionUUID->"a8bcdd31-fc78-6d4c-8f5a-b30d4121d35b"],
 Cell[CellGroupData[{
-Cell[808, 30, 19237, 478, 1061, "Input",ExpressionUUID->"bae34e82-4c52-2244-a910-145f7e76157d"],
-Cell[20048, 510, 922666, 16036, 399, "Output",ExpressionUUID->"13483c8b-829d-0e45-9c8f-fa3fb3890a27"],
-Cell[942717, 16548, 369, 7, 31, "Output",ExpressionUUID->"c8424bcc-d66d-c24d-b80f-702649f8859f"]
+Cell[808, 30, 19300, 479, 1271, "Input",ExpressionUUID->"bae34e82-4c52-2244-a910-145f7e76157d"],
+Cell[20111, 511, 922666, 16036, 400, "Output",ExpressionUUID->"13483c8b-829d-0e45-9c8f-fa3fb3890a27"],
+Cell[942780, 16549, 369, 7, 32, "Output",ExpressionUUID->"c8424bcc-d66d-c24d-b80f-702649f8859f"]
 }, Open  ]]
 }, Open  ]]
 }
