@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     57643,       1449]
-NotebookOptionsPosition[     55435,       1402]
-NotebookOutlinePosition[     55870,       1419]
-CellTagsIndexPosition[     55827,       1416]
+NotebookDataLength[     65487,       1642]
+NotebookOptionsPosition[     62956,       1590]
+NotebookOutlinePosition[     63389,       1607]
+CellTagsIndexPosition[     63346,       1604]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -82,227 +82,242 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"genlagropt", "==", "\"\<Generate\>\""}], ",", 
     "\[IndentingNewLine]", 
+    RowBox[{"(*", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"FieldsListPattern", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"PfieldSymbol", "[", 
+               RowBox[{"field", ",", "x"}], "]"}], ",", 
+              RowBox[{"dPfieldSymbol", "[", 
+               RowBox[{"field", ",", "x", ",", "a_"}], "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"field", ",", "listMesonP"}], "}"}]}], "]"}], "//", 
+          "Flatten"}], ",", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"SfieldSymbol", "[", 
+               RowBox[{"field", ",", "x"}], "]"}], ",", 
+              RowBox[{"dSfieldSymbol", "[", 
+               RowBox[{"field", ",", "x", ",", "a_"}], "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"field", ",", "listMesonS"}], "}"}]}], "]"}], "//", 
+          "Flatten"}], ",", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"VfieldSymbol", "[", 
+               RowBox[{"field", ",", "x", ",", "a_"}], "]"}], ",", 
+              RowBox[{"dVfieldSymbol", "[", 
+               RowBox[{"field", ",", "x", ",", "a_", ",", "b_"}], "]"}]}], 
+             "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"field", ",", "listMesonV"}], "}"}]}], "]"}], "//", 
+          "Flatten"}], ",", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"VAfieldSymbol", "[", 
+               RowBox[{"field", ",", "x", ",", "a_"}], "]"}], ",", 
+              RowBox[{"dVAfieldSymbol", "[", 
+               RowBox[{"field", ",", "x", ",", "a_", ",", "b_"}], "]"}]}], 
+             "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"field", ",", "listMesonVA"}], "}"}]}], "]"}], "//", 
+          "Flatten"}], ",", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"TfieldSymbol", "[", 
+               RowBox[{"field", ",", "x", ",", "a_", ",", "b_"}], "]"}], ",", 
+              RowBox[{"dTfieldSymbol", "[", 
+               RowBox[{"field", ",", "x", ",", "a_", ",", "b_", ",", "c_"}], 
+               "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"field", ",", "listMesonT"}], "}"}]}], "]"}], "//", 
+          "Flatten"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"FieldsList", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"PfieldSymbol", "[", 
+               RowBox[{"field", ",", "x"}], "]"}], ",", 
+              RowBox[{"dPfieldSymbol", "[", 
+               RowBox[{"field", ",", "x", ",", "a"}], "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"field", ",", "listMesonP"}], "}"}]}], "]"}], "//", 
+          "Flatten"}], ",", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"SfieldSymbol", "[", 
+               RowBox[{"field", ",", "x"}], "]"}], ",", 
+              RowBox[{"dSfieldSymbol", "[", 
+               RowBox[{"field", ",", "x", ",", "a"}], "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"field", ",", "listMesonS"}], "}"}]}], "]"}], "//", 
+          "Flatten"}], ",", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"VfieldSymbol", "[", 
+               RowBox[{"field", ",", "x", ",", "a"}], "]"}], ",", 
+              RowBox[{"dVfieldSymbol", "[", 
+               RowBox[{"field", ",", "x", ",", "a", ",", "b"}], "]"}]}], 
+             "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"field", ",", "listMesonV"}], "}"}]}], "]"}], "//", 
+          "Flatten"}], ",", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"TfieldSymbol", "[", 
+               RowBox[{"field", ",", "x", ",", "a", ",", "b"}], "]"}], ",", 
+              RowBox[{"dTfieldSymbol", "[", 
+               RowBox[{"field", ",", "x", ",", "a", ",", "b", ",", "c"}], 
+               "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"field", ",", "listMesonT"}], "}"}]}], "]"}], "//", 
+          "Flatten"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+       "Scale", " ", "coefficients", " ", "counting", " ", "the", " ", 
+        "number", " ", "of", " ", "times", " ", "the", " ", "given", " ", 
+        "field", " ", "or", " ", "its", " ", "derivative", " ", "enters", " ",
+         "the", " ", "given", " ", "term"}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"CoefficientsListIndividual", "=", 
+       RowBox[{"t", "^", 
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"y", "[", "field", "]"}], ",", 
+               RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"field", ",", "listMesonP"}], "}"}]}], "]"}], "//", 
+           "Flatten"}], ",", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"y", "[", "field", "]"}], ",", 
+               RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"field", ",", "listMesonS"}], "}"}]}], "]"}], "//", 
+           "Flatten"}], ",", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"y", "[", "field", "]"}], ",", 
+               RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"field", ",", "listMesonV"}], "}"}]}], "]"}], "//", 
+           "Flatten"}], ",", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"y", "[", "field", "]"}], ",", 
+               RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"field", ",", "listMesonT"}], "}"}]}], "]"}], "//", 
+           "Flatten"}]}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+       "Scale", " ", "coefficients", " ", "that", " ", "count", " ", "how", 
+        " ", "many", " ", "fields", " ", "or", " ", "their", " ", 
+        "derivatives", " ", "the", " ", "given", " ", "term", " ", "contains",
+         " ", "in", " ", "total"}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"CoefficientsListCommon", "=", 
+       RowBox[{"t", "^", 
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"y", "[", "field", "]"}], ",", 
+               RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"field", ",", "listMesonP"}], "}"}]}], "]"}], "//", 
+           "Flatten"}], ",", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"y", "[", "field", "]"}], ",", 
+               RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"field", ",", "listMesonS"}], "}"}]}], "]"}], "//", 
+           "Flatten"}], ",", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"y", "[", "field", "]"}], ",", 
+               RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"field", ",", "listMesonV"}], "}"}]}], "]"}], "//", 
+           "Flatten"}], ",", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"y", "[", "field", "]"}], ",", 
+               RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"field", ",", "listMesonT"}], "}"}]}], "]"}], "//", 
+           "Flatten"}]}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"CoefficientsListALP", "=", 
+       RowBox[{"{", 
+        RowBox[{
+         SuperscriptBox["ta", "y"], ",", 
+         SuperscriptBox["ta", "y"]}], "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Replacement", " ", "rule", " ", "field"}], "->", "scaling"}],
+        "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"repsIndividual", "=", 
+       RowBox[{"Thread", "[", 
+        RowBox[{"FieldsListPattern", "->", 
+         RowBox[{"CoefficientsListIndividual", "*", "FieldsList"}]}], "]"}]}],
+       ";"}], "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
     RowBox[{
-     RowBox[{"FieldsListPattern", "=", 
-      RowBox[{"Join", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"Table", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"PfieldSymbol", "[", 
-              RowBox[{"field", ",", "x"}], "]"}], ",", 
-             RowBox[{"dPfieldSymbol", "[", 
-              RowBox[{"field", ",", "x", ",", "a_"}], "]"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"field", ",", "listMesonP"}], "}"}]}], "]"}], "//", 
-         "Flatten"}], ",", 
-        RowBox[{
-         RowBox[{"Table", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"SfieldSymbol", "[", 
-              RowBox[{"field", ",", "x"}], "]"}], ",", 
-             RowBox[{"dSfieldSymbol", "[", 
-              RowBox[{"field", ",", "x", ",", "a_"}], "]"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"field", ",", "listMesonS"}], "}"}]}], "]"}], "//", 
-         "Flatten"}], ",", 
-        RowBox[{
-         RowBox[{"Table", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"VfieldSymbol", "[", 
-              RowBox[{"field", ",", "x", ",", "a_"}], "]"}], ",", 
-             RowBox[{"dVfieldSymbol", "[", 
-              RowBox[{"field", ",", "x", ",", "a_", ",", "b_"}], "]"}]}], 
-            "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"field", ",", "listMesonV"}], "}"}]}], "]"}], "//", 
-         "Flatten"}], ",", 
-        RowBox[{
-         RowBox[{"Table", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"TfieldSymbol", "[", 
-              RowBox[{"field", ",", "x", ",", "a_", ",", "b_"}], "]"}], ",", 
-             RowBox[{"dTfieldSymbol", "[", 
-              RowBox[{"field", ",", "x", ",", "a_", ",", "b_", ",", "c_"}], 
-              "]"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"field", ",", "listMesonT"}], "}"}]}], "]"}], "//", 
-         "Flatten"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"FieldsList", "=", 
-      RowBox[{"Join", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"Table", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"PfieldSymbol", "[", 
-              RowBox[{"field", ",", "x"}], "]"}], ",", 
-             RowBox[{"dPfieldSymbol", "[", 
-              RowBox[{"field", ",", "x", ",", "a"}], "]"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"field", ",", "listMesonP"}], "}"}]}], "]"}], "//", 
-         "Flatten"}], ",", 
-        RowBox[{
-         RowBox[{"Table", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"SfieldSymbol", "[", 
-              RowBox[{"field", ",", "x"}], "]"}], ",", 
-             RowBox[{"dSfieldSymbol", "[", 
-              RowBox[{"field", ",", "x", ",", "a"}], "]"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"field", ",", "listMesonS"}], "}"}]}], "]"}], "//", 
-         "Flatten"}], ",", 
-        RowBox[{
-         RowBox[{"Table", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"VfieldSymbol", "[", 
-              RowBox[{"field", ",", "x", ",", "a"}], "]"}], ",", 
-             RowBox[{"dVfieldSymbol", "[", 
-              RowBox[{"field", ",", "x", ",", "a", ",", "b"}], "]"}]}], "}"}],
-            ",", 
-           RowBox[{"{", 
-            RowBox[{"field", ",", "listMesonV"}], "}"}]}], "]"}], "//", 
-         "Flatten"}], ",", 
-        RowBox[{
-         RowBox[{"Table", "[", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{
-             RowBox[{"TfieldSymbol", "[", 
-              RowBox[{"field", ",", "x", ",", "a", ",", "b"}], "]"}], ",", 
-             RowBox[{"dTfieldSymbol", "[", 
-              RowBox[{"field", ",", "x", ",", "a", ",", "b", ",", "c"}], 
-              "]"}]}], "}"}], ",", 
-           RowBox[{"{", 
-            RowBox[{"field", ",", "listMesonT"}], "}"}]}], "]"}], "//", 
-         "Flatten"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"(*", 
-      RowBox[{
-      "Scale", " ", "coefficients", " ", "counting", " ", "the", " ", 
-       "number", " ", "of", " ", "times", " ", "the", " ", "given", " ", 
-       "field", " ", "or", " ", "its", " ", "derivative", " ", "enters", " ", 
-       "the", " ", "given", " ", "term"}], "*)"}], "\[IndentingNewLine]", 
-     RowBox[{"CoefficientsListIndividual", "=", 
-      RowBox[{"t", "^", 
-       RowBox[{"Join", "[", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"Table", "[", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"y", "[", "field", "]"}], ",", 
-              RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
-            RowBox[{"{", 
-             RowBox[{"field", ",", "listMesonP"}], "}"}]}], "]"}], "//", 
-          "Flatten"}], ",", 
-         RowBox[{
-          RowBox[{"Table", "[", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"y", "[", "field", "]"}], ",", 
-              RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
-            RowBox[{"{", 
-             RowBox[{"field", ",", "listMesonS"}], "}"}]}], "]"}], "//", 
-          "Flatten"}], ",", 
-         RowBox[{
-          RowBox[{"Table", "[", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"y", "[", "field", "]"}], ",", 
-              RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
-            RowBox[{"{", 
-             RowBox[{"field", ",", "listMesonV"}], "}"}]}], "]"}], "//", 
-          "Flatten"}], ",", 
-         RowBox[{
-          RowBox[{"Table", "[", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"y", "[", "field", "]"}], ",", 
-              RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
-            RowBox[{"{", 
-             RowBox[{"field", ",", "listMesonT"}], "}"}]}], "]"}], "//", 
-          "Flatten"}]}], "]"}]}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"(*", 
-      RowBox[{
-      "Scale", " ", "coefficients", " ", "that", " ", "count", " ", "how", 
-       " ", "many", " ", "fields", " ", "or", " ", "their", " ", 
-       "derivatives", " ", "the", " ", "given", " ", "term", " ", "contains", 
-       " ", "in", " ", "total"}], "*)"}], "\[IndentingNewLine]", 
-     RowBox[{"CoefficientsListCommon", "=", 
-      RowBox[{"t", "^", 
-       RowBox[{"Join", "[", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"Table", "[", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"y", "[", "field", "]"}], ",", 
-              RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
-            RowBox[{"{", 
-             RowBox[{"field", ",", "listMesonP"}], "}"}]}], "]"}], "//", 
-          "Flatten"}], ",", 
-         RowBox[{
-          RowBox[{"Table", "[", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"y", "[", "field", "]"}], ",", 
-              RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
-            RowBox[{"{", 
-             RowBox[{"field", ",", "listMesonS"}], "}"}]}], "]"}], "//", 
-          "Flatten"}], ",", 
-         RowBox[{
-          RowBox[{"Table", "[", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"y", "[", "field", "]"}], ",", 
-              RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
-            RowBox[{"{", 
-             RowBox[{"field", ",", "listMesonV"}], "}"}]}], "]"}], "//", 
-          "Flatten"}], ",", 
-         RowBox[{
-          RowBox[{"Table", "[", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"y", "[", "field", "]"}], ",", 
-              RowBox[{"y", "[", "field", "]"}]}], "}"}], ",", 
-            RowBox[{"{", 
-             RowBox[{"field", ",", "listMesonT"}], "}"}]}], "]"}], "//", 
-          "Flatten"}]}], "]"}]}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"CoefficientsListALP", "=", 
-      RowBox[{"{", 
-       RowBox[{
-        SuperscriptBox["ta", "y"], ",", 
-        SuperscriptBox["ta", "y"]}], "}"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"(*", 
-      RowBox[{
-       RowBox[{"Replacement", " ", "rule", " ", "field"}], "->", "scaling"}], 
-      "*)"}], "\[IndentingNewLine]", 
-     RowBox[{"repsIndividual", "=", 
-      RowBox[{"Thread", "[", 
-       RowBox[{"FieldsListPattern", "->", 
-        RowBox[{"CoefficientsListIndividual", "*", "FieldsList"}]}], "]"}]}], 
-     ";", "\[IndentingNewLine]", 
      RowBox[{"repsCommon", "=", 
       RowBox[{"Thread", "[", 
        RowBox[{"FieldsListPattern", "->", 
@@ -459,6 +474,41 @@ Cell[BoxData[
               RowBox[{
                RowBox[{
                 RowBox[{"fieldSymb", "[", 
+                 RowBox[{"x", ",", "a_"}], "]"}], ":>", 
+                RowBox[{
+                 RowBox[{"Exp", "[", "y", "]"}], 
+                 RowBox[{"fieldSymb", "[", 
+                  RowBox[{"x", ",", "a"}], "]"}]}]}], ",", 
+               RowBox[{
+                RowBox[{"fieldDSymb", "[", 
+                 RowBox[{"x", ",", "a_", ",", "b_"}], "]"}], ":>", 
+                RowBox[{
+                 RowBox[{"Exp", "[", "y", "]"}], 
+                 RowBox[{"fieldDSymb", "[", 
+                  RowBox[{"x", ",", "a", ",", "b"}], "]"}]}]}]}], "}"}]}], 
+            "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"field", ",", "listMesonVA"}], "}"}]}], "]"}], "//", 
+         "Flatten"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"ruleScaling", "=", 
+      RowBox[{"Join", "[", 
+       RowBox[{"ruleScaling", ",", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"With", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"field", "=", "field"}], ",", 
+               RowBox[{"fieldSymb", "=", 
+                RowBox[{"fieldSymbol", "[", "field", "]"}]}], ",", 
+               RowBox[{"fieldDSymb", "=", 
+                RowBox[{"dfieldSymbol", "[", "field", "]"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"fieldSymb", "[", 
                  RowBox[{"x", ",", "a_", ",", "b_"}], "]"}], ":>", 
                 RowBox[{
                  RowBox[{"Exp", "[", "y", "]"}], 
@@ -476,10 +526,11 @@ Cell[BoxData[
             RowBox[{"field", ",", "listMesonT"}], "}"}]}], "]"}], "//", 
          "Flatten"}]}], "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], 
   ";"}]], "Input",
- CellChangeTimes->{{3.944641945117338*^9, 3.944641991559561*^9}},
- CellLabel->
-  "In[360]:=",ExpressionUUID->"9fd915b9-6d11-4845-abe3-6a118be2417e"]
-}, Closed]],
+ CellChangeTimes->{{3.944641945117338*^9, 3.944641991559561*^9}, {
+  3.9470071892761784`*^9, 3.947007225255701*^9}, {3.9470072570018044`*^9, 
+  3.9470072620747604`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"9fd915b9-6d11-4845-abe3-6a118be2417e"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -517,8 +568,27 @@ Cell[BoxData[
       RowBox[{"(", 
        RowBox[{
        "ChPTkineticTerm", "+", "ChPTbreakingTerm", "+", "VMDtermALP", "+", 
-        "LscalarALP", " ", "+", " ", "LagrangianTalp", "+", 
-        "WeakDecaysTermALP"}], ")"}], "//", "Expand"}]}], ";", 
+        "LscalarALP", " ", "+", "LagrangianTalp", "+", "LagrangianVAalp", "+",
+         "WeakDecaysTermALP"}], ")"}], "//", "Expand"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"If", " ", "users", " ", "choose", " ", "\[Kappa]"}], "-", 
+       RowBox[{"variant", " ", "approach"}]}], ",", " ", 
+      RowBox[{
+       RowBox[{
+       "setting", " ", "the", " ", "pieces", " ", "ensuring", " ", "the", " ",
+         "\[Kappa]"}], "-", 
+       RowBox[{"independence", " ", "to", " ", "zero"}]}]}], "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"!", "\[Kappa]invariant"}], ",", 
+      RowBox[{"TotalLagrangianBeforeDiagonalization", "=", 
+       RowBox[{"TotalLagrangianBeforeDiagonalization", "/.", 
+        RowBox[{"{", 
+         RowBox[{"cG", "->", "0"}], "}"}]}]}]}], "]"}], ";", 
     "\[IndentingNewLine]", 
     RowBox[{"(*", 
      RowBox[{"Performing", " ", "symbolic", " ", "diagonalization"}], "*)"}], 
@@ -926,9 +996,10 @@ Cell[BoxData[
    3.9451463999400043`*^9}, {3.9451464872406673`*^9, 3.945146498200115*^9}, {
    3.945187915499674*^9, 3.9451879343121414`*^9}, {3.945188555538656*^9, 
    3.945188561100212*^9}, {3.945189854525898*^9, 3.945189869892044*^9}, {
-   3.9451900390417156`*^9, 3.9451900413476906`*^9}},
- CellLabel->
-  "In[361]:=",ExpressionUUID->"ae178c43-e10a-cb45-8934-642f96c029de"],
+   3.9451900390417156`*^9, 3.9451900413476906`*^9}, {3.9470073017003593`*^9, 
+   3.947007311322441*^9}, {3.9484344832487774`*^9, 
+   3.948434544617674*^9}},ExpressionUUID->"ae178c43-e10a-cb45-8934-\
+642f96c029de"],
 
 Cell[BoxData[
  FormBox["\<\"Quadratic Lagrangian after the diagonalization:\"\>", 
@@ -938,10 +1009,11 @@ Cell[BoxData[
   3.9449237935820694`*^9, 3.9449355011369076`*^9, 3.9451464379433155`*^9, 
   3.9451465363659267`*^9, 3.9451884097124004`*^9, 3.945188600241482*^9, 
   3.945189898821478*^9, 3.9451899617755356`*^9, 3.9451901032184105`*^9, 
-  3.9452274992390785`*^9},
+  3.9452274992390785`*^9, 3.947007371682991*^9, 3.9470075049486713`*^9, 
+  3.947054582793377*^9},
  CellLabel->
   "During evaluation of \
-In[361]:=",ExpressionUUID->"8d676d96-5e3d-c74a-8d73-0ed437157735"],
+In[82]:=",ExpressionUUID->"d4c2bf08-da7a-bb43-a918-d0c8fef91ea6"],
 
 Cell[BoxData[
  FormBox[
@@ -1003,9 +1075,9 @@ kinetic\\)]\\)\"\>"},
   3.9448940149612904`*^9, 3.944923793646124*^9, 3.944935501242363*^9, 
   3.9451464379600086`*^9, 3.9451465363694344`*^9, 3.945188409723917*^9, 
   3.9451886002444954`*^9, 3.9451898988286934`*^9, 3.9451899617795353`*^9, 
-  3.94519010322241*^9, 3.945227499246584*^9},
- CellLabel->
-  "Out[361]=",ExpressionUUID->"81e9f76e-dd4c-ee49-8055-58d326ccd154"]
+  3.94519010322241*^9, 3.945227499246584*^9, 3.9470073716899834`*^9, 
+  3.9470075049486713`*^9, 3.94705458279838*^9},
+ CellLabel->"Out[82]=",ExpressionUUID->"39ff3e33-a354-2d4f-99b8-770cf3b2e6c3"]
 }, Open  ]]
 }, Open  ]],
 
@@ -1144,8 +1216,7 @@ Cell[BoxData[
    3.9011012967336383`*^9}, {3.901101665810054*^9, 3.901101678128704*^9}, {
    3.9011020666304045`*^9, 3.9011020691403074`*^9}, 3.901102240946889*^9, {
    3.901116609055589*^9, 3.901116609055589*^9}, 3.905483596572519*^9},
- CellLabel->
-  "In[362]:=",ExpressionUUID->"45385e11-f4c8-4e63-8a42-450bf870e5a4"]
+ CellLabel->"In[6]:=",ExpressionUUID->"45385e11-f4c8-4e63-8a42-450bf870e5a4"]
 }, Open  ]]
 }, Open  ]],
 
@@ -1209,8 +1280,7 @@ since the symmetry over indices permutations is not included at this step):\>\
       RowBox[{"1", ",", "1", ",", "1", ",", "1"}], "}"}]}], "]"}], "//", 
    "Simplify"}]}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.945187896264942*^9, 3.945187896286413*^9}},
- CellLabel->
-  "In[363]:=",ExpressionUUID->"db050559-66da-384c-bda3-34285a427ac5"],
+ CellLabel->"In[7]:=",ExpressionUUID->"db050559-66da-384c-bda3-34285a427ac5"],
 
 Cell[BoxData[
  FormBox["\<\"Number of terms in the Lagrangian (may be reduced by a factor \
@@ -1219,19 +1289,20 @@ step):\"\>", TraditionalForm]], "Print",
  CellChangeTimes->{3.9446433364589596`*^9, 3.9448927158701763`*^9, 
   3.944892780901636*^9, 3.944894019390938*^9, 3.944923793677742*^9, 
   3.9449355013499546`*^9, 3.9451464438398*^9, 3.9451465364033184`*^9, 
-  3.9451886002695255`*^9, 3.9451901032642307`*^9, 3.945227499311178*^9},
+  3.9451886002695255`*^9, 3.9451901032642307`*^9, 3.945227499311178*^9, 
+  3.9470075050188084`*^9, 3.947044189802223*^9, 3.94705458282938*^9},
  CellLabel->
   "During evaluation of \
-In[363]:=",ExpressionUUID->"cf8afce5-42e0-344b-a8eb-990cd1b4a5e1"],
+In[83]:=",ExpressionUUID->"f8c931d7-81cd-f942-ba2c-596516a0a697"],
 
 Cell[BoxData[
- FormBox["35414", TraditionalForm]], "Output",
+ FormBox["53888", TraditionalForm]], "Output",
  CellChangeTimes->{3.944643336462961*^9, 3.9448927158733654`*^9, 
   3.9448927809100075`*^9, 3.9448940193954716`*^9, 3.944923793677742*^9, 
   3.9449355013539543`*^9, 3.9451464438437977`*^9, 3.9451465364078293`*^9, 
-  3.9451886002730427`*^9, 3.9451901032667465`*^9, 3.9452274993196697`*^9},
- CellLabel->
-  "Out[365]=",ExpressionUUID->"140d70cc-24a8-5c4a-bf17-0593b96f5748"],
+  3.9451886002730427`*^9, 3.9451901032667465`*^9, 3.9452274993196697`*^9, 
+  3.9470075050188084`*^9, 3.947044189804228*^9, 3.947054582834379*^9},
+ CellLabel->"Out[85]=",ExpressionUUID->"34c7c2c1-0fcb-674d-a5d1-c8680ddabb17"],
 
 Cell[BoxData[
  FormBox["\<\"Example: the Lagrangian including exactly 1 ALP, 1 \
@@ -1242,10 +1313,11 @@ Cell[BoxData[
  CellChangeTimes->{3.9446433364589596`*^9, 3.9448927158701763`*^9, 
   3.944892780901636*^9, 3.944894019390938*^9, 3.944923793677742*^9, 
   3.9449355013499546`*^9, 3.9451464438398*^9, 3.9451465364033184`*^9, 
-  3.9451886002695255`*^9, 3.9451901032642307`*^9, 3.945227499321665*^9},
+  3.9451886002695255`*^9, 3.9451901032642307`*^9, 3.945227499311178*^9, 
+  3.9470075050188084`*^9, 3.947044189802223*^9, 3.9470545828353806`*^9},
  CellLabel->
   "During evaluation of \
-In[363]:=",ExpressionUUID->"80e28e11-3051-5246-8b1c-60eadeef6ebf"],
+In[83]:=",ExpressionUUID->"1c1a7ca3-6329-6744-817f-28040b5effa7"],
 
 Cell[BoxData[
  FormBox[
@@ -1393,17 +1465,133 @@ Cell[BoxData[
  CellChangeTimes->{3.944643336462961*^9, 3.9448927158733654`*^9, 
   3.9448927809100075`*^9, 3.9448940193954716`*^9, 3.944923793677742*^9, 
   3.9449355013539543`*^9, 3.9451464438437977`*^9, 3.9451465364078293`*^9, 
-  3.9451886002730427`*^9, 3.9451901032667465`*^9, 3.9452274999611816`*^9},
+  3.9451886002730427`*^9, 3.9451901032667465`*^9, 3.9452274993196697`*^9, 
+  3.9470075050188084`*^9, 3.947044189804228*^9, 3.9470545834614353`*^9},
+ CellLabel->"Out[87]=",ExpressionUUID->"bee5f917-c4d2-6a45-a859-49bb5260c990"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.947007332130104*^9, 3.9470073408459225`*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"65cd6692-78d0-d643-a0ed-fda496897da6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"(*", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"LagrangianGivenFields", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<\!\(\*SubscriptBox[\(f\), \(1\)]\)(1420)\>\"", ",", 
+         "\"\<\!\(\*SuperscriptBox[\(K\), \(+\)]\)\>\"", ",", 
+         "\"\<\!\(\*SuperscriptBox[\(K\), \(*\(-\)\)]\)\>\""}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "1"}], "}"}]}], "]"}], 
+     "\[IndentingNewLine]", "expr11"}], "=", 
+    RowBox[{
+     RowBox[{
+      FractionBox["aVA", 
+       SqrtBox["2"]], 
+      RowBox[{"PolarizationVector", "[", 
+       RowBox[{"pf1", ",", "\[Mu]"}], "]"}], "*", 
+      RowBox[{"PolarizationVector", "[", 
+       RowBox[{"pK", ",", "\[Mu]"}], "]"}]}], "//", "Contract"}]}], ";", 
+   "\[IndentingNewLine]", 
+   RowBox[{"expr22", "=", 
+    RowBox[{
+     RowBox[{
+      FractionBox["1", "3"], 
+      RowBox[{"DoPolarizationSums", "[", 
+       RowBox[{
+        RowBox[{"DoPolarizationSums", "[", 
+         RowBox[{
+          RowBox[{"expr11", "*", 
+           RowBox[{"ComplexConjugate", "[", "expr11", "]"}]}], ",", "pK"}], 
+         "]"}], ",", "pf1"}], "]"}]}], "/.", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"ScalarProduct", "[", 
+         RowBox[{"pf1", ",", "pf1"}], "]"}], "->", 
+        SuperscriptBox["mf1", "2"]}], ",", 
+       RowBox[{
+        RowBox[{"ScalarProduct", "[", 
+         RowBox[{"pK", ",", "pK"}], "]"}], "->", 
+        SuperscriptBox["mKstar", "2"]}], ",", 
+       RowBox[{
+        RowBox[{"ScalarProduct", "[", 
+         RowBox[{"pf1", ",", "pK"}], "]"}], "->", 
+        FractionBox[
+         RowBox[{"(", 
+          RowBox[{
+           SuperscriptBox["mf1", "2"], "+", 
+           SuperscriptBox["mKstar", "2"], "-", 
+           SuperscriptBox["mK", "2"]}], ")"}], "2"]}]}], "}"}]}]}], ";", 
+   "\[IndentingNewLine]", 
+   RowBox[{"widththeor", "=", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"8", "Pi"}]], 
+     FractionBox["expr22", 
+      SuperscriptBox["mf1", "2"]], "*", 
+     RowBox[{"Quiet", "[", 
+      RowBox[{"(", 
+       RowBox[{"p", "/.", 
+        RowBox[{
+         RowBox[{"Solve", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             SqrtBox[
+              RowBox[{
+               SuperscriptBox["p", "2"], "+", 
+               SuperscriptBox["mK", "2"]}]], "+", 
+             SqrtBox[
+              RowBox[{
+               SuperscriptBox["p", "2"], "+", 
+               SuperscriptBox["mKstar", "2"]}]]}], "==", "mf1"}], ",", "p"}], 
+          "]"}], "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ")"}], "]"}]}]}], ";", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"widththeor", "/.", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"aVA", "->", "5.43"}], ",", 
+        RowBox[{"mKstar", "->", 
+         RowBox[{
+         "MASS", "[", "\"\<\!\(\*SuperscriptBox[\(K\), \(*\(+\)\)]\)\>\"", 
+          "]"}]}], ",", 
+        RowBox[{"mf1", "->", 
+         RowBox[{
+         "MASS", "[", "\"\<\!\(\*SubscriptBox[\(f\), \(1\)]\)(1420)\>\"", 
+          "]"}]}], ",", 
+        RowBox[{"mK", "->", 
+         RowBox[{
+         "MASS", "[", "\"\<\!\(\*SuperscriptBox[\(K\), \(+\)]\)\>\"", 
+          "]"}]}]}], "}"}], "\[IndentingNewLine]", "widthexpr"}]}], "=", 
+    "0.0445"}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.94700734429533*^9, 3.9470073531891956`*^9}, 
+   3.9470458466557827`*^9},
+ CellLabel->"In[13]:=",ExpressionUUID->"ac4a7a54-5df1-d147-8de1-b7721b1305b1"],
+
+Cell[BoxData[
+ FormBox["0", TraditionalForm]], "Output",
+ CellChangeTimes->{3.9470073869749165`*^9, 3.9470441838791714`*^9},
  CellLabel->
-  "Out[367]=",ExpressionUUID->"9229d319-e1e9-2847-bf41-de628adac6cc"]
+  "Out[442]=",ExpressionUUID->"fc20d0ba-dcca-474b-b891-2207c9bbe8ca"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1142.1, 642.9},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowSize->{1920, 1011.75},
+WindowMargins->{{-6, Automatic}, {Automatic, -6}},
 Magnification:>0.8 Inherited,
-FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (November 18, 2022)",
+FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"a932d1a5-bce8-5d47-ae75-05febc48e28d"
 ]
@@ -1419,35 +1607,40 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[576, 22, 223, 3, 55, "Chapter",ExpressionUUID->"ff54bf5a-3a9c-4a78-8504-076d2e42f341"],
-Cell[802, 27, 1732, 41, 175, "Input",ExpressionUUID->"1656fec3-df5a-ae42-ba30-05fea24b0c8e"],
+Cell[576, 22, 223, 3, 54, "Chapter",ExpressionUUID->"ff54bf5a-3a9c-4a78-8504-076d2e42f341"],
+Cell[802, 27, 1732, 41, 174, "Input",ExpressionUUID->"1656fec3-df5a-ae42-ba30-05fea24b0c8e"],
 Cell[CellGroupData[{
-Cell[2559, 72, 211, 4, 54, "Section",ExpressionUUID->"182e74c5-ecc8-4a0e-a485-d9a71da3ab97"],
-Cell[2773, 78, 15756, 402, 636, "Input",ExpressionUUID->"9fd915b9-6d11-4845-abe3-6a118be2417e"]
-}, Closed]],
+Cell[2559, 72, 211, 4, 52, "Section",ExpressionUUID->"182e74c5-ecc8-4a0e-a485-d9a71da3ab97"],
+Cell[2773, 78, 18101, 453, 387, "Input",ExpressionUUID->"9fd915b9-6d11-4845-abe3-6a118be2417e"]
+}, Open  ]],
 Cell[CellGroupData[{
-Cell[18566, 485, 167, 3, 44, "Section",ExpressionUUID->"6227a437-a31b-4664-ac11-239f261225df"],
+Cell[20911, 536, 167, 3, 52, "Section",ExpressionUUID->"6227a437-a31b-4664-ac11-239f261225df"],
 Cell[CellGroupData[{
-Cell[18758, 492, 165, 3, 43, "Subsection",ExpressionUUID->"0b738306-4a18-6b41-a7bf-641c23077c56"],
+Cell[21103, 543, 165, 3, 42, "Subsection",ExpressionUUID->"0b738306-4a18-6b41-a7bf-641c23077c56"],
 Cell[CellGroupData[{
-Cell[18948, 499, 16949, 431, 896, "Input",ExpressionUUID->"ae178c43-e10a-cb45-8934-642f96c029de"],
-Cell[35900, 932, 605, 11, 18, "Print",ExpressionUUID->"8d676d96-5e3d-c74a-8d73-0ed437157735"],
-Cell[36508, 945, 2750, 62, 299, "Output",ExpressionUUID->"81e9f76e-dd4c-ee49-8055-58d326ccd154"]
+Cell[21293, 550, 17784, 451, 826, "Input",ExpressionUUID->"ae178c43-e10a-cb45-8934-642f96c029de"],
+Cell[39080, 1003, 675, 12, 18, "Print",ExpressionUUID->"d4c2bf08-da7a-bb43-a918-d0c8fef91ea6"],
+Cell[39758, 1017, 2818, 62, 289, "Output",ExpressionUUID->"39ff3e33-a354-2d4f-99b8-770cf3b2e6c3"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[39307, 1013, 179, 3, 43, "Subsection",ExpressionUUID->"f39e1af4-2e90-46f6-bf9e-1214cec5e552"],
-Cell[39489, 1018, 5931, 129, 130, "Input",ExpressionUUID->"45385e11-f4c8-4e63-8a42-450bf870e5a4"]
+Cell[42625, 1085, 179, 3, 42, "Subsection",ExpressionUUID->"f39e1af4-2e90-46f6-bf9e-1214cec5e552"],
+Cell[42807, 1090, 5926, 128, 113, "Input",ExpressionUUID->"45385e11-f4c8-4e63-8a42-450bf870e5a4"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[45469, 1153, 162, 3, 54, "Section",ExpressionUUID->"fbb7ce7d-ceb8-7b4c-a4ed-9055fc99a420"],
+Cell[48782, 1224, 162, 3, 52, "Section",ExpressionUUID->"fbb7ce7d-ceb8-7b4c-a4ed-9055fc99a420"],
 Cell[CellGroupData[{
-Cell[45656, 1160, 2220, 52, 135, "Input",ExpressionUUID->"db050559-66da-384c-bda3-34285a427ac5"],
-Cell[47879, 1214, 597, 10, 18, "Print",ExpressionUUID->"cf8afce5-42e0-344b-a8eb-990cd1b4a5e1"],
-Cell[48479, 1226, 432, 7, 25, "Output",ExpressionUUID->"140d70cc-24a8-5c4a-bf17-0593b96f5748"],
-Cell[48914, 1235, 666, 12, 18, "Print",ExpressionUUID->"80e28e11-3051-5246-8b1c-60eadeef6ebf"],
-Cell[49583, 1249, 5812, 148, 93, "Output",ExpressionUUID->"9229d319-e1e9-2847-bf41-de628adac6cc"]
+Cell[48969, 1231, 2215, 51, 133, "Input",ExpressionUUID->"db050559-66da-384c-bda3-34285a427ac5"],
+Cell[51187, 1284, 666, 11, 18, "Print",ExpressionUUID->"f8c931d7-81cd-f942-ba2c-596516a0a697"],
+Cell[51856, 1297, 499, 7, 25, "Output",ExpressionUUID->"34c7c2c1-0fcb-674d-a5d1-c8680ddabb17"],
+Cell[52358, 1306, 738, 13, 18, "Print",ExpressionUUID->"1c1a7ca3-6329-6744-817f-28040b5effa7"],
+Cell[53099, 1321, 5881, 148, 57, "Output",ExpressionUUID->"bee5f917-c4d2-6a45-a859-49bb5260c990"]
+}, Open  ]],
+Cell[58995, 1472, 173, 2, 22, "Input",ExpressionUUID->"65cd6692-78d0-d643-a0ed-fda496897da6"],
+Cell[CellGroupData[{
+Cell[59193, 1478, 3513, 101, 139, "Input",ExpressionUUID->"ac4a7a54-5df1-d147-8de1-b7721b1305b1"],
+Cell[62709, 1581, 207, 4, 25, "Output",ExpressionUUID->"fc20d0ba-dcca-474b-b891-2207c9bbe8ca"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]

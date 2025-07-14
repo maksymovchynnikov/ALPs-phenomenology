@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    122955,       3115]
-NotebookOptionsPosition[    115773,       2973]
-NotebookOutlinePosition[    116204,       2990]
-CellTagsIndexPosition[    116161,       2987]
+NotebookDataLength[    171019,       4222]
+NotebookOptionsPosition[    162391,       4054]
+NotebookOutlinePosition[    162828,       4071]
+CellTagsIndexPosition[    162785,       4068]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -44,19 +44,24 @@ Cell[BoxData[{
          RowBox[{
           RowBox[{
            RowBox[{"NotebookDirectory", "[", "]"}], "//", "ParentDirectory"}],
-           "//", "ParentDirectory"}], ",", "\"\<auxiliary data\>\"", ",", 
-         "\"\<YieldMesons.mx\>\""}], "}"}], "]"}], ",", "\"\<MX\>\""}], "]"}],
-     "/.", 
+           "//", "ParentDirectory"}], ",", "\"\<YieldMesons.mx\>\""}], "}"}], 
+       "]"}], ",", "\"\<MX\>\""}], "]"}], "/.", 
     RowBox[{"{", 
      RowBox[{
-      RowBox[{
-      "\"\<Rho0\>\"", "->", 
-       "\"\<\!\(\*SuperscriptBox[\(\[Rho]\), \(0\)]\)\>\""}], ",", 
+      RowBox[{"\"\<Rho0\>\"", 
+       "->", "\"\<\!\(\*SuperscriptBox[\(\[Rho]\), \(0\)]\)\>\""}], ",", 
       RowBox[{"\"\<Omega\>\"", "->", "\"\<\[Omega]\>\""}], ",", 
       RowBox[{"\"\<Eta\>\"", "->", "\"\<\[Eta]\>\""}], ",", 
       RowBox[{"\"\<EtaPr\>\"", "->", "\"\<\[Eta]'\>\""}], ",", 
-      RowBox[{"\"\<Phi\>\"", "->", "\"\<\[Phi]\>\""}]}], "}"}]}]}], 
-  ";"}], "\[IndentingNewLine]", 
+      RowBox[{"\"\<Phi\>\"", "->", "\"\<\[Phi]\>\""}], ",", 
+      RowBox[{"\"\<Pi0\>\"", 
+       "->", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(0\)]\)\>\""}]}], 
+     "}"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"facilitiesYields", "=", 
+   RowBox[{"LightMesonsYield", "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", "1"}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Do", "[", "\[IndentingNewLine]", 
    RowBox[{
@@ -89,27 +94,21 @@ Cell[BoxData[{
       RowBox[{"Length", "[", "LightMesonsYield", "]"}], ",", "1"}], "}"}]}], 
    "]"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"Do", "[", "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{"Temporary", " ", "approximation"}], ",", " ", 
-    RowBox[{"will", " ", "be", " ", "improved"}]}], "*)"}], 
-  "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
     RowBox[{
      RowBox[{"\[Chi]Meson", "[", 
-      RowBox[{
-      "\"\<\!\(\*SuperscriptBox[\(\[Rho]\), \(+\)]\)\>\"", ",", "fac"}], 
-      "]"}], "=", 
+      RowBox[{"\"\<\!\(\*SuperscriptBox[\(\[Rho]\), \(+\)]\)\>\"", ",", 
+       "fac"}], "]"}], "=", 
      RowBox[{
       RowBox[{"\[Chi]Meson", "[", 
-       RowBox[{
-       "\"\<\!\(\*SuperscriptBox[\(\[Rho]\), \(-\)]\)\>\"", ",", "fac"}], 
-       "]"}], "=", 
+       RowBox[{"\"\<\!\(\*SuperscriptBox[\(\[Rho]\), \(-\)]\)\>\"", ",", 
+        "fac"}], "]"}], "=", 
       RowBox[{"\[Chi]Meson", "[", 
-       RowBox[{
-       "\"\<\!\(\*SuperscriptBox[\(\[Rho]\), \(0\)]\)\>\"", ",", "fac"}], 
-       "]"}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"\"\<\!\(\*SuperscriptBox[\(\[Rho]\), \(0\)]\)\>\"", ",", 
+        "fac"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{"Temporary", " ", "assignment"}], "*)"}], "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"\[Chi]Meson", "[", 
       RowBox[{"\"\<\!\(\*SubscriptBox[\(K\), \(S\)]\)\>\"", ",", "fac"}], 
@@ -118,13 +117,14 @@ Cell[BoxData[{
       RowBox[{"\"\<\[Eta]\>\"", ",", "fac"}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", ",", 
    RowBox[{"{", 
-    RowBox[{"fac", ",", "listFacility"}], "}"}]}], "]"}]}], "Input",
+    RowBox[{"fac", ",", "facilitiesYields"}], "}"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.9452431899410343`*^9, 3.945243190414772*^9}, {
    3.9452432249077206`*^9, 3.945243245778528*^9}, 3.9452432914616337`*^9, {
    3.945247035483038*^9, 3.945247113488491*^9}, {3.94527328487706*^9, 
-   3.9452733047212315`*^9}, {3.9453617841196575`*^9, 
-   3.945361812126505*^9}},ExpressionUUID->"7a2dd728-11f7-5241-8311-\
-f83606ef03e1"]
+   3.9452733047212315`*^9}, {3.950431735062004*^9, 3.9504317467997227`*^9}, {
+   3.952524354278576*^9, 3.952524359044546*^9}},
+ CellLabel->
+  "In[134]:=",ExpressionUUID->"7a2dd728-11f7-5241-8311-f83606ef03e1"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -181,43 +181,41 @@ Cell[BoxData[{
      RowBox[{"expr1", "=", 
       RowBox[{
        RowBox[{
+        RowBox[{"expr1", "/.", 
+         RowBox[{"Flatten", "[", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"ScalarProduct", "[", 
+              RowBox[{
+               RowBox[{"MomListRed", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], ",", 
+               RowBox[{"MomListRed", "[", 
+                RowBox[{"[", "j", "]"}], "]"}]}], "]"}], "->", 
+             RowBox[{"ScalarProduct3body", "[", 
+              RowBox[{"i", ",", "j"}], "]"}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", "3", ",", "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"j", ",", "i", ",", "3", ",", "1"}], "}"}]}], "]"}], 
+          "]"}]}], "/.", 
+        RowBox[{"{", 
+         RowBox[{"m", "->", "mmother"}], "}"}]}], "/.", 
+       RowBox[{"Table", "[", 
         RowBox[{
-         RowBox[{"expr1", "/.", 
-          RowBox[{"Flatten", "[", 
-           RowBox[{"Table", "[", 
-            RowBox[{
-             RowBox[{
-              RowBox[{"ScalarProduct", "[", 
-               RowBox[{
-                RowBox[{"MomListRed", "[", 
-                 RowBox[{"[", "i", "]"}], "]"}], ",", 
-                RowBox[{"MomListRed", "[", 
-                 RowBox[{"[", "j", "]"}], "]"}]}], "]"}], "->", 
-              RowBox[{"ScalarProduct3body", "[", 
-               RowBox[{"i", ",", "j"}], "]"}]}], ",", 
-             RowBox[{"{", 
-              RowBox[{"i", ",", "1", ",", "3", ",", "1"}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"j", ",", "i", ",", "3", ",", "1"}], "}"}]}], "]"}], 
-           "]"}]}], "/.", 
-         RowBox[{"{", 
-          RowBox[{"m", "->", "mmother"}], "}"}]}], "/.", 
-        RowBox[{"Table", "[", 
          RowBox[{
-          RowBox[{
-           RowBox[{"Symbol", "[", 
-            RowBox[{"\"\<m\>\"", "<>", 
-             RowBox[{"(", 
-              RowBox[{"i", "//", "ToString"}], ")"}]}], "]"}], "->", 
-           RowBox[{"msymbolic", "[", 
-            RowBox[{
-             RowBox[{"plistdec", "[", 
-              RowBox[{"meson", ",", "process"}], "]"}], "[", 
-             RowBox[{"[", "i", "]"}], "]"}], "]"}]}], ",", 
-          RowBox[{"{", 
-           RowBox[{"i", ",", "1", ",", "3", ",", "1"}], "}"}]}], "]"}]}], "//",
-        "Simplify"}]}]}]}], "\[IndentingNewLine]", 
-   "]"}]}], "\[IndentingNewLine]", 
+          RowBox[{"Symbol", "[", 
+           RowBox[{"\"\<m\>\"", "<>", 
+            RowBox[{"(", 
+             RowBox[{"i", "//", "ToString"}], ")"}]}], "]"}], "->", 
+          RowBox[{"msymbolic", "[", 
+           RowBox[{
+            RowBox[{"plistdec", "[", 
+             RowBox[{"meson", ",", "process"}], "]"}], "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "]"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", "3", ",", "1"}], "}"}]}], "]"}]}]}]}]}],
+    "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"ruleScalarProductsDecays2body", "[", 
    RowBox[{"expr_", ",", "meson_", ",", "process_"}], "]"}], ":=", 
@@ -298,14 +296,13 @@ Cell[BoxData[{
          SuperscriptBox["m2", "2"]}]}], "}"}]}]}]}], "\[IndentingNewLine]", 
    "]"}]}]}], "Input",
  CellChangeTimes->{{3.9452585392056847`*^9, 3.945258704815687*^9}, {
-  3.9452587354272327`*^9, 3.945258738206812*^9}, {3.94525944046542*^9, 
-  3.945259462887123*^9}, {3.945259576795025*^9, 3.945259616319031*^9}, {
-  3.9452596953217335`*^9, 3.945259756289345*^9}, {3.9452597915341396`*^9, 
-  3.9452599367715473`*^9}, {3.945259988859642*^9, 3.945260147113186*^9}, {
-  3.945264728463791*^9, 3.94526472869083*^9}, {3.94526533121702*^9, 
-  3.945265335752905*^9}},
- CellLabel->
-  "In[568]:=",ExpressionUUID->"c247a88d-7c76-9c46-a539-f75649f2aa9e"]
+   3.9452587354272327`*^9, 3.945258738206812*^9}, {3.94525944046542*^9, 
+   3.945259462887123*^9}, {3.945259576795025*^9, 3.945259616319031*^9}, {
+   3.9452596953217335`*^9, 3.945259756289345*^9}, {3.9452597915341396`*^9, 
+   3.9452599367715473`*^9}, {3.945259988859642*^9, 3.945260147113186*^9}, {
+   3.945264728463791*^9, 3.94526472869083*^9}, {3.94526533121702*^9, 
+   3.945265335752905*^9}, 3.947150214511841*^9},
+ CellLabel->"In[5]:=",ExpressionUUID->"c247a88d-7c76-9c46-a539-f75649f2aa9e"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -318,7 +315,7 @@ Cell["Contact terms", "Subsection",
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"MdecayMeson", "[", 
+  RowBox[{"MdecayMesonContact", "[", 
    RowBox[{"DecayingMeson_", ",", "mesonlist_", ",", "labellist_"}], "]"}], ":=", 
   RowBox[{"Block", "[", 
    RowBox[{
@@ -350,7 +347,11 @@ Cell[BoxData[{
           "]"}], ",", 
          RowBox[{"ma", "<", "m\[Eta]pr"}]}], "]"}], "/.", 
        RowBox[{"{", 
-        RowBox[{"cvmd", "->", "1"}], "}"}]}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"cvmd", "->", "1"}], ",", 
+         RowBox[{"coefPheavy", "->", "0"}], ",", 
+         RowBox[{"coefVA", "->", "0"}]}], "}"}]}]}], ";", 
+     "\[IndentingNewLine]", 
      RowBox[{"PolarizationContractor", "[", 
       RowBox[{
       "vertexBeforeContraction", ",", "partlistgiven", ",", 
@@ -371,7 +372,7 @@ Cell[BoxData[{
      RowBox[{"expr", ",", "meson", ",", "process"}], "]"}]}], 
    "]"}]}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"M2decayMesonArbitrary", "[", 
+  RowBox[{"M2decayMesonContact", "[", 
    RowBox[{"DecayingMeson_", ",", "proc_"}], "]"}], ":=", 
   RowBox[{"Module", "[", 
    RowBox[{
@@ -402,11 +403,15 @@ Cell[BoxData[{
       RowBox[{"mElement", "[", 
        RowBox[{"DecayingMeson", ",", "proc"}], "]"}], "=", 
       RowBox[{
-       RowBox[{"MdecayMeson", "[", 
+       RowBox[{"MdecayMesonContact", "[", 
         RowBox[{"DecayingMeson", ",", "mesonlist", ",", "labellist"}], "]"}], 
        "/.", 
        RowBox[{"{", 
-        RowBox[{"cvmd", "->", "1"}], "}"}]}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"cvmd", "->", "1"}], ",", 
+         RowBox[{"coefPheavy", "->", "0"}], ",", 
+         RowBox[{"coefVA", "->", "0"}]}], "}"}]}]}], ";", 
+     "\[IndentingNewLine]", 
      RowBox[{"If", "[", 
       RowBox[{
        RowBox[{"MemberQ", "[", 
@@ -487,9 +492,11 @@ Cell[BoxData[{
    3.94525955780657*^9}, {3.945265442081423*^9, 3.9452654447209625`*^9}, {
    3.9452655430805893`*^9, 3.945265544905037*^9}, {3.945265575168247*^9, 
    3.9452655789541073`*^9}, {3.9452682459795303`*^9, 3.945268345191942*^9}, {
-   3.9452684532963657`*^9, 3.945268462979948*^9}},
- CellLabel->
-  "In[570]:=",ExpressionUUID->"bbb00377-af00-1947-9b4b-384d7b4c35ea"]
+   3.9452684532963657`*^9, 3.945268462979948*^9}, {3.947140713364109*^9, 
+   3.9471407300943737`*^9}, {3.9471408345319214`*^9, 3.947140845720215*^9}, 
+   3.9471418440145473`*^9, {3.948882606017788*^9, 3.948882614680977*^9}, 
+   3.9488830869918747`*^9},
+ CellLabel->"In[7]:=",ExpressionUUID->"bbb00377-af00-1947-9b4b-384d7b4c35ea"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -525,20 +532,18 @@ Cell[BoxData[
      RowBox[{"(", 
       RowBox[{
        RowBox[{"(", 
-        RowBox[{"-", 
-         RowBox[{"MT", "[", 
-          RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}]}], 
-        RowBox[{"(*", 
-         RowBox[{"+", 
-          FractionBox[
-           RowBox[{
-            RowBox[{"FV", "[", 
-             RowBox[{"p", ",", "\[Mu]"}], "]"}], 
-            RowBox[{"FV", "[", 
-             RowBox[{"p", ",", "\[Nu]"}], "]"}]}], 
-           SuperscriptBox[
-            RowBox[{"msymbolic", "[", "field", "]"}], "2"]]}], "*)"}], ")"}], 
-       "/", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"MT", "[", 
+           RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}]}], "+", 
+         FractionBox[
+          RowBox[{
+           RowBox[{"FV", "[", 
+            RowBox[{"p", ",", "\[Mu]"}], "]"}], "*", 
+           RowBox[{"FV", "[", 
+            RowBox[{"p", ",", "\[Nu]"}], "]"}]}], 
+          SuperscriptBox[
+           RowBox[{"msymbolic", "[", "field", "]"}], "2"]]}], ")"}], "/", 
        RowBox[{"(", 
         RowBox[{
          RowBox[{
@@ -553,7 +558,7 @@ Cell[BoxData[
           RowBox[{"\[CapitalGamma]symbolic", "[", "field", "]"}]}]}], ")"}]}],
        ")"}]}]}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"MDecayMeson", "[", 
+    RowBox[{"MDecayMesonOffShell", "[", 
      RowBox[{
      "\"\<V off-shell 3-body\>\"", ",", "Vmother_", ",", "Vintermediate_", 
       ",", "mesonlist_", ",", "labelslist_"}], "]"}], ":=", 
@@ -565,8 +570,8 @@ Cell[BoxData[
          ",", "mesVmotherXV", ",", "labelslistVmotherXV", ",", 
         "labelslistVmm", ",", "mommes1Vmm", ",", "mommes2Vmm", ",", 
         "vertVmotherXV", ",", "vertexprop", ",", "vertVmm", ",", "mlist", ",",
-         "Melement", ",", "meson1Vmm", ",", "meson2Vmm"}], "}"}], ",", 
-      "\[IndentingNewLine]", 
+         "Melement", ",", "meson1Vmm", ",", "meson2Vmm", ",", "labellist"}], 
+       "}"}], ",", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{"mesonlabellist", "=", 
         RowBox[{"Join", "[", 
@@ -574,7 +579,7 @@ Cell[BoxData[
           RowBox[{"Partition", "[", 
            RowBox[{"mesonlist", ",", "1"}], "]"}], ",", 
           RowBox[{"Partition", "[", 
-           RowBox[{"labellist1", ",", "1"}], "]"}], ",", "2"}], "]"}]}], ";", 
+           RowBox[{"labelslist", ",", "1"}], "]"}], ",", "2"}], "]"}]}], ";", 
        "\[IndentingNewLine]", 
        RowBox[{"(*", 
         RowBox[{
@@ -751,24 +756,34 @@ Cell[BoxData[
            RowBox[{
             RowBox[{
              RowBox[{
-              RowBox[{"PolarizationVector", "[", 
-               RowBox[{"p0", ",", "\[Xi]01"}], "]"}], "*", 
-              RowBox[{"FeynmanRuleVertex", "[", 
-               RowBox[{
-                RowBox[{"{", 
-                 RowBox[{
-                 "Vmother", ",", "Vintermediate", ",", "mesVmotherXV"}], 
-                 "}"}], ",", 
-                RowBox[{"{", 
-                 RowBox[{"1", ",", 
-                  RowBox[{"-", "1"}], ",", 
-                  RowBox[{"-", "1"}]}], "}"}], ",", 
-                RowBox[{"{", 
-                 RowBox[{"\"\<0\>\"", ",", "\"\<v\>\"", ",", 
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"MemberQ", "[", 
+                  RowBox[{"listMesonV", ",", "Vmother"}], "]"}], ",", 
+                 RowBox[{"PolarizationVector", "[", 
+                  RowBox[{"p0", ",", "\[Xi]01"}], "]"}], ",", "1"}], "]"}], 
+               "*", 
+               RowBox[{"FeynmanRuleVertex", "[", 
+                RowBox[{
+                 RowBox[{"{", 
                   RowBox[{
-                   RowBox[{"labellist", "[", 
+                  "Vmother", ",", "Vintermediate", ",", "mesVmotherXV"}], 
+                  "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", 
+                   RowBox[{"-", "1"}], ",", 
+                   RowBox[{"-", "1"}]}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"\"\<0\>\"", ",", "\"\<v\>\"", ",", 
+                   RowBox[{
+                    RowBox[{"labellist", "[", 
                     RowBox[{"[", "i", "]"}], "]"}], "[", 
-                   RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], "/.", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}]}], "/.", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"coefPheavy", "->", "0"}], ",", 
+                RowBox[{"coefVA", "->", "0"}]}], "}"}]}], "/.", 
              RowBox[{"{", 
               RowBox[{
                RowBox[{"FV", "[", 
@@ -802,15 +817,22 @@ Cell[BoxData[
           RowBox[{"vertVmm", "=", 
            RowBox[{
             RowBox[{
-             RowBox[{"FeynmanRuleVertex", "[", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"Vintermediate", ",", "meson1Vmm", ",", "meson2Vmm"}],
-                 "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"1", ",", 
-                 RowBox[{"-", "1"}], ",", 
-                 RowBox[{"-", "1"}]}], "}"}], ",", "labelslistVmm"}], "]"}], "/.", 
+             RowBox[{
+              RowBox[{"FeynmanRuleVertex", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                 "Vintermediate", ",", "meson1Vmm", ",", "meson2Vmm"}], "}"}],
+                 ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"-", "1"}], ",", 
+                  RowBox[{"-", "1"}]}], "}"}], ",", "labelslistVmm"}], "]"}], 
+              "/.", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"coefPheavy", "->", "0"}], ",", 
+                RowBox[{"coefVA", "->", "0"}]}], "}"}]}], "/.", 
              RowBox[{"{", 
               RowBox[{
                RowBox[{"FV", "[", 
@@ -828,25 +850,29 @@ Cell[BoxData[
            RowBox[{
            "Contribution", " ", "to", " ", "the", " ", "matrix", " ", 
             "element"}], "*)"}], "\[IndentingNewLine]", 
-          RowBox[{
+          RowBox[{"Mcontr", "=", 
            RowBox[{
-            RowBox[{"Melement", "+=", 
-             RowBox[{"(", 
-              RowBox[{"vertexprop", "*", "vertVmm"}], ")"}]}], "//", 
-            "Contract"}], "//", "ExpandScalarProduct"}], ";"}], 
-         "\[IndentingNewLine]", ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"vertexprop", "*", "vertVmm"}], ")"}], "//", 
+              "Contract"}], "//", "ExpandScalarProduct"}], "//", 
+            "Simplify"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"Melement", "+=", "Mcontr"}], ";"}], "\[IndentingNewLine]", 
+         ",", 
          RowBox[{"{", 
           RowBox[{"i", ",", "1", ",", 
            RowBox[{"Length", "[", "labellist", "]"}], ",", "1"}], "}"}]}], 
         "]"}], ";", "\[IndentingNewLine]", 
        RowBox[{"Melement", "=", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"Melement", "//", "Expand"}], "//", "Contract"}], "//", 
-         "Simplify"}]}]}]}], "\[IndentingNewLine]", "]"}]}], 
-   "\[IndentingNewLine]", 
+        RowBox[{"Melement", "//", "Contract"}]}]}]}], 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"//", "Expand"}], "//", "Contract"}], "//", "Simplify"}], 
+      "*)"}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"MDecayMeson", "[", 
+    RowBox[{"MDecayMesonOffShell", "[", 
      RowBox[{"\"\<V off-shell 3-body\>\"", ",", "Vmother_", ",", "process_"}],
       "]"}], ":=", "\[IndentingNewLine]", 
     RowBox[{"Block", "[", 
@@ -865,7 +891,7 @@ Cell[BoxData[
        ";", "\[IndentingNewLine]", 
        RowBox[{"Sum", "[", 
         RowBox[{
-         RowBox[{"MDecayMeson", "[", 
+         RowBox[{"MDecayMesonOffShell", "[", 
           RowBox[{
           "\"\<V off-shell 3-body\>\"", ",", "Vmother", ",", "V", ",", 
            "mesonlist", ",", "labellist1"}], "]"}], ",", 
@@ -885,8 +911,631 @@ Cell[BoxData[
    3.9452518916703053`*^9}, {3.9452520769313793`*^9, 3.945252079029743*^9}, {
    3.9452522830167866`*^9, 3.945252312793787*^9}, 3.9452524226452904`*^9, {
    3.9452525976957874`*^9, 3.9452526089061966`*^9}, {3.9453330130326366`*^9, 
-   3.9453330137444687`*^9}},
- CellLabel->"In[66]:=",ExpressionUUID->"ca42b1ad-b451-8241-aa4b-a4503aa4c26b"]
+   3.9453330137444687`*^9}, {3.947139159532419*^9, 3.9471391641636677`*^9}, {
+   3.9471409365339947`*^9, 3.947140959851322*^9}, {3.9471412263214455`*^9, 
+   3.947141226911972*^9}, {3.947142510536663*^9, 3.947142514724495*^9}, {
+   3.9471432257940025`*^9, 3.9471432266451817`*^9}, {3.947149264416691*^9, 
+   3.947149266295006*^9}, {3.947149337599779*^9, 3.9471493395127335`*^9}, {
+   3.9488826540804443`*^9, 3.9488826610256786`*^9}, 3.948883257176794*^9, {
+   3.950343993309347*^9, 3.9503440281974373`*^9}, {3.950428066952263*^9, 
+   3.9504280699975643`*^9}, {3.9504326066827374`*^9, 3.950432613004795*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"ca42b1ad-b451-8241-aa4b-a4503aa4c26b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Intermediate scalar mesons - decays of the type ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"P", "->", 
+    RowBox[{"a", " ", "P", " ", "P"}]}], TraditionalForm]],ExpressionUUID->
+  "5eaf4912-6e08-0b4c-8b3c-55e67afa4e9a"]
+}], "Subsection",
+ CellChangeTimes->{{3.945249413502804*^9, 3.945249418285145*^9}, {
+  3.9452496049234447`*^9, 3.9452496494577465`*^9}, {3.947139145172558*^9, 
+  3.947139145331249*^9}, {3.947140167464325*^9, 
+  3.9471401681667233`*^9}},ExpressionUUID->"18c29e19-3d71-7240-8de1-\
+e76b7218e3f5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Extra", " ", "\"\<-\>\""}], " ", "-", " ", 
+    RowBox[{
+    "i", " ", "from", " ", "vertex", " ", "times", " ", "i", " ", "from", " ",
+      "propagator"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Spropagator", "[", 
+     RowBox[{"field_", ",", "p_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"-", "1"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"FV", "[", 
+         RowBox[{"p", ",", "\[Mu]"}], "]"}], "*", 
+        RowBox[{"FV", "[", 
+         RowBox[{"p", ",", "\[Mu]"}], "]"}]}], "-", 
+       SuperscriptBox[
+        RowBox[{"msymbolic", "[", "field", "]"}], "2"], "+", 
+       RowBox[{"I", "*", 
+        RowBox[{"msymbolic", "[", "field", "]"}], "*", 
+        RowBox[{"\[CapitalGamma]symbolic", "[", "field", "]"}]}]}], ")"}]}]}],
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"MDecayMesonOffShell", "[", 
+     RowBox[{
+     "\"\<S off-shell 3-body\>\"", ",", "Pmother_", ",", "Vintermediate_", 
+      ",", "mesonlist_", ",", "labelslist_"}], "]"}], ":=", 
+    RowBox[{"Block", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "mesonlabellist", ",", "mesonsFromPlist", ",", "mesonFromPmotherVlist",
+         ",", "mesPmotherXV", ",", "labelslistPmotherXV", ",", 
+        "labelslistSmm", ",", "mommes1Smm", ",", "mommes2Smm", ",", 
+        "vertPmotherXS", ",", "vertexprop", ",", "vertSmm", ",", "mlist", ",",
+         "Melement", ",", "meson1Smm", ",", "meson2Smm", ",", "labellist"}], 
+       "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"mesonlabellist", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{"Partition", "[", 
+           RowBox[{"mesonlist", ",", "1"}], "]"}], ",", 
+          RowBox[{"Partition", "[", 
+           RowBox[{"labelslist", ",", "1"}], "]"}], ",", "2"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"Unique", " ", "sub"}], "-", 
+         RowBox[{
+         "sets", " ", "with", " ", "pair", " ", "of", " ", "mesons"}]}], 
+        "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"mesonsFromPlist", "=", 
+        RowBox[{"Subsets", "[", 
+         RowBox[{"mesonlabellist", ",", 
+          RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"The", " ", "remaining", " ", "meson", " ", 
+         RowBox[{"(", 
+          RowBox[{"out", " ", "of", " ", "three"}], ")"}], " ", "for", " ", 
+         "the", " ", "unique", " ", "subset"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"mesonFromPmotherVlist", "=", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Select", "[", 
+           RowBox[{"mesonlabellist", ",", 
+            RowBox[{
+             RowBox[{"!", 
+              RowBox[{"MemberQ", "[", 
+               RowBox[{
+                RowBox[{"mesonsFromPlist", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], ",", "#"}], "]"}]}], "&"}]}],
+            "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", "3", ",", "1"}], "}"}]}], "]"}]}], ";",
+        "\[IndentingNewLine]", 
+       RowBox[{"Melement", "=", "0"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{
+         "List", " ", "of", " ", "unique", " ", "combinations", " ", "of", 
+          " ", 
+          RowBox[{"mesons", "/", "labels"}]}], " ", "-", " ", 
+         RowBox[{
+         "two", " ", "from", " ", "the", " ", "S", " ", "propagator", " ", 
+          "and", " ", "one", " ", "from", " ", "Sam", " ", "vertex"}]}], 
+        "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"mlist", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{"mesonFromPmotherVlist", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", "1", ",", 
+             RowBox[{"{", "1", "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"mesonsFromPlist", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "2"}], "}"}], ",", "1"}], "]"}], "]"}], ",", 
+          "2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"labellist", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{"mesonFromPmotherVlist", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", "1", ",", 
+             RowBox[{"{", "2", "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"mesonsFromPlist", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "2"}], "}"}], ",", "2"}], "]"}], "]"}], ",", 
+          "2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+          "Iterating", " ", "over", " ", "possible", " ", "meson", " ", 
+           "combinations", " ", "to", " ", "get", " ", "the", " ", "matrix", 
+           " ", 
+           RowBox[{"element", ":", " ", "\[CapitalMu]"}]}], " ", "=", " ", 
+          RowBox[{
+           SubscriptBox["\[CapitalSigma]", 
+            RowBox[{"{", "ijk", "}"}]], 
+           SubscriptBox["G", 
+            RowBox[{
+             SubscriptBox["V", "mother"], "iV"}]], " ", 
+           FractionBox["1", 
+            RowBox[{
+             SubscriptBox[
+              SuperscriptBox["p", "2"], "V"], "-", 
+             SubscriptBox[
+              SuperscriptBox["m", "2"], "V"], "-", 
+             RowBox[{
+              SubscriptBox["im", "V"], 
+              SubscriptBox["\[CapitalGamma]", "V"]}]}]], 
+           SubscriptBox["G", "Vjk"]}]}], ",", " ", 
+         RowBox[{"where", " ", "G", " ", "is", " ", "the", " ", "vertex"}]}], 
+        "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"Do", "[", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"The", " ", "decay", " ", "product", " ", 
+           SubscriptBox["X", "1"], " ", "from", " ", "the", " ", "vertex", 
+           " ", 
+           SubscriptBox["V", "mother"], 
+           SubscriptBox["VX", "1"]}], ",", " ", 
+          RowBox[{"and", " ", "the", " ", "corresponding", " ", "labels"}]}], 
+         "*)"}], "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"mesPmotherXV", "=", 
+           RowBox[{
+            RowBox[{"mlist", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"labelslistPmotherXV", "=", 
+           RowBox[{"{", 
+            RowBox[{"\"\<0\>\"", ",", "\"\<s\>\"", ",", 
+             RowBox[{
+              RowBox[{"labellist", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+            RowBox[{
+            "The", " ", "decay", " ", "products", " ", "from", " ", "the", 
+             " ", "vertex", " ", 
+             SubscriptBox["VX", "2"], 
+             SubscriptBox["X", "3"]}], ",", " ", 
+            RowBox[{
+            "corresponding", " ", "labels", " ", "and", " ", "momenta"}]}], 
+           "*)"}], "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"meson1Smm", ",", "meson2Smm"}], "}"}], "=", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"mlist", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "[", 
+              RowBox[{"[", "#", "]"}], "]"}], "&"}], "/@", 
+            RowBox[{"{", 
+             RowBox[{"2", ",", "3"}], "}"}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"labelslistSmm", "=", 
+           RowBox[{"{", 
+            RowBox[{"\"\<S\>\"", ",", 
+             RowBox[{
+              RowBox[{"labellist", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "[", 
+              RowBox[{"[", "2", "]"}], "]"}], ",", 
+             RowBox[{
+              RowBox[{"labellist", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "[", 
+              RowBox[{"[", "3", "]"}], "]"}]}], "}"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"mommes1Smm", "=", 
+           RowBox[{"Symbol", "[", 
+            RowBox[{"\"\<p\>\"", "<>", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"labelslistSmm", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], "//", "ToString"}], ")"}]}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"mommes2Smm", "=", 
+           RowBox[{"Symbol", "[", 
+            RowBox[{"\"\<p\>\"", "<>", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"labelslistSmm", "[", 
+                RowBox[{"[", "3", "]"}], "]"}], "//", "ToString"}], ")"}]}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{"Vertex", " ", 
+            SubscriptBox["P", "mother"], 
+            SubscriptBox["SX", "1"]}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"vertPmotherXS", "=", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"FeynmanRuleVertex", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                 "Pmother", ",", "Vintermediate", ",", "mesPmotherXV"}], 
+                 "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"-", "1"}], ",", 
+                  RowBox[{"-", "1"}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"\"\<0\>\"", ",", "\"\<s\>\"", ",", 
+                  RowBox[{
+                   RowBox[{"labellist", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "[", 
+                   RowBox[{"[", "1", "]"}], "]"}]}], "}"}]}], "]"}], "/.", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"coefPheavy", "->", "0"}], ",", 
+                RowBox[{"coefVA", "->", "0"}]}], "}"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"FV", "[", 
+                RowBox[{
+                 RowBox[{"Symbol", "[", 
+                  RowBox[{"\"\<p\>\"", "<>", "\"\<s\>\""}], "]"}], ",", 
+                 "a_"}], "]"}], ":>", 
+               RowBox[{
+                RowBox[{"FV", "[", 
+                 RowBox[{"mommes1Smm", ",", "a"}], "]"}], "+", 
+                RowBox[{"FV", "[", 
+                 RowBox[{"mommes2Smm", ",", "a"}], "]"}]}]}], "}"}]}], "//", 
+            "Contract"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "Its", " ", "contraction", " ", "with", " ", "the", " ", 
+            "propagator"}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"vertexprop", "=", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"vertPmotherXS", "*", 
+              RowBox[{"Spropagator", "[", 
+               RowBox[{"Vintermediate", ",", 
+                RowBox[{"mommes1Smm", "+", "mommes2Smm"}]}], "]"}]}], "//", 
+             "Contract"}], "//", "ExpandScalarProduct"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{"Vertex", " ", 
+            SubscriptBox["VX", "2"], 
+            SubscriptBox["X", "3"]}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"vertSmm", "=", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"FeynmanRuleVertex", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                 "Vintermediate", ",", "meson1Smm", ",", "meson2Smm"}], "}"}],
+                 ",", 
+                RowBox[{"{", 
+                 RowBox[{"1", ",", 
+                  RowBox[{"-", "1"}], ",", 
+                  RowBox[{"-", "1"}]}], "}"}], ",", "labelslistSmm"}], "]"}], 
+              "/.", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"coefPheavy", "->", "0"}], ",", 
+                RowBox[{"coefVA", "->", "0"}]}], "}"}]}], "/.", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"FV", "[", 
+                RowBox[{
+                 RowBox[{"Symbol", "[", 
+                  RowBox[{"\"\<p\>\"", "<>", "\"\<V\>\""}], "]"}], ",", 
+                 "a_"}], "]"}], ":>", 
+               RowBox[{
+                RowBox[{"FV", "[", 
+                 RowBox[{"mommes1Smm", ",", "a"}], "]"}], "+", 
+                RowBox[{"FV", "[", 
+                 RowBox[{"mommes2Smm", ",", "a"}], "]"}]}]}], "}"}]}], "//", 
+            "Simplify"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "Contribution", " ", "to", " ", "the", " ", "matrix", " ", 
+            "element"}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"Melement", "+=", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"vertexprop", "*", "vertSmm"}], ")"}], "//", 
+               "Contract"}], "//", "ExpandScalarProduct"}], "//", 
+             "Simplify"}], ")"}]}], ";"}], "\[IndentingNewLine]", ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", 
+           RowBox[{"Length", "[", "labellist", "]"}], ",", "1"}], "}"}]}], 
+        "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Melement", "=", "Melement"}]}]}], "\[IndentingNewLine]", 
+     "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"MDecayMesonOffShell", "[", 
+     RowBox[{"\"\<S off-shell 3-body\>\"", ",", "Pmother_", ",", "process_"}],
+      "]"}], ":=", "\[IndentingNewLine]", 
+    RowBox[{"Block", "[", 
+     RowBox[{
+      RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"mesonlist", "=", 
+        RowBox[{"plistdec", "[", 
+         RowBox[{"Pmother", ",", "process"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"labellist1", "=", 
+        RowBox[{"Drop", "[", 
+         RowBox[{
+          RowBox[{"labelList", "[", 
+           RowBox[{"Pmother", ",", "process"}], "]"}], ",", "1"}], "]"}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"Sum", "[", 
+        RowBox[{
+         RowBox[{"MDecayMesonOffShell", "[", 
+          RowBox[{
+          "\"\<S off-shell 3-body\>\"", ",", "Pmother", ",", "S", ",", 
+           "mesonlist", ",", "labellist1"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"S", ",", "listMesonS"}], "}"}]}], "]"}]}]}], 
+     "\[IndentingNewLine]", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.9452494420878296`*^9, 3.9452494445732746`*^9}, {
+   3.9452495372582436`*^9, 3.9452495807738037`*^9}, {3.9452505398128414`*^9, 
+   3.945250729703457*^9}, 3.94525118353957*^9, 3.945251242776062*^9, {
+   3.9452513479556713`*^9, 3.9452513480462856`*^9}, {3.945251436046404*^9, 
+   3.945251584794178*^9}, {3.9452516970786495`*^9, 3.9452516993443336`*^9}, {
+   3.945251737062845*^9, 3.945251737764845*^9}, {3.945251890457447*^9, 
+   3.9452518916703053`*^9}, {3.9452520769313793`*^9, 3.945252079029743*^9}, {
+   3.9452522830167866`*^9, 3.945252312793787*^9}, 3.9452524226452904`*^9, {
+   3.9452525976957874`*^9, 3.9452526089061966`*^9}, {3.9453330130326366`*^9, 
+   3.9453330137444687`*^9}, {3.947139861111471*^9, 3.9471398613643055`*^9}, 
+   3.947140163860525*^9, {3.947141226331444*^9, 3.9471412263384457`*^9}, {
+   3.9471432434423904`*^9, 3.947143252800291*^9}, {3.9471444780845203`*^9, 
+   3.9471444864948254`*^9}, {3.947147989320614*^9, 3.947147991330393*^9}, {
+   3.947148269786703*^9, 3.947148271649473*^9}, {3.9471483361876984`*^9, 
+   3.947148336259371*^9}, 3.9471489210241413`*^9, {3.947149749114193*^9, 
+   3.9471497506157494`*^9}, {3.948882686455057*^9, 3.94888269119713*^9}, 
+   3.9488832669527645`*^9},
+ CellLabel->"In[13]:=",ExpressionUUID->"b79a5d94-8a0c-354d-8f78-969804f1efda"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.950346636508972*^9},
+ CellLabel->"In[16]:=",ExpressionUUID->"093acb75-451e-3048-ab65-82333e62688a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Combined", "Subsection",
+ CellChangeTimes->{{3.94714073810528*^9, 
+  3.9471407405957565`*^9}},ExpressionUUID->"ace0eee8-3f78-7f40-8eed-\
+46351266a758"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"M2decayMesonCombined", "[", 
+   RowBox[{
+   "DecayingMeson_", ",", "proc_", ",", "IfIncludeVoffShell_", ",", 
+    "IfIncludeSoffShell_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"mesonlist", "=", 
+        RowBox[{"plistdec", "[", 
+         RowBox[{"DecayingMeson", ",", "proc"}], "]"}]}], ",", 
+       RowBox[{"labellist", "=", 
+        RowBox[{"labelList", "[", 
+         RowBox[{"DecayingMeson", ",", "proc"}], "]"}]}]}], "*)"}], "}"}], 
+    ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"mesonlist", "=", 
+      RowBox[{"plistdec", "[", 
+       RowBox[{"DecayingMeson", ",", "proc"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"labellist", "=", 
+      RowBox[{"labelList", "[", 
+       RowBox[{"DecayingMeson", ",", "proc"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"momlist", "=", 
+      RowBox[{"momList", "[", 
+       RowBox[{"DecayingMeson", ",", "proc"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"MemberQ", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"ToString", "[", 
+              RowBox[{"#", "[", 
+               RowBox[{"[", "0", "]"}], "]"}], "]"}], "==", "\"\<List\>\""}], 
+            ")"}], "&"}], "/@", 
+          RowBox[{"{", 
+           RowBox[{"mesonlist", ",", "labellist", ",", "momlist"}], "}"}]}], 
+         ",", "False"}], "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+       "Print", "[", "\"\<The process's info is not defined!\>\"", "]"}], 
+       "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"mElementProcess", "[", 
+          RowBox[{"DecayingMeson", ",", "proc", ",", "\"\<Contact\>\""}], 
+          "]"}], "=", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"MdecayMesonContact", "[", 
+            RowBox[{"DecayingMeson", ",", "mesonlist", ",", "labellist"}], 
+            "]"}], "/.", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"cvmd", "->", "1"}], ",", 
+             RowBox[{"coefPheavy", "->", "0"}], ",", 
+             RowBox[{"coefVA", "->", "0"}]}], "}"}]}], "//", "Simplify"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"IfIncludeVoffShell", "&&", 
+           RowBox[{
+            RowBox[{"Length", "[", "mesonlist", "]"}], ">", "2"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"mElementProcess", "[", 
+             RowBox[{
+             "DecayingMeson", ",", "proc", ",", "\"\<V-mediated\>\""}], "]"}],
+             "=", 
+            RowBox[{"MDecayMesonOffShell", "[", 
+             RowBox[{
+             "\"\<V off-shell 3-body\>\"", ",", "DecayingMeson", ",", 
+              "proc"}], "]"}]}], ";"}], "\[IndentingNewLine]", ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"mElementProcess", "[", 
+             RowBox[{
+             "DecayingMeson", ",", "proc", ",", "\"\<V-mediated\>\""}], "]"}],
+             "=", "0"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"IfIncludeSoffShell", "&&", 
+           RowBox[{
+            RowBox[{"Length", "[", "mesonlist", "]"}], ">", "2"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"mElementProcess", "[", 
+             RowBox[{
+             "DecayingMeson", ",", "proc", ",", "\"\<S-mediated\>\""}], "]"}],
+             "=", 
+            RowBox[{"MDecayMesonOffShell", "[", 
+             RowBox[{
+             "\"\<S off-shell 3-body\>\"", ",", "DecayingMeson", ",", 
+              "proc"}], "]"}]}], ";"}], "\[IndentingNewLine]", ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"mElementProcess", "[", 
+             RowBox[{
+             "DecayingMeson", ",", "proc", ",", "\"\<S-mediated\>\""}], "]"}],
+             "=", "0"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"mElementProcessTotal", "[", 
+          RowBox[{"DecayingMeson", ",", "proc"}], "]"}], "=", 
+         RowBox[{"Sum", "[", 
+          RowBox[{
+           RowBox[{"mElementProcess", "[", 
+            RowBox[{"DecayingMeson", ",", "proc", ",", "contr"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"contr", ",", 
+             RowBox[{"{", 
+              RowBox[{
+              "\"\<Contact\>\"", ",", "\"\<V-mediated\>\"", ",", 
+               "\"\<S-mediated\>\""}], "}"}]}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"melement2", "=", 
+         RowBox[{
+          RowBox[{"mElementProcessTotal", "[", 
+           RowBox[{"DecayingMeson", ",", "proc"}], "]"}], "*", 
+          RowBox[{"ComplexConjugate", "[", 
+           RowBox[{"mElementProcessTotal", "[", 
+            RowBox[{"DecayingMeson", ",", "proc"}], "]"}], "]"}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+         "If", " ", "the", " ", "decaying", " ", "particle", " ", "is", " ", 
+          "vector"}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"MemberQ", "[", 
+           RowBox[{"listMesonV", ",", "DecayingMeson"}], "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"melement2summedpol", "=", 
+            RowBox[{
+             RowBox[{"DoPolarizationSums", "[", 
+              RowBox[{"melement2", ",", 
+               RowBox[{"momlist", "[", 
+                RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "//", 
+             "ExpandScalarProduct"}]}], ";"}], "\[IndentingNewLine]", ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"melement2summedpol", "=", "melement2"}]}], 
+         "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+         "If", " ", "the", " ", "decay", " ", "products", " ", "are", " ", 
+          "vectors"}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"Do", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"MemberQ", "[", 
+             RowBox[{"listMesonV", ",", 
+              RowBox[{"mesonlist", "[", 
+               RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"melement2summedpol", "=", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"mesonlist", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], "==", "\"\<A\>\""}], ",", 
+               RowBox[{"DoPolarizationSums", "[", 
+                RowBox[{"melement2summedpol", ",", 
+                 RowBox[{"momlist", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"i", "+", "1"}], "]"}], "]"}], ",", "0"}], "]"}], 
+               ",", 
+               RowBox[{"DoPolarizationSums", "[", 
+                RowBox[{"melement2summedpol", ",", 
+                 RowBox[{"momlist", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"i", "+", "1"}], "]"}], "]"}]}], "]"}]}], 
+              "]"}]}]}], "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", 
+            RowBox[{"Length", "[", "mesonlist", "]"}], ",", "1"}], "}"}]}], 
+         "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"melement2kin", "=", 
+         RowBox[{"ruleKinematicsDecays", "[", 
+          RowBox[{"melement2summedpol", ",", "DecayingMeson", ",", "proc"}], 
+          "]"}]}]}]}], "\[IndentingNewLine]", "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.947140744633257*^9, 3.9471407742775383`*^9}, {
+   3.947140845215061*^9, 3.94714090171262*^9}, {3.9471415330906906`*^9, 
+   3.94714153809091*^9}, {3.9471415788964577`*^9, 3.94714166265839*^9}, {
+   3.9471418692443905`*^9, 3.947142095951952*^9}, {3.9471421677133007`*^9, 
+   3.9471421689277554`*^9}, {3.947142207836605*^9, 3.9471422097347775`*^9}, {
+   3.9471425506882343`*^9, 3.9471425704380455`*^9}, {3.947142850122946*^9, 
+   3.9471428668745003`*^9}, {3.9471433162934723`*^9, 3.947143317259672*^9}, {
+   3.9471433935620804`*^9, 3.9471434564422264`*^9}, {3.947143744994255*^9, 
+   3.9471437499647026`*^9}, {3.947144251653225*^9, 3.947144320433178*^9}, {
+   3.9471443821294136`*^9, 3.947144382340374*^9}, {3.947149867191433*^9, 
+   3.9471498720553017`*^9}, {3.9471501476554165`*^9, 3.947150177835129*^9}, {
+   3.9471502402258244`*^9, 3.94715024222863*^9}, 3.9471511880356064`*^9, {
+   3.9488828076057854`*^9, 3.9488828129076195`*^9}, {3.950346732720543*^9, 
+   3.950346733045248*^9}, {3.9503544822451515`*^9, 3.950354511195158*^9}, {
+   3.9503552473431873`*^9, 3.95035526408766*^9}, {3.9504282950194855`*^9, 
+   3.9504282974914417`*^9}, {3.9504534331214523`*^9, 3.9504534371644936`*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"86b59873-6a23-c544-8277-9ac0a7c87060"]
 }, Open  ]]
 }, Open  ]],
 
@@ -928,7 +1577,7 @@ Cell[BoxData[{
   RowBox[{"method", "=", "Automatic"}], 
   RowBox[{"(*", "\"\<QuasiMonteCarlo\>\"", "*)"}], ";"}]}], "Input",
  CellChangeTimes->{{3.945271810070862*^9, 3.9452718149958115`*^9}},
- CellLabel->"In[69]:=",ExpressionUUID->"012d3d1c-c7b8-ae4a-aa51-a59bb9c203dd"]
+ CellLabel->"In[18]:=",ExpressionUUID->"012d3d1c-c7b8-ae4a-aa51-a59bb9c203dd"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -942,243 +1591,56 @@ the integration\
   3.9452668912378216`*^9}},ExpressionUUID->"5be2444b-fbb1-4d4d-bc0d-\
 c9248aef84e7"],
 
-Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"massrange", "=", 
-     RowBox[{"Select", "[", 
-      RowBox[{
-       RowBox[{"Table", "[", 
-        RowBox[{"m", ",", 
-         RowBox[{"{", 
-          RowBox[{"m", ",", "0", ",", "0.958", ",", "0.005"}], "}"}]}], "]"}],
-        ",", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"#", "!=", 
-          RowBox[{
-          "MASS", "[", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(0\)]\)\>\"", 
-           "]"}]}], "&&", 
-         RowBox[{"#", "!=", 
-          RowBox[{"MASS", "[", "\"\<\[Eta]\>\"", "]"}]}], "&&", 
-         RowBox[{"#", "!=", 
-          RowBox[{"MASS", "[", "\"\<\[Eta]'\>\"", "]"}]}]}], "&"}]}], "]"}]}],
-     ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"\[CapitalGamma]numericMesonTemp", "[", 
-     RowBox[{"3", ",", "meson_", ",", "process_"}], "]"}], ":=", 
-    RowBox[{"Block", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"m2", "=", 
-         RowBox[{"MASS", "[", 
-          RowBox[{
-           RowBox[{"plistdec", "[", 
-            RowBox[{"meson", ",", "process"}], "]"}], "[", 
-           RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ",", 
-        RowBox[{"m3", "=", 
-         RowBox[{"MASS", "[", 
-          RowBox[{
-           RowBox[{"plistdec", "[", 
-            RowBox[{"meson", ",", "process"}], "]"}], "[", 
-           RowBox[{"[", "3", "]"}], "]"}], "]"}]}], ",", 
-        RowBox[{"m0", "=", 
-         RowBox[{"MASS", "[", "meson", "]"}]}]}], "}"}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"\[CapitalGamma]numericMesonTemp1", "[", "ma_", "]"}], ":=", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{"m0", ">", 
-           RowBox[{"ma", "+", "m2", "+", "m3"}]}], ",", 
-          RowBox[{
-           FractionBox["1", 
-            RowBox[{
-             SuperscriptBox[
-              RowBox[{"(", 
-               RowBox[{"2", "Pi"}], ")"}], "3"], "32", "*", 
-             SuperscriptBox["m0", "3"]}]], 
-           FractionBox["1", 
-            RowBox[{
-             RowBox[{"nPolarizations", "[", "meson", "]"}], " "}]], 
-           RowBox[{"SfactorDecay", "[", 
-            RowBox[{"meson", ",", "process"}], "]"}], "*", 
-           RowBox[{"NIntegrate", "[", 
-            RowBox[{
-             RowBox[{"M2mesonNumeric3bodyReduced", "[", 
-              RowBox[{
-              "meson", ",", "process", ",", "ma", ",", "m12", ",", "m23"}], 
-              "]"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"m12", ",", 
-               RowBox[{"m12lower", "[", 
-                RowBox[{"ma", ",", "m2"}], "]"}], ",", 
-               RowBox[{"m12upper", "[", 
-                RowBox[{"m0", ",", "m3"}], "]"}]}], "}"}], ",", 
-             RowBox[{"{", 
-              RowBox[{"m23", ",", 
-               RowBox[{"m23lower", "[", 
-                RowBox[{"m12", ",", "m0", ",", "ma", ",", "m2", ",", "m3"}], 
-                "]"}], ",", 
-               RowBox[{"m23upper", "[", 
-                RowBox[{"m12", ",", "m0", ",", "ma", ",", "m2", ",", "m3"}], 
-                "]"}]}], "}"}], ",", 
-             RowBox[{"Method", "->", 
-              RowBox[{"(*", 
-               RowBox[{"intmethod", "[", "process", "]"}], "*)"}], 
-              "method"}]}], "]"}]}], ",", "0"}], "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"tabulatedwidth", "=", 
-        RowBox[{"ParallelTable", "[", 
-         RowBox[{
-          RowBox[{"{", 
-           RowBox[{"ma", ",", 
-            RowBox[{"Quiet", "[", 
-             RowBox[{"\[CapitalGamma]numericMesonTemp1", "[", "ma", "]"}], 
-             "]"}]}], "}"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"ma", ",", "massrange"}], "}"}]}], "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"If", "[", 
-        RowBox[{
-         RowBox[{"m0", ">", 
-          RowBox[{"ma", "+", "m2", "+", "m3"}]}], ",", 
-         RowBox[{"Evaluate", "[", 
-          RowBox[{
-           RowBox[{"EffectiveCoupling", "[", 
-            RowBox[{"meson", ",", "process"}], "]"}], "*", 
-           RowBox[{
-            RowBox[{"Interpolation", "[", 
-             RowBox[{"tabulatedwidth", ",", 
-              RowBox[{"InterpolationOrder", "->", "1"}]}], "]"}], "[", "ma", 
-            "]"}]}], "]"}], ",", "0."}], "]"}]}]}], "\[IndentingNewLine]", 
-     "]"}]}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"\[CapitalGamma]numericMesonTemp", "[", 
-     RowBox[{"2", ",", "meson_", ",", "process_", ",", "ma_"}], "]"}], ":=", 
-    RowBox[{"With", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"m0", "=", 
-         RowBox[{"MASS", "[", "meson", "]"}]}], ",", 
-        RowBox[{"m2", "=", 
-         RowBox[{"MASS", "[", 
-          RowBox[{
-           RowBox[{"plistdec", "[", 
-            RowBox[{"meson", ",", "process"}], "]"}], "[", 
-           RowBox[{"[", "2", "]"}], "]"}], "]"}]}]}], "}"}], ",", 
-      RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{
-         RowBox[{"MASS", "[", "meson", "]"}], ">", 
-         RowBox[{"ma", "+", "m2"}]}], ",", 
-        RowBox[{"Evaluate", "[", 
-         RowBox[{
-          RowBox[{"SfactorDecay", "[", 
-           RowBox[{"meson", ",", "process"}], "]"}], 
-          FractionBox["1", 
-           RowBox[{
-            RowBox[{"nPolarizations", "[", "meson", "]"}], " "}]], "*", 
-          FractionBox[
-           RowBox[{"M2mesonNumeric2body", "[", 
-            RowBox[{"meson", ",", "process"}], "]"}], 
-           RowBox[{"8", "Pi"}]], 
-          FractionBox["1", 
-           SuperscriptBox[
-            RowBox[{"MASS", "[", "meson", "]"}], "2"]], 
-          RowBox[{"psol2body", "[", 
-           RowBox[{"m0", ",", "ma", ",", "m2"}], "]"}]}], "]"}], ",", "0."}], 
-       "]"}]}], "]"}]}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"\[CapitalGamma]numericMesonFinSimple", "[", 
-     RowBox[{"meson_", ",", "process_", ",", "ma_"}], "]"}], ":=", 
-    RowBox[{"If", "[", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"Length", "[", 
-        RowBox[{"plistdec", "[", 
-         RowBox[{"meson", ",", "process"}], "]"}], "]"}], "==", "2"}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{"\[CapitalGamma]numericMesonTemp", "[", 
-       RowBox[{"2", ",", "meson", ",", "process", ",", "ma"}], "]"}], 
-      "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
-      RowBox[{"\[CapitalGamma]numericMesonTemp", "[", 
-       RowBox[{"3", ",", "meson", ",", "process"}], "]"}]}], 
-     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"BrMesonDecayFactorizableTemp", "[", 
-     RowBox[{"meson_", ",", "process_", ",", "ma_"}], "]"}], ":=", 
-    RowBox[{"Block", "[", 
-     RowBox[{
-      RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
-      FractionBox[
-       RowBox[{"\[CapitalGamma]numericMesonFinSimple", "[", 
-        RowBox[{"meson", ",", "process", ",", "ma"}], "]"}], 
-       RowBox[{"DECAYWIDTH", "[", "meson", "]"}]]}], "\[IndentingNewLine]", 
-     "]"}]}], "\[IndentingNewLine]"}]}]], "Input",
- CellChangeTimes->{{3.9452438003137646`*^9, 3.945243904990244*^9}, {
-   3.945243944670183*^9, 3.9452439853060036`*^9}, {3.9452440687734985`*^9, 
-   3.945244087281111*^9}, {3.9452455253194084`*^9, 3.945245597567932*^9}, {
-   3.9452456283296623`*^9, 3.945245919982252*^9}, {3.9452460117394657`*^9, 
-   3.945246060648834*^9}, {3.945246096271311*^9, 3.9452464048851757`*^9}, {
-   3.9452468372778816`*^9, 3.9452468979155006`*^9}, {3.9452469342633553`*^9, 
-   3.945246936488144*^9}, {3.9452485790640774`*^9, 3.9452485790918674`*^9}, 
-   3.9452560077101803`*^9, {3.9452667613839245`*^9, 3.945266763719406*^9}, {
-   3.9452667980788937`*^9, 3.9452668659020615`*^9}, {3.945267064637949*^9, 
-   3.945267101652006*^9}, {3.945267569506958*^9, 3.9452677112032185`*^9}, {
-   3.9452693673908787`*^9, 3.9452694508001995`*^9}, {3.945269493557783*^9, 
-   3.945269506793516*^9}, {3.9452700177252407`*^9, 3.945270022620844*^9}, {
-   3.945270083317911*^9, 3.945270088979183*^9}, {3.9452720830355453`*^9, 
-   3.945272083221098*^9}, {3.9452725876034374`*^9, 3.9452726429404087`*^9}, {
-   3.9452727675780277`*^9, 3.9452727697395744`*^9}},
- CellLabel->
-  "In[577]:=",ExpressionUUID->"b1dfa02c-ad1b-7f49-8199-a5efee2ee6ee"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["When no factorization is possible", "Subsection",
- CellChangeTimes->{{3.9452668706841755`*^9, 
-  3.945266874710663*^9}},ExpressionUUID->"1ef58586-683c-f14c-a744-\
-9efac7bbdd7c"],
-
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"\[CapitalGamma]numericMesonNonFactorizableTemp", "[", 
-   RowBox[{
-   "3", ",", "meson_", ",", "process_", ",", "fa_", ",", "cu_", ",", "cd_", 
-    ",", "cs_", ",", "cc_", ",", "cb_", ",", "ct_", ",", "cG_", ",", "ce_", 
-    ",", "c\[Mu]_", ",", "c\[Tau]_"}], "]"}], ":=", 
+  RowBox[{"massrange", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{"m", ",", 
+       RowBox[{"{", 
+        RowBox[{"m", ",", "0", ",", "0.958", ",", "0.005"}], "}"}]}], "]"}], 
+     ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "!=", 
+        RowBox[{
+        "MASS", "[", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(0\)]\)\>\"", 
+         "]"}]}], "&&", 
+       RowBox[{"#", "!=", 
+        RowBox[{"MASS", "[", "\"\<\[Eta]\>\"", "]"}]}], "&&", 
+       RowBox[{"#", "!=", 
+        RowBox[{"MASS", "[", "\"\<\[Eta]'\>\"", "]"}]}]}], "&"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalGamma]numericMesonTemp", "[", 
+   RowBox[{"3", ",", "meson_", ",", "process_"}], "]"}], ":=", 
   RowBox[{"Block", "[", 
    RowBox[{
     RowBox[{"{", 
      RowBox[{
+      RowBox[{"m0", "=", 
+       RowBox[{"MASS", "[", "meson", "]"}]}], ",", 
+      RowBox[{"m1", "=", 
+       RowBox[{"MASS", "[", 
+        RowBox[{
+         RowBox[{"plistdec", "[", 
+          RowBox[{"meson", ",", "process"}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ",", 
       RowBox[{"m2", "=", 
        RowBox[{"MASS", "[", 
         RowBox[{
          RowBox[{"plistdec", "[", 
           RowBox[{"meson", ",", "process"}], "]"}], "[", 
-         RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ",", 
-      RowBox[{"m3", "=", 
-       RowBox[{"MASS", "[", 
-        RowBox[{
-         RowBox[{"plistdec", "[", 
-          RowBox[{"meson", ",", "process"}], "]"}], "[", 
-         RowBox[{"[", "3", "]"}], "]"}], "]"}]}], ",", 
-      RowBox[{"m0", "=", 
-       RowBox[{"MASS", "[", "meson", "]"}]}]}], "}"}], ",", 
+         RowBox[{"[", "2", "]"}], "]"}], "]"}]}]}], "}"}], ",", 
     "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{
       RowBox[{"\[CapitalGamma]numericMesonTemp1", "[", "ma_", "]"}], ":=", 
       RowBox[{"If", "[", 
        RowBox[{
-        RowBox[{"m0", ">", 
-         RowBox[{"ma", "+", "m2", "+", "m3"}]}], ",", 
+        RowBox[{"ma", "<", 
+         RowBox[{"m0", "-", "m1", "-", "m2"}]}], ",", 
         RowBox[{
          FractionBox["1", 
           RowBox[{
@@ -1193,25 +1655,23 @@ Cell[BoxData[{
           RowBox[{"meson", ",", "process"}], "]"}], "*", 
          RowBox[{"NIntegrate", "[", 
           RowBox[{
-           RowBox[{"M2mesonNumeric3body", "[", 
+           RowBox[{"M2mesonNumeric3bodyReduced", "[", 
             RowBox[{
-            "meson", ",", "process", ",", "ma", ",", "1", ",", "m12", ",", 
-             "m23", ",", "cu", ",", "cd", ",", "cs", ",", "cc", ",", "cb", 
-             ",", "ct", ",", "cG", ",", "ce", ",", "c\[Mu]", ",", "c\[Tau]"}],
-             "]"}], ",", 
+            "meson", ",", "process", ",", "ma", ",", "m12", ",", "m23"}], 
+            "]"}], ",", 
            RowBox[{"{", 
             RowBox[{"m12", ",", 
              RowBox[{"m12lower", "[", 
-              RowBox[{"ma", ",", "m2"}], "]"}], ",", 
+              RowBox[{"m1", ",", "m2"}], "]"}], ",", 
              RowBox[{"m12upper", "[", 
-              RowBox[{"m0", ",", "m3"}], "]"}]}], "}"}], ",", 
+              RowBox[{"m0", ",", "ma"}], "]"}]}], "}"}], ",", 
            RowBox[{"{", 
             RowBox[{"m23", ",", 
              RowBox[{"m23lower", "[", 
-              RowBox[{"m12", ",", "m0", ",", "ma", ",", "m2", ",", "m3"}], 
+              RowBox[{"m12", ",", "m0", ",", "m1", ",", "m2", ",", "ma"}], 
               "]"}], ",", 
              RowBox[{"m23upper", "[", 
-              RowBox[{"m12", ",", "m0", ",", "ma", ",", "m2", ",", "m3"}], 
+              RowBox[{"m12", ",", "m0", ",", "m1", ",", "m2", ",", "ma"}], 
               "]"}]}], "}"}], ",", 
            RowBox[{"Method", "->", 
             RowBox[{"(*", 
@@ -1230,8 +1690,202 @@ Cell[BoxData[{
      "\[IndentingNewLine]", 
      RowBox[{"If", "[", 
       RowBox[{
-       RowBox[{"m0", ">", 
-        RowBox[{"ma", "+", "m2", "+", "m3"}]}], ",", 
+       RowBox[{"ma", "<", 
+        RowBox[{"m0", "-", "m1", "-", "m2"}]}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{
+         RowBox[{"EffectiveCoupling", "[", 
+          RowBox[{"meson", ",", "process"}], "]"}], "*", 
+         RowBox[{
+          RowBox[{"Interpolation", "[", 
+           RowBox[{"tabulatedwidth", ",", 
+            RowBox[{"InterpolationOrder", "->", "1"}]}], "]"}], "[", "ma", 
+          "]"}]}], "]"}], ",", "0."}], "]"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalGamma]numericMesonTemp", "[", 
+   RowBox[{"2", ",", "meson_", ",", "process_", ",", "ma_"}], "]"}], ":=", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"m0", "=", 
+       RowBox[{"MASS", "[", "meson", "]"}]}], ",", 
+      RowBox[{"m1", "=", 
+       RowBox[{"MASS", "[", 
+        RowBox[{
+         RowBox[{"plistdec", "[", 
+          RowBox[{"meson", ",", "process"}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}], "}"}], ",", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"ma", "<", 
+       RowBox[{
+        RowBox[{"MASS", "[", "meson", "]"}], "-", "m1"}]}], ",", 
+      RowBox[{"Evaluate", "[", 
+       RowBox[{
+        RowBox[{"SfactorDecay", "[", 
+         RowBox[{"meson", ",", "process"}], "]"}], 
+        FractionBox["1", 
+         RowBox[{
+          RowBox[{"nPolarizations", "[", "meson", "]"}], " "}]], "*", 
+        FractionBox[
+         RowBox[{"M2mesonNumeric2body", "[", 
+          RowBox[{"meson", ",", "process"}], "]"}], 
+         RowBox[{"8", "Pi"}]], 
+        FractionBox["1", 
+         SuperscriptBox[
+          RowBox[{"MASS", "[", "meson", "]"}], "2"]], 
+        RowBox[{"psol2body", "[", 
+         RowBox[{"m0", ",", "ma", ",", "m1"}], "]"}]}], "]"}], ",", "0."}], 
+     "]"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalGamma]numericMesonFinSimple", "[", 
+   RowBox[{"meson_", ",", "process_", ",", "ma_"}], "]"}], ":=", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Length", "[", 
+      RowBox[{"plistdec", "[", 
+       RowBox[{"meson", ",", "process"}], "]"}], "]"}], "==", "2"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\[CapitalGamma]numericMesonTemp", "[", 
+     RowBox[{"2", ",", "meson", ",", "process", ",", "ma"}], "]"}], 
+    "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+    RowBox[{"\[CapitalGamma]numericMesonTemp", "[", 
+     RowBox[{"3", ",", "meson", ",", "process"}], "]"}]}], 
+   "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"BrMesonDecayFactorizableTemp", "[", 
+   RowBox[{"meson_", ",", "process_", ",", "ma_"}], "]"}], ":=", 
+  RowBox[{"Block", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    FractionBox[
+     RowBox[{"\[CapitalGamma]numericMesonFinSimple", "[", 
+      RowBox[{"meson", ",", "process", ",", "ma"}], "]"}], 
+     RowBox[{"DECAYWIDTH", "[", "meson", "]"}]]}], "\[IndentingNewLine]", 
+   "]"}]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.9452438003137646`*^9, 3.945243904990244*^9}, {
+   3.945243944670183*^9, 3.9452439853060036`*^9}, {3.9452440687734985`*^9, 
+   3.945244087281111*^9}, {3.9452455253194084`*^9, 3.945245597567932*^9}, {
+   3.9452456283296623`*^9, 3.945245919982252*^9}, {3.9452460117394657`*^9, 
+   3.945246060648834*^9}, {3.945246096271311*^9, 3.9452464048851757`*^9}, {
+   3.9452468372778816`*^9, 3.9452468979155006`*^9}, {3.9452469342633553`*^9, 
+   3.945246936488144*^9}, {3.9452485790640774`*^9, 3.9452485790918674`*^9}, 
+   3.9452560077101803`*^9, {3.9452667613839245`*^9, 3.945266763719406*^9}, {
+   3.9452667980788937`*^9, 3.9452668659020615`*^9}, {3.945267064637949*^9, 
+   3.945267101652006*^9}, {3.945267569506958*^9, 3.9452677112032185`*^9}, {
+   3.9452693673908787`*^9, 3.9452694508001995`*^9}, {3.945269493557783*^9, 
+   3.945269506793516*^9}, {3.9452700177252407`*^9, 3.945270022620844*^9}, {
+   3.945270083317911*^9, 3.945270088979183*^9}, {3.9452720830355453`*^9, 
+   3.945272083221098*^9}, {3.9452725876034374`*^9, 3.9452726429404087`*^9}, {
+   3.9452727675780277`*^9, 3.9452727697395744`*^9}, 3.947140184849415*^9, {
+   3.9503406490540752`*^9, 3.950340695115484*^9}, {3.9503449085776443`*^9, 
+   3.950344937715456*^9}, {3.950453944488823*^9, 3.9504539938320274`*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"b1dfa02c-ad1b-7f49-8199-a5efee2ee6ee"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["When no factorization is possible", "Subsection",
+ CellChangeTimes->{{3.9452668706841755`*^9, 
+  3.945266874710663*^9}},ExpressionUUID->"1ef58586-683c-f14c-a744-\
+9efac7bbdd7c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[CapitalGamma]numericMesonNonFactorizableTemp", "[", 
+   RowBox[{
+   "3", ",", "meson_", ",", "process_", ",", "fa_", ",", "cu_", ",", "cd_", 
+    ",", "cs_", ",", "cc_", ",", "cb_", ",", "ct_", ",", "cG_", ",", "ce_", 
+    ",", "c\[Mu]_", ",", "c\[Tau]_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"m1", "=", 
+       RowBox[{"MASS", "[", 
+        RowBox[{
+         RowBox[{"plistdec", "[", 
+          RowBox[{"meson", ",", "process"}], "]"}], "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ",", 
+      RowBox[{"m2", "=", 
+       RowBox[{"MASS", "[", 
+        RowBox[{
+         RowBox[{"plistdec", "[", 
+          RowBox[{"meson", ",", "process"}], "]"}], "[", 
+         RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ",", 
+      RowBox[{"m0", "=", 
+       RowBox[{"MASS", "[", "meson", "]"}]}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"M2num", "[", 
+       RowBox[{"mLLP_", ",", "m12_", ",", "m23_"}], "]"}], "=", 
+      RowBox[{"M2mesonNumeric3body", "[", 
+       RowBox[{
+       "meson", ",", "process", ",", "mLLP", ",", "1", ",", "m12", ",", "m23",
+         ",", "cu", ",", "cd", ",", "cs", ",", "cc", ",", "cb", ",", "ct", 
+        ",", "cG", ",", "ce", ",", "c\[Mu]", ",", "c\[Tau]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"\[CapitalGamma]numericMesonTemp1", "[", "mLLP_", "]"}], ":=", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"mLLP", "<", 
+         RowBox[{"m0", "-", "m1", "-", "m2"}]}], ",", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{
+          FractionBox["1", 
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"2", "Pi"}], ")"}], "3"], "32", "*", 
+            SuperscriptBox["m0", "3"]}]], 
+          FractionBox["1", 
+           RowBox[{
+            RowBox[{"nPolarizations", "[", "meson", "]"}], " "}]], 
+          RowBox[{"SfactorDecay", "[", 
+           RowBox[{"meson", ",", "process"}], "]"}], "*", 
+          RowBox[{"NIntegrate", "[", 
+           RowBox[{
+            RowBox[{"M2num", "[", 
+             RowBox[{"mLLP", ",", "m12", ",", "m23"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"m12", ",", 
+              RowBox[{"m12lower", "[", 
+               RowBox[{"m1", ",", "m2"}], "]"}], ",", 
+              RowBox[{"m12upper", "[", 
+               RowBox[{"m0", ",", "mLLP"}], "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"m23", ",", 
+              RowBox[{"m23lower", "[", 
+               RowBox[{"m12", ",", "m0", ",", "m1", ",", "m2", ",", "mLLP"}], 
+               "]"}], ",", 
+              RowBox[{"m23upper", "[", 
+               RowBox[{"m12", ",", "m0", ",", "m1", ",", "m2", ",", "mLLP"}], 
+               "]"}]}], "}"}], ",", 
+            RowBox[{"Method", "->", 
+             RowBox[{"(*", 
+              RowBox[{"intmethod", "[", "process", "]"}], "*)"}], 
+             "method"}]}], "]"}]}], "]"}], ",", "0"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"tabulatedwidth", "=", 
+      RowBox[{"ParallelTable", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"ma", ",", 
+          RowBox[{"Quiet", "[", 
+           RowBox[{"\[CapitalGamma]numericMesonTemp1", "[", "ma", "]"}], 
+           "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"ma", ",", "massrange"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"ma", "<", 
+        RowBox[{"m0", "-", "m1", "-", "m2"}]}], ",", 
        RowBox[{"Evaluate", "[", 
         RowBox[{
          FractionBox["1", 
@@ -1284,9 +1938,17 @@ Cell[BoxData[{
    3.945270648904434*^9}, {3.945270696203701*^9, 3.945270703339468*^9}, {
    3.945271207452448*^9, 3.9452712099030933`*^9}, 3.9452713005174103`*^9, 
    3.945272646786337*^9, {3.9452727727741337`*^9, 3.945272775158037*^9}, {
-   3.9452738314367275`*^9, 3.945273835737879*^9}},
- CellLabel->
-  "In[582]:=",ExpressionUUID->"c68af436-c3ae-b54b-8a8b-4d100a202129"]
+   3.9452738314367275`*^9, 3.945273835737879*^9}, {3.9503405354073257`*^9, 
+   3.950340599371252*^9}, {3.9503449465101566`*^9, 3.9503449532201176`*^9}, {
+   3.9503464472140503`*^9, 3.95034645170998*^9}, {3.9503507364128265`*^9, 
+   3.9503507392997704`*^9}, {3.9503524120371284`*^9, 3.950352415354336*^9}, {
+   3.9503525202463074`*^9, 3.950352549951626*^9}, {3.9504532692236195`*^9, 
+   3.9504532743118114`*^9}, {3.950453547614315*^9, 3.9504535497414055`*^9}, {
+   3.950454008943289*^9, 3.950454022253561*^9}, {3.9504566791718655`*^9, 
+   3.9504566820229435`*^9}, {3.9504567452879086`*^9, 3.950456806619812*^9}, {
+   3.9504568860065956`*^9, 3.950456903722988*^9}, {3.950458477310993*^9, 
+   3.9504584787602386`*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"c68af436-c3ae-b54b-8a8b-4d100a202129"]
 }, Open  ]]
 }, Open  ]],
 
@@ -1307,6 +1969,11 @@ Cell[TextData[Cell[BoxData[
  CellChangeTimes->{{3.945243707283785*^9, 
   3.9452437094612217`*^9}},ExpressionUUID->"8ab80122-30b3-9740-a90b-\
 4929c28f09fa"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.950459049058937*^9, 
+  3.950459052177479*^9}},ExpressionUUID->"9f880d66-be35-0048-a765-\
+95effb5e9376"],
 
 Cell[CellGroupData[{
 
@@ -1334,7 +2001,7 @@ Cell[BoxData[{
     RowBox[{"mes", ",", "proc"}], "]"}], "=", 
    RowBox[{"{", 
     RowBox[{
-    "\"\<a\>\"", ",", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(+\)]\)\>\""}], 
+    "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(+\)]\)\>\"", ",", "\"\<a\>\""}], 
     "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -1364,16 +2031,25 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
    RowBox[{"reduceable", "[", 
-    RowBox[{"mes", ",", "proc"}], "]"}], "=", "True"}], ";"}]}], "Input",
+    RowBox[{"mes", ",", "proc"}], "]"}], "=", "True"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\!\(\*SuperscriptBox[\(\[Rho]\), \(+\)]\)\>\"", ",", 
+     "\"\<\[Pi]a\>\""}], "]"}], "=", "\"\<RhoCh-to-ALP-PiCh\>\""}], 
+  ";"}]}], "Input",
  CellChangeTimes->{{3.945243940665119*^9, 3.945243990515604*^9}, {
   3.9452440389514275`*^9, 3.9452440744807854`*^9}, {3.945244124035391*^9, 
   3.945244340118128*^9}, {3.9452443989390507`*^9, 3.9452444001849117`*^9}, {
   3.945244458501606*^9, 3.9452445304205303`*^9}, {3.945244879551628*^9, 
   3.9452448994611645`*^9}, {3.9452451637653465`*^9, 3.945245271640808*^9}, {
   3.945245351428322*^9, 3.945245356530588*^9}, {3.9452656026168003`*^9, 
-  3.945265602839142*^9}, {3.9452673832054024`*^9, 3.9452673902971935`*^9}},
- CellLabel->
-  "In[584]:=",ExpressionUUID->"805bd0ab-096e-b04c-91d0-16b78b9cd620"],
+  3.945265602839142*^9}, {3.9452673832054024`*^9, 3.9452673902971935`*^9}, {
+  3.950340619855606*^9, 3.9503406234640865`*^9}, {3.950459050321636*^9, 
+  3.9504590509568176`*^9}},ExpressionUUID->"805bd0ab-096e-b04c-91d0-\
+16b78b9cd620"],
 
 Cell[BoxData[
  FormBox[
@@ -1387,9 +2063,13 @@ Cell[BoxData[
    3.945254126364401*^9, 3.9452559215476036`*^9, 3.9452561645788937`*^9, 
    3.9452656043013706`*^9, 3.9452664432793884`*^9, 3.945267401286932*^9, 
    3.945269776308302*^9, 3.945271819309635*^9, 3.9452723748606033`*^9, 
-   3.9452733192120934`*^9, 3.945274141409136*^9},
- CellLabel->
-  "Out[589]=",ExpressionUUID->"0b16d77c-be72-9e41-bb10-bcf691befa2d"]
+   3.9452733192120934`*^9, 3.945274141409136*^9, 3.947140200718132*^9, 
+   3.9471421305195274`*^9, 3.947142821858431*^9, 3.947143265610388*^9, 
+   3.9471478683108273`*^9, 3.9471482778288326`*^9, 3.9471511727758675`*^9, 
+   3.9471518274459705`*^9, 3.9471521091590366`*^9, 3.9471526060442505`*^9, 
+   3.9488827120549583`*^9, 3.950340714811678*^9, 3.9504283650796757`*^9, 
+   3.9504547791384716`*^9, 3.950456010952198*^9, 3.950457911661436*^9},
+ CellLabel->"Out[94]=",ExpressionUUID->"709fed1e-b31b-a14a-a7e0-88256ccf1caf"]
 }, Open  ]]
 }, Open  ]],
 
@@ -1400,6 +2080,8 @@ Cell["Matrix element", "Subsubsection",
   3.9452445495762653`*^9}},ExpressionUUID->"b8280901-3cba-0248-9f43-\
 60bab24db0c2"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{"mes", "=", "\"\<\!\(\*SuperscriptBox[\(\[Rho]\), \(+\)]\)\>\""}], 
@@ -1408,10 +2090,14 @@ Cell[BoxData[{
   RowBox[{"proc", "=", "\"\<\[Pi]a\>\""}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"M2decayMeson", "[", 
-    RowBox[{"mes", ",", "proc"}], "]"}], "=", 
-   RowBox[{"M2decayMesonArbitrary", "[", 
-    RowBox[{"mes", ",", "proc"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"M2decayMeson", "[", 
+     RowBox[{"mes", ",", "proc"}], "]"}], "=", 
+    RowBox[{
+     RowBox[{"Simplify", "/@", 
+      RowBox[{"M2decayMesonCombined", "[", 
+       RowBox[{"mes", ",", "proc", ",", "True", ",", "True"}], "]"}]}], "//", 
+     "Simplify"}]}], ";"}], "//", "AbsoluteTiming"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"M2mesonNumeric2body", "[", 
@@ -1443,8 +2129,21 @@ Cell[BoxData[{
    3.945268612537485*^9}, {3.9452693283443794`*^9, 3.945269333574774*^9}, 
    3.945269472318884*^9, {3.94526957505138*^9, 3.945269575172966*^9}, {
    3.9452723789196873`*^9, 3.945272379386469*^9}, {3.9452742660728664`*^9, 
-   3.945274266159626*^9}},ExpressionUUID->"96dbd4d1-a413-d942-b23e-\
-00296927d4ca"]
+   3.945274266159626*^9}, 3.9471418435946293`*^9, {3.947151196781685*^9, 
+   3.947151251366644*^9}, 3.950428354142725*^9},
+ CellLabel->"In[34]:=",ExpressionUUID->"96dbd4d1-a413-d942-b23e-00296927d4ca"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{"0.1330419`", ",", "Null"}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{{3.947151217747284*^9, 3.947151251832144*^9}, 
+   3.947151828610338*^9, 3.947152110574127*^9, 3.9471526071755543`*^9, 
+   3.9488827135558987`*^9, {3.9503407207614975`*^9, 3.9503407214637375`*^9}, 
+   3.9504279184018955`*^9, 3.9504283660474052`*^9, 3.9504547793239784`*^9, 
+   3.950456011127901*^9, 3.9504579118115063`*^9},
+ CellLabel->"Out[98]=",ExpressionUUID->"750a690f-89bb-6a45-86f9-3da93df94e5e"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]],
 
@@ -1487,9 +2186,9 @@ Cell[BoxData[{
     RowBox[{"mes", ",", "proc"}], "]"}], "=", 
    RowBox[{"{", 
     RowBox[{
-    "\"\<a\>\"", ",", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(+\)]\)\>\"", 
-     ",", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(-\)]\)\>\""}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(+\)]\)\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(-\)]\)\>\"", ",", "\"\<a\>\""}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"labelList", "[", 
@@ -1523,7 +2222,7 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
    RowBox[{"reduceable", "[", 
-    RowBox[{"mes", ",", "proc"}], "]"}], "=", "True"}], 
+    RowBox[{"mes", ",", "proc"}], "]"}], "=", "False"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -1536,9 +2235,9 @@ Cell[BoxData[{
     RowBox[{"mes", ",", "proc"}], "]"}], "=", 
    RowBox[{"{", 
     RowBox[{
-    "\"\<a\>\"", ",", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(0\)]\)\>\"", 
-     ",", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(0\)]\)\>\""}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(0\)]\)\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(0\)]\)\>\"", ",", "\"\<a\>\""}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"labelList", "[", 
@@ -1573,17 +2272,33 @@ Cell[BoxData[{
     "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \
 \(+\)]\)\!\(\*SuperscriptBox[\(\[Pi]\), \(-\)]\)\>\"", ",", 
      "\"\<\!\(\*SuperscriptBox[\(a2\[Pi]\), \(0\)]\)\>\""}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Eta]\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a2\[Pi]\), \(0\)]\)\>\""}], "]"}], "=", 
+   "\"\<Eta-to-ALP-2Pi0\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Eta]\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(+\)]\)\!\(\*SuperscriptBox[\(\
+\[Pi]\), \(-\)]\)\>\""}], "]"}], "=", "\"\<Eta-to-ALP-2PiCh\>\""}], 
   ";"}]}], "Input",
  CellChangeTimes->CompressedData["
-1:eJxTTMoPSmViYGAQAWIQvcJj6pIvKW8dr9RfWAWiJYrubQDRM5L8t4LoN4qN
+1:eJxTTMoPSmViYGCQAGIQvcJj6pIvKW8dr9RfWAWiJYrubQDRM5L8t4LoN4qN
 u0H0luPN18A0z727IPrMK9Z7IFqDN+ApiP5T4vsORH9Y9lHyK5C+czBPBkTv
 qK2wBdENjV+8QPSFLW9DQPSUXxNCQXQIg57lNyAtEiVrBaIDSj+Vg2ibi4xd
 IPrIkyu9IHrFmjMTQbSFytqpIHpJe+Q0EH3jCvc8sH5W1QUgOmJe5BIQ/eTg
 dgg9d90aEJ1xQWM3iP7DmPfsF8jdO9heguga3VMM/0H0kjNg2kN2iSWI/rBf
-3ApEz4jnlGJIBcqvPAGmZxwX2AuiJWbZ7gPRAA/0tkk=
+3ApEz4jnlGJIBcqvPAGmZxwX2AuiJWbZ7gPRDIUpfZMy3jo+CG8G0wGHlvit
+zXvreKBZIwBE9yh3NTwB0jEn5oDpA8lfRZ8DaY++iWIgGgDgYdhC
   "],
  CellLabel->
-  "In[597]:=",ExpressionUUID->"69d0563f-d54d-4e40-b992-880bc5f020a5"]
+  "In[244]:=",ExpressionUUID->"69d0563f-d54d-4e40-b992-880bc5f020a5"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1599,113 +2314,120 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"mes", "=", "\"\<\[Eta]\>\""}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"Do", "[", "\[IndentingNewLine]", 
-   RowBox[{
+  RowBox[{
+   RowBox[{"ResourceFunction", "[", "\"\<MonitorProgress\>\"", "]"}], "@", 
+   RowBox[{"Do", "[", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{
-      RowBox[{"M2decayMeson", "[", 
-       RowBox[{"mes", ",", "proc"}], "]"}], "=", 
-      RowBox[{"M2decayMesonArbitrary", "[", 
-       RowBox[{"mes", ",", "proc"}], "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"M2mesonNumeric3body", "[", 
-       RowBox[{
-       "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "m12_", ",", "m23_", 
-        ",", "cu_", ",", "cd_", ",", "cs_", ",", "cc_", ",", "cb_", ",", 
-        "ct_", ",", "cG_", ",", "ce_", ",", "c\[Mu]_", ",", "c\[Tau]_"}], 
-       "]"}], "=", 
       RowBox[{
+       RowBox[{"M2decayMeson", "[", 
+        RowBox[{"mes", ",", "proc"}], "]"}], "=", 
+       RowBox[{"M2decayMesonCombined", "[", 
+        RowBox[{"mes", ",", "proc", ",", "True", ",", "True"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"M2mesonNumeric3body", "[", 
+        RowBox[{
+        "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "m12_", ",", "m23_", 
+         ",", "cu_", ",", "cd_", ",", "cs_", ",", "cc_", ",", "cb_", ",", 
+         "ct_", ",", "cG_", ",", "ce_", ",", "c\[Mu]_", ",", "c\[Tau]_"}], 
+        "]"}], "=", 
        RowBox[{"ruleSymbolsToNumbersFinal", "[", 
         RowBox[{
          RowBox[{"M2decayMeson", "[", 
-          RowBox[{"mes", ",", "proc"}], "]"}], ",", "2"}], "]"}], "//", 
-       "Simplify"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"If", "[", 
-      RowBox[{
-       RowBox[{"reduceable", "[", 
-        RowBox[{"mes", ",", "proc"}], "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"mes", ",", "proc"}], "]"}], ",", "1"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
        RowBox[{
+        RowBox[{"reduceable", "[", 
+         RowBox[{"mes", ",", "proc"}], "]"}], ",", "\[IndentingNewLine]", 
         RowBox[{
-         RowBox[{"EffectiveCoupling", "[", 
-          RowBox[{"mes", ",", "proc"}], "]"}], "=", 
+         RowBox[{
+          RowBox[{"EffectiveCoupling", "[", 
+           RowBox[{"mes", ",", "proc"}], "]"}], "=", 
+          RowBox[{"Abs", "[", 
+           RowBox[{"M2mesonNumeric3body", "[", 
+            RowBox[{
+            "mes", ",", "proc", ",", "ma", ",", "fa", ",", "m12", ",", "m23", 
+             ",", "cu", ",", "cd", ",", "cs", ",", "cc", ",", "cb", ",", "ct",
+              ",", "cG", ",", "ce", ",", "c\[Mu]", ",", "c\[Tau]"}], "]"}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"M2mesonNumeric3bodyReduced", "[", 
+           RowBox[{"mes", ",", "proc", ",", "ma_", ",", "m12_", ",", "m23_"}],
+            "]"}], "=", 
+          RowBox[{"Simplify", "[", 
+           FractionBox[
+            RowBox[{"Abs", "[", 
+             RowBox[{"M2mesonNumeric3body", "[", 
+              RowBox[{
+              "mes", ",", "proc", ",", "ma", ",", "fa", ",", "m12", ",", 
+               "m23", ",", "cu", ",", "cd", ",", "cs", ",", "cc", ",", "cb", 
+               ",", "ct", ",", "cG", ",", "ce", ",", "c\[Mu]", ",", 
+               "c\[Tau]"}], "]"}], "]"}], 
+            RowBox[{"EffectiveCoupling", "[", 
+             RowBox[{"mes", ",", "proc"}], "]"}]], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"BrMesonDecayFactorizable", "[", 
+           RowBox[{
+           "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "cu_", ",", "cd_",
+             ",", "cs_", ",", "cc_", ",", "cb_", ",", "ct_", ",", "cG_", ",", 
+            "ce_", ",", "c\[Mu]_", ",", "c\[Tau]_"}], "]"}], "=", 
+          RowBox[{"BrMesonDecayFactorizableTemp", "[", 
+           RowBox[{"mes", ",", "proc", ",", "ma"}], "]"}]}], ";"}], 
+        "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"M2mesonNumeric3body", "[", 
+          RowBox[{
+          "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "m12_", ",", 
+           "m23_", ",", "cu_", ",", "cd_", ",", "cs_", ",", "cc_", ",", "cb_",
+            ",", "ct_", ",", "cG_", ",", "ce_", ",", "c\[Mu]_", ",", 
+           "c\[Tau]_"}], "]"}], "=", 
          RowBox[{"Abs", "[", 
           RowBox[{"M2mesonNumeric3body", "[", 
            RowBox[{
            "mes", ",", "proc", ",", "ma", ",", "fa", ",", "m12", ",", "m23", 
             ",", "cu", ",", "cd", ",", "cs", ",", "cc", ",", "cb", ",", "ct", 
             ",", "cG", ",", "ce", ",", "c\[Mu]", ",", "c\[Tau]"}], "]"}], 
-          "]"}]}], ";", "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{"M2mesonNumeric3bodyReduced", "[", 
-          RowBox[{"mes", ",", "proc", ",", "ma_", ",", "m12_", ",", "m23_"}], 
-          "]"}], "=", 
-         RowBox[{"Simplify", "[", 
-          FractionBox[
-           RowBox[{"Abs", "[", 
-            RowBox[{"M2mesonNumeric3body", "[", 
-             RowBox[{
-             "mes", ",", "proc", ",", "ma", ",", "fa", ",", "m12", ",", "m23",
-               ",", "cu", ",", "cd", ",", "cs", ",", "cc", ",", "cb", ",", 
-              "ct", ",", "cG", ",", "ce", ",", "c\[Mu]", ",", "c\[Tau]"}], 
-             "]"}], "]"}], 
-           RowBox[{"EffectiveCoupling", "[", 
-            RowBox[{"mes", ",", "proc"}], "]"}]], "]"}]}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{"BrMesonDecayFactorizable", "[", 
-          RowBox[{
-          "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "cu_", ",", "cd_", 
-           ",", "cs_", ",", "cc_", ",", "cb_", ",", "ct_", ",", "cG_", ",", 
-           "ce_", ",", "c\[Mu]_", ",", "c\[Tau]_"}], "]"}], "=", 
-         RowBox[{"BrMesonDecayFactorizableTemp", "[", 
-          RowBox[{"mes", ",", "proc", ",", "ma"}], "]"}]}], ";"}], 
-       "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"M2mesonNumeric3body", "[", 
-         RowBox[{
-         "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "m12_", ",", "m23_",
-           ",", "cu_", ",", "cd_", ",", "cs_", ",", "cc_", ",", "cb_", ",", 
-          "ct_", ",", "cG_", ",", "ce_", ",", "c\[Mu]_", ",", "c\[Tau]_"}], 
-         "]"}], "=", 
-        RowBox[{"Abs", "[", 
-         RowBox[{"M2mesonNumeric3body", "[", 
-          RowBox[{
-          "mes", ",", "proc", ",", "ma", ",", "fa", ",", "m12", ",", "m23", 
-           ",", "cu", ",", "cd", ",", "cs", ",", "cc", ",", "cb", ",", "ct", 
-           ",", "cG", ",", "ce", ",", "c\[Mu]", ",", "c\[Tau]"}], "]"}], 
-         "]"}]}]}], "\[IndentingNewLine]", "]"}], ";"}], 
-    "\[IndentingNewLine]", ",", 
-    RowBox[{"{", 
-     RowBox[{"proc", ",", "proc\[Eta]dec"}], "}"}]}], "]"}], "//", 
+          "]"}]}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+     "\[IndentingNewLine]", ",", 
+     RowBox[{"{", 
+      RowBox[{"proc", ",", "proc\[Eta]dec"}], "}"}]}], "]"}]}], "//", 
   "AbsoluteTiming"}], "\[IndentingNewLine]", 
- RowBox[{"Table", "[", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"proc", ",", 
-     RowBox[{
-      RowBox[{"ruleScalarProductsDecays3body", "[", 
+ RowBox[{"tabb", "=", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"proc", ",", 
+      RowBox[{
        RowBox[{
         RowBox[{
          RowBox[{
           RowBox[{
-           RowBox[{
-            RowBox[{"(", 
+           RowBox[{"(", 
+            RowBox[{
              RowBox[{
               RowBox[{"D", "[", 
                RowBox[{
                 RowBox[{
-                 RowBox[{"mElement", "[", 
-                  RowBox[{"mes", ",", "proc"}], "]"}], "/.", 
+                 RowBox[{"ruleScalarProductsDecays3body", "[", 
+                  RowBox[{
+                   RowBox[{"mElementProcessTotal", "[", 
+                    RowBox[{"mes", ",", "proc"}], "]"}], ",", "mes", ",", 
+                   "proc"}], "]"}], "/.", 
                  RowBox[{
                  "rulem0aTransformationSymbolicToExplicit", "[", 
                   "choiceMixingDescription", "]"}]}], ",", "#"}], "]"}], "*", 
-              "#"}], ")"}], "&"}], "/@", 
-           RowBox[{"{", 
-            RowBox[{"\[Kappa]u", ",", "\[Kappa]d"}], "}"}]}], "//", "Total"}],
-          "//", "Simplify"}], ",", "mes", ",", "proc"}], "]"}], "//", 
-      "Simplify"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"proc", ",", "proc\[Eta]dec"}], "}"}]}], "]"}]}], "Input",
+              "#"}], "/.", 
+             RowBox[{"{", 
+              RowBox[{"m\[Pi]plus", "->", "m\[Pi]0"}], "}"}]}], ")"}], "&"}], 
+          "/@", 
+          RowBox[{"{", 
+           RowBox[{"\[Kappa]u", ",", "\[Kappa]d"}], "}"}]}], "//", "Total"}], 
+        "//", "Expand"}], "//", "Simplify"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"proc", ",", "proc\[Eta]dec"}], "}"}]}], "]"}]}]}], "Input",
  CellChangeTimes->{{3.9452436042475815`*^9, 3.945243626198532*^9}, {
    3.9452444261624546`*^9, 3.9452444426868477`*^9}, {3.9452445356690197`*^9, 
    3.94524459971031*^9}, {3.9452454012795925`*^9, 3.9452454052136593`*^9}, {
@@ -1729,54 +2451,29 @@ Cell[BoxData[{
    3.9452694839139576`*^9, 3.9452694876648903`*^9}, {3.945269809027466*^9, 
    3.9452698091518345`*^9}, {3.945270122671015*^9, 3.945270124828476*^9}, {
    3.9452716333164616`*^9, 3.9452716334269905`*^9}, {3.945272387619465*^9, 
-   3.9452723881010513`*^9}},
- CellLabel->
-  "In[611]:=",ExpressionUUID->"908794d4-1eea-1442-8789-c8cd8a71c84a"],
+   3.9452723881010513`*^9}, 3.947141843600628*^9, {3.947151445766775*^9, 
+   3.9471514880396805`*^9}, {3.9471515263506794`*^9, 3.9471515274149837`*^9}, 
+   3.94715160834597*^9, {3.947151899313589*^9, 3.9471519027463512`*^9}, 
+   3.947151968288542*^9, {3.947152176249979*^9, 3.94715217761442*^9}, {
+   3.9471526673063965`*^9, 3.9471526823103905`*^9}, {3.947153698643589*^9, 
+   3.947153699850071*^9}, {3.947153875476385*^9, 3.9471538770385323`*^9}, 
+   3.9504283882552986`*^9, 3.9504534044235287`*^9, 3.950453535384678*^9},
+ CellLabel->"In[53]:=",ExpressionUUID->"908794d4-1eea-1442-8789-c8cd8a71c84a"],
 
 Cell[BoxData[
  FormBox[
   RowBox[{"{", 
-   RowBox[{"0.8109376`", ",", "Null"}], "}"}], TraditionalForm]], "Output",
- CellChangeTimes->{
-  3.945248499442089*^9, 3.9452486152842617`*^9, 3.9452487623288555`*^9, 
-   3.9452512001630344`*^9, {3.945254147283581*^9, 3.9452541642582245`*^9}, 
-   3.945255282676859*^9, 3.9452559499406204`*^9, 3.9452561929873257`*^9, 
-   3.9452580325630207`*^9, 3.945258122403021*^9, {3.945258184764847*^9, 
-   3.9452582195000763`*^9}, {3.945265162918024*^9, 3.9452652019788666`*^9}, {
-   3.945265291141279*^9, 3.9452653056593513`*^9}, 3.9452653425613613`*^9, 
-   3.9452653784827976`*^9, {3.945265471223791*^9, 3.945265481193117*^9}, {
-   3.9452655577882633`*^9, 3.9452655853432274`*^9}, 3.945265624808012*^9, {
-   3.9452659814065266`*^9, 3.9452659879522495`*^9}, 3.945266452935007*^9, 
-   3.9452679373435802`*^9, 3.9452698133154087`*^9, {3.945270106368025*^9, 
-   3.945270125717539*^9}, {3.9452717220887394`*^9, 3.9452717321639786`*^9}, 
-   3.945271823786276*^9, {3.9452723884115887`*^9, 3.9452723960953903`*^9}, {
-   3.945272652784853*^9, 3.945272664763256*^9}, 3.9452733234148655`*^9, 
-   3.9452741424423656`*^9},
+   RowBox[{"38.1354317`", ",", "Null"}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.950453812412384*^9, 3.9504560568693523`*^9, 
+  3.950456552705824*^9, 3.9504579501837025`*^9},
  CellLabel->
-  "Out[612]=",ExpressionUUID->"29359984-c86b-2d48-8ac2-bf8a311e2c92"],
+  "Out[116]=",ExpressionUUID->"7afed212-49aa-3f4d-874b-2a4eb4e282a6"],
 
 Cell[BoxData[
  FormBox[
   RowBox[{"(", "\[NoBreak]", GridBox[{
      {"\<\"\\!\\(\\*SuperscriptBox[\\(a\[Pi]\\), \
-\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(-\\)]\\)\"\>", 
-      FractionBox[
-       RowBox[{"2", " ", 
-        SqrtBox[
-         FractionBox["2", "3"]], " ", "cG", " ", "\[Delta]", " ", 
-        SuperscriptBox["m\[Pi]0", "2"], " ", "\[Epsilon]", " ", 
-        RowBox[{"(", 
-         RowBox[{"\[Kappa]d", "-", "\[Kappa]u"}], ")"}], " ", 
-        RowBox[{"(", 
-         RowBox[{
-          SuperscriptBox["m\[Pi]0", "2"], "-", 
-          SuperscriptBox["m\[Pi]plus", "2"]}], ")"}]}], 
-       RowBox[{"3", " ", 
-        SuperscriptBox["f\[Pi]", "2"], " ", 
-        RowBox[{"(", 
-         RowBox[{
-          SuperscriptBox["m\[Pi]0", "2"], "-", 
-          SuperscriptBox["m\[Eta]", "2"]}], ")"}]}]]},
+\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(-\\)]\\)\"\>", "0"},
      {"\<\"\\!\\(\\*SuperscriptBox[\\(a2\[Pi]\\), \\(0\\)]\\)\"\>", "0"}
     },
     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
@@ -1787,23 +2484,10 @@ Cell[BoxData[
         Offset[0.2], {
          Offset[0.4]}, 
         Offset[0.2]}}], "\[NoBreak]", ")"}], TraditionalForm]], "Output",
- CellChangeTimes->{
-  3.945248499442089*^9, 3.9452486152842617`*^9, 3.9452487623288555`*^9, 
-   3.9452512001630344`*^9, {3.945254147283581*^9, 3.9452541642582245`*^9}, 
-   3.945255282676859*^9, 3.9452559499406204`*^9, 3.9452561929873257`*^9, 
-   3.9452580325630207`*^9, 3.945258122403021*^9, {3.945258184764847*^9, 
-   3.9452582195000763`*^9}, {3.945265162918024*^9, 3.9452652019788666`*^9}, {
-   3.945265291141279*^9, 3.9452653056593513`*^9}, 3.9452653425613613`*^9, 
-   3.9452653784827976`*^9, {3.945265471223791*^9, 3.945265481193117*^9}, {
-   3.9452655577882633`*^9, 3.9452655853432274`*^9}, 3.945265624808012*^9, {
-   3.9452659814065266`*^9, 3.9452659879522495`*^9}, 3.945266452935007*^9, 
-   3.9452679373435802`*^9, 3.9452698133154087`*^9, {3.945270106368025*^9, 
-   3.945270125717539*^9}, {3.9452717220887394`*^9, 3.9452717321639786`*^9}, 
-   3.945271823786276*^9, {3.9452723884115887`*^9, 3.9452723960953903`*^9}, {
-   3.945272652784853*^9, 3.945272664763256*^9}, 3.9452733234148655`*^9, 
-   3.945274142471365*^9},
+ CellChangeTimes->{3.950453812412384*^9, 3.9504560568693523`*^9, 
+  3.950456552705824*^9, 3.9504579502757816`*^9},
  CellLabel->
-  "Out[613]=",ExpressionUUID->"a7e51b55-06ea-924e-8792-154e7e8df634"]
+  "Out[117]=",ExpressionUUID->"0caedcc6-5a92-d540-9043-2531b2c84a7b"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -1847,9 +2531,9 @@ Cell[BoxData[{
     RowBox[{"mes", ",", "proc"}], "]"}], "=", 
    RowBox[{"{", 
     RowBox[{
-    "\"\<a\>\"", ",", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(+\)]\)\>\"", 
-     ",", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(-\)]\)\>\""}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(+\)]\)\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(-\)]\)\>\"", ",", "\"\<a\>\""}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"labelList", "[", 
@@ -1883,7 +2567,7 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
    RowBox[{"reduceable", "[", 
-    RowBox[{"mes", ",", "proc"}], "]"}], "=", "True"}], 
+    RowBox[{"mes", ",", "proc"}], "]"}], "=", "False"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -1896,9 +2580,9 @@ Cell[BoxData[{
     RowBox[{"mes", ",", "proc"}], "]"}], "=", 
    RowBox[{"{", 
     RowBox[{
-    "\"\<a\>\"", ",", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(0\)]\)\>\"", 
-     ",", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(0\)]\)\>\""}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(0\)]\)\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(0\)]\)\>\"", ",", "\"\<a\>\""}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"labelList", "[", 
@@ -1908,32 +2592,46 @@ Cell[BoxData[{
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
+   RowBox[{"momList", "[", 
+    RowBox[{"mes", ",", "proc"}], "]"}], "=", 
    RowBox[{
-    RowBox[{"momList", "[", 
-     RowBox[{"mes", ",", "proc"}], "]"}], "=", 
     RowBox[{
-     RowBox[{
-      RowBox[{"Symbol", "[", 
-       RowBox[{"\"\<p\>\"", "<>", 
-        RowBox[{"(", 
+     RowBox[{"Symbol", "[", 
+      RowBox[{"\"\<p\>\"", "<>", 
+       RowBox[{"(", 
+        RowBox[{
          RowBox[{
-          RowBox[{
-           RowBox[{"labelList", "[", 
-            RowBox[{"mes", ",", "proc"}], "]"}], "[", 
-           RowBox[{"[", "#", "]"}], "]"}], "//", "ToString"}], ")"}]}], "]"}],
-       "&"}], "/@", 
-     RowBox[{"Range", "[", 
-      RowBox[{"Length", "[", 
-       RowBox[{"labelList", "[", 
-        RowBox[{"mes", ",", "proc"}], "]"}], "]"}], "]"}]}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+          RowBox[{"labelList", "[", 
+           RowBox[{"mes", ",", "proc"}], "]"}], "[", 
+          RowBox[{"[", "#", "]"}], "]"}], "//", "ToString"}], ")"}]}], "]"}], 
+     "&"}], "/@", 
+    RowBox[{"Range", "[", 
+     RowBox[{"Length", "[", 
+      RowBox[{"labelList", "[", 
+       RowBox[{"mes", ",", "proc"}], "]"}], "]"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"proc\[Eta]dec", "=", 
+  RowBox[{"proc\[Eta]prdec", "=", 
    RowBox[{"{", 
     RowBox[{
     "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \
 \(+\)]\)\!\(\*SuperscriptBox[\(\[Pi]\), \(-\)]\)\>\"", ",", 
      "\"\<\!\(\*SuperscriptBox[\(a2\[Pi]\), \(0\)]\)\>\""}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Eta]'\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a2\[Pi]\), \(0\)]\)\>\""}], "]"}], "=", 
+   "\"\<EtaPr-to-ALP-2Pi0\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Eta]'\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(+\)]\)\!\(\*SuperscriptBox[\(\
+\[Pi]\), \(-\)]\)\>\""}], "]"}], "=", "\"\<EtaPr-to-ALP-2PiCh\>\""}], 
   ";"}]}], "Input",
  CellChangeTimes->{{3.945243940665119*^9, 3.945243990515604*^9}, {
    3.9452440389514275`*^9, 3.9452440744807854`*^9}, {3.945244124035391*^9, 
@@ -1947,9 +2645,12 @@ Cell[BoxData[{
    3.945248034800579*^9, 3.9452480377424183`*^9}, {3.9452481014567738`*^9, 
    3.94524821727544*^9}, 3.9452490708088837`*^9, {3.945265640764271*^9, 
    3.945265640858259*^9}, {3.945267989613409*^9, 3.94526799586392*^9}, {
-   3.9452686954372044`*^9, 3.9452687342558727`*^9}},
+   3.9452686954372044`*^9, 3.9452687342558727`*^9}, {3.9471527018637295`*^9, 
+   3.9471527019007263`*^9}, {3.947152738406727*^9, 3.9471527399600983`*^9}, {
+   3.9503407515177994`*^9, 3.9503407677012806`*^9}, {3.9504590642052383`*^9, 
+   3.9504590688011894`*^9}},
  CellLabel->
-  "In[614]:=",ExpressionUUID->"11fce6f7-61ca-694f-8d04-3cbc3002e7b6"]
+  "In[260]:=",ExpressionUUID->"11fce6f7-61ca-694f-8d04-3cbc3002e7b6"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1965,113 +2666,120 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"mes", "=", "\"\<\[Eta]'\>\""}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"Do", "[", "\[IndentingNewLine]", 
-   RowBox[{
+  RowBox[{
+   RowBox[{"ResourceFunction", "[", "\"\<MonitorProgress\>\"", "]"}], "@", 
+   RowBox[{"Do", "[", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{
-      RowBox[{"M2decayMeson", "[", 
-       RowBox[{"mes", ",", "proc"}], "]"}], "=", 
-      RowBox[{"M2decayMesonArbitrary", "[", 
-       RowBox[{"mes", ",", "proc"}], "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"M2mesonNumeric3body", "[", 
-       RowBox[{
-       "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "m12_", ",", "m23_", 
-        ",", "cu_", ",", "cd_", ",", "cs_", ",", "cc_", ",", "cb_", ",", 
-        "ct_", ",", "cG_", ",", "ce_", ",", "c\[Mu]_", ",", "c\[Tau]_"}], 
-       "]"}], "=", 
       RowBox[{
+       RowBox[{"M2decayMeson", "[", 
+        RowBox[{"mes", ",", "proc"}], "]"}], "=", 
+       RowBox[{"M2decayMesonCombined", "[", 
+        RowBox[{"mes", ",", "proc", ",", "True", ",", "True"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"M2mesonNumeric3body", "[", 
+        RowBox[{
+        "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "m12_", ",", "m23_", 
+         ",", "cu_", ",", "cd_", ",", "cs_", ",", "cc_", ",", "cb_", ",", 
+         "ct_", ",", "cG_", ",", "ce_", ",", "c\[Mu]_", ",", "c\[Tau]_"}], 
+        "]"}], "=", 
        RowBox[{"ruleSymbolsToNumbersFinal", "[", 
         RowBox[{
          RowBox[{"M2decayMeson", "[", 
-          RowBox[{"mes", ",", "proc"}], "]"}], ",", "2"}], "]"}], "//", 
-       "Simplify"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"If", "[", 
-      RowBox[{
-       RowBox[{"reduceable", "[", 
-        RowBox[{"mes", ",", "proc"}], "]"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"mes", ",", "proc"}], "]"}], ",", "1"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
        RowBox[{
+        RowBox[{"reduceable", "[", 
+         RowBox[{"mes", ",", "proc"}], "]"}], ",", "\[IndentingNewLine]", 
         RowBox[{
-         RowBox[{"EffectiveCoupling", "[", 
-          RowBox[{"mes", ",", "proc"}], "]"}], "=", 
+         RowBox[{
+          RowBox[{"EffectiveCoupling", "[", 
+           RowBox[{"mes", ",", "proc"}], "]"}], "=", 
+          RowBox[{"Abs", "[", 
+           RowBox[{"M2mesonNumeric3body", "[", 
+            RowBox[{
+            "mes", ",", "proc", ",", "ma", ",", "fa", ",", "m12", ",", "m23", 
+             ",", "cu", ",", "cd", ",", "cs", ",", "cc", ",", "cb", ",", "ct",
+              ",", "cG", ",", "ce", ",", "c\[Mu]", ",", "c\[Tau]"}], "]"}], 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"M2mesonNumeric3bodyReduced", "[", 
+           RowBox[{"mes", ",", "proc", ",", "ma_", ",", "m12_", ",", "m23_"}],
+            "]"}], "=", 
+          RowBox[{"Simplify", "[", 
+           FractionBox[
+            RowBox[{"Abs", "[", 
+             RowBox[{"M2mesonNumeric3body", "[", 
+              RowBox[{
+              "mes", ",", "proc", ",", "ma", ",", "fa", ",", "m12", ",", 
+               "m23", ",", "cu", ",", "cd", ",", "cs", ",", "cc", ",", "cb", 
+               ",", "ct", ",", "cG", ",", "ce", ",", "c\[Mu]", ",", 
+               "c\[Tau]"}], "]"}], "]"}], 
+            RowBox[{"EffectiveCoupling", "[", 
+             RowBox[{"mes", ",", "proc"}], "]"}]], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"BrMesonDecayFactorizable", "[", 
+           RowBox[{
+           "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "cu_", ",", "cd_",
+             ",", "cs_", ",", "cc_", ",", "cb_", ",", "ct_", ",", "cG_", ",", 
+            "ce_", ",", "c\[Mu]_", ",", "c\[Tau]_"}], "]"}], "=", 
+          RowBox[{"BrMesonDecayFactorizableTemp", "[", 
+           RowBox[{"mes", ",", "proc", ",", "ma"}], "]"}]}], ";"}], 
+        "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"M2mesonNumeric3body", "[", 
+          RowBox[{
+          "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "m12_", ",", 
+           "m23_", ",", "cu_", ",", "cd_", ",", "cs_", ",", "cc_", ",", "cb_",
+            ",", "ct_", ",", "cG_", ",", "ce_", ",", "c\[Mu]_", ",", 
+           "c\[Tau]_"}], "]"}], "=", 
          RowBox[{"Abs", "[", 
           RowBox[{"M2mesonNumeric3body", "[", 
            RowBox[{
            "mes", ",", "proc", ",", "ma", ",", "fa", ",", "m12", ",", "m23", 
             ",", "cu", ",", "cd", ",", "cs", ",", "cc", ",", "cb", ",", "ct", 
             ",", "cG", ",", "ce", ",", "c\[Mu]", ",", "c\[Tau]"}], "]"}], 
-          "]"}]}], ";", "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{"M2mesonNumeric3bodyReduced", "[", 
-          RowBox[{"mes", ",", "proc", ",", "ma_", ",", "m12_", ",", "m23_"}], 
-          "]"}], "=", 
-         RowBox[{"Simplify", "[", 
-          FractionBox[
-           RowBox[{"Abs", "[", 
-            RowBox[{"M2mesonNumeric3body", "[", 
-             RowBox[{
-             "mes", ",", "proc", ",", "ma", ",", "fa", ",", "m12", ",", "m23",
-               ",", "cu", ",", "cd", ",", "cs", ",", "cc", ",", "cb", ",", 
-              "ct", ",", "cG", ",", "ce", ",", "c\[Mu]", ",", "c\[Tau]"}], 
-             "]"}], "]"}], 
-           RowBox[{"EffectiveCoupling", "[", 
-            RowBox[{"mes", ",", "proc"}], "]"}]], "]"}]}], ";", 
-        "\[IndentingNewLine]", 
-        RowBox[{
-         RowBox[{"BrMesonDecayFactorizable", "[", 
-          RowBox[{
-          "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "cu_", ",", "cd_", 
-           ",", "cs_", ",", "cc_", ",", "cb_", ",", "ct_", ",", "cG_", ",", 
-           "ce_", ",", "c\[Mu]_", ",", "c\[Tau]_"}], "]"}], "=", 
-         RowBox[{"BrMesonDecayFactorizableTemp", "[", 
-          RowBox[{"mes", ",", "proc", ",", "ma"}], "]"}]}], ";"}], 
-       "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"M2mesonNumeric3body", "[", 
-         RowBox[{
-         "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "m12_", ",", "m23_",
-           ",", "cu_", ",", "cd_", ",", "cs_", ",", "cc_", ",", "cb_", ",", 
-          "ct_", ",", "cG_", ",", "ce_", ",", "c\[Mu]_", ",", "c\[Tau]_"}], 
-         "]"}], "=", 
-        RowBox[{"Abs", "[", 
-         RowBox[{"M2mesonNumeric3body", "[", 
-          RowBox[{
-          "mes", ",", "proc", ",", "ma", ",", "fa", ",", "m12", ",", "m23", 
-           ",", "cu", ",", "cd", ",", "cs", ",", "cc", ",", "cb", ",", "ct", 
-           ",", "cG", ",", "ce", ",", "c\[Mu]", ",", "c\[Tau]"}], "]"}], 
-         "]"}]}]}], "\[IndentingNewLine]", "]"}], ";"}], 
-    "\[IndentingNewLine]", ",", 
-    RowBox[{"{", 
-     RowBox[{"proc", ",", "proc\[Eta]dec"}], "}"}]}], "]"}], "//", 
+          "]"}]}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+     "\[IndentingNewLine]", ",", 
+     RowBox[{"{", 
+      RowBox[{"proc", ",", "proc\[Eta]prdec"}], "}"}]}], "]"}]}], "//", 
   "AbsoluteTiming"}], "\[IndentingNewLine]", 
- RowBox[{"Table", "[", 
-  RowBox[{
-   RowBox[{"{", 
-    RowBox[{"proc", ",", 
-     RowBox[{
-      RowBox[{"ruleScalarProductsDecays3body", "[", 
+ RowBox[{"tabb", "=", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"proc", ",", 
+      RowBox[{
        RowBox[{
         RowBox[{
          RowBox[{
           RowBox[{
-           RowBox[{
-            RowBox[{"(", 
+           RowBox[{"(", 
+            RowBox[{
              RowBox[{
               RowBox[{"D", "[", 
                RowBox[{
                 RowBox[{
-                 RowBox[{"mElement", "[", 
-                  RowBox[{"mes", ",", "proc"}], "]"}], "/.", 
+                 RowBox[{"ruleScalarProductsDecays3body", "[", 
+                  RowBox[{
+                   RowBox[{"mElementProcessTotal", "[", 
+                    RowBox[{"mes", ",", "proc"}], "]"}], ",", "mes", ",", 
+                   "proc"}], "]"}], "/.", 
                  RowBox[{
                  "rulem0aTransformationSymbolicToExplicit", "[", 
                   "choiceMixingDescription", "]"}]}], ",", "#"}], "]"}], "*", 
-              "#"}], ")"}], "&"}], "/@", 
-           RowBox[{"{", 
-            RowBox[{"\[Kappa]u", ",", "\[Kappa]d"}], "}"}]}], "//", "Total"}],
-          "//", "Simplify"}], ",", "mes", ",", "proc"}], "]"}], "//", 
-      "Simplify"}]}], "}"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"proc", ",", "proc\[Eta]dec"}], "}"}]}], "]"}]}], "Input",
+              "#"}], "/.", 
+             RowBox[{"{", 
+              RowBox[{"m\[Pi]plus", "->", "m\[Pi]0"}], "}"}]}], ")"}], "&"}], 
+          "/@", 
+          RowBox[{"{", 
+           RowBox[{"\[Kappa]u", ",", "\[Kappa]d"}], "}"}]}], "//", "Total"}], 
+        "//", "Expand"}], "//", "Simplify"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"proc", ",", "proc\[Eta]prdec"}], "}"}]}], "]"}]}]}], "Input",
  CellChangeTimes->{{3.9452436042475815`*^9, 3.945243626198532*^9}, {
    3.9452444261624546`*^9, 3.9452444426868477`*^9}, {3.9452445356690197`*^9, 
    3.94524459971031*^9}, {3.9452454012795925`*^9, 3.9452454052136593`*^9}, {
@@ -2089,44 +2797,32 @@ Cell[BoxData[{
    3.945269311960846*^9, 3.9452693135082893`*^9}, {3.945269532337675*^9, 
    3.9452695470902176`*^9}, 3.9452701535492992`*^9, {3.945270243426628*^9, 
    3.945270243548914*^9}, {3.9452713978792877`*^9, 3.945271410337576*^9}, {
-   3.945272399404461*^9, 3.9452723998894825`*^9}},
- CellLabel->
-  "In[628]:=",ExpressionUUID->"1e566d89-9b5d-fe45-99a9-b44b6370b895"],
+   3.945272399404461*^9, 3.9452723998894825`*^9}, 3.9471418436066265`*^9, {
+   3.9471526980542297`*^9, 3.9471527169467716`*^9}, {3.947152776452444*^9, 
+   3.9471527796177864`*^9}, 3.9504283960903664`*^9, 3.950453539575865*^9},
+ CellLabel->"In[70]:=",ExpressionUUID->"1e566d89-9b5d-fe45-99a9-b44b6370b895"],
 
 Cell[BoxData[
  FormBox[
   RowBox[{"{", 
-   RowBox[{"0.8202617`", ",", "Null"}], "}"}], TraditionalForm]], "Output",
+   RowBox[{"29.6985303`", ",", "Null"}], "}"}], TraditionalForm]], "Output",
  CellChangeTimes->{{3.945265630918604*^9, 3.9452656478957577`*^9}, {
    3.9452659985833473`*^9, 3.9452660099269733`*^9}, 3.945266456755579*^9, 
    3.9452679507686043`*^9, 3.9452680048553333`*^9, 3.9452687367571297`*^9, 
    3.9452698289016953`*^9, 3.9452701612995453`*^9, 3.9452702448675385`*^9, 
    3.9452717359378777`*^9, 3.945271827442356*^9, 3.9452724013477306`*^9, 
-   3.9452726676281433`*^9, 3.9452741433221703`*^9},
+   3.9452726676281433`*^9, 3.9452741433221703`*^9, {3.947152730971874*^9, 
+   3.9471527422624893`*^9}, 3.947152795661747*^9, 3.9488833641456337`*^9, 
+   3.9503408129942646`*^9, 3.9504284455202484`*^9, 3.9504538472468567`*^9, 
+   3.9504560936188393`*^9, 3.950456589434698*^9, 3.950457980093981*^9},
  CellLabel->
-  "Out[629]=",ExpressionUUID->"7bec72b0-d943-0549-8420-2d6ccadf99ed"],
+  "Out[133]=",ExpressionUUID->"4693d343-5331-a14b-a86d-d9858a711380"],
 
 Cell[BoxData[
  FormBox[
   RowBox[{"(", "\[NoBreak]", GridBox[{
      {"\<\"\\!\\(\\*SuperscriptBox[\\(a\[Pi]\\), \
-\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(-\\)]\\)\"\>", 
-      FractionBox[
-       RowBox[{"2", " ", "cG", " ", "\[Delta]", " ", 
-        SuperscriptBox["m\[Pi]0", "2"], " ", "\[Epsilon]", " ", 
-        RowBox[{"(", 
-         RowBox[{"\[Kappa]d", "-", "\[Kappa]u"}], ")"}], " ", 
-        RowBox[{"(", 
-         RowBox[{
-          SuperscriptBox["m\[Pi]0", "2"], "-", 
-          SuperscriptBox["m\[Pi]plus", "2"]}], ")"}]}], 
-       RowBox[{"3", " ", 
-        SqrtBox["3"], " ", 
-        SuperscriptBox["f\[Pi]", "2"], " ", 
-        RowBox[{"(", 
-         RowBox[{
-          SuperscriptBox["m\[Pi]0", "2"], "-", 
-          SuperscriptBox["m\[Eta]pr", "2"]}], ")"}]}]]},
+\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(-\\)]\\)\"\>", "0"},
      {"\<\"\\!\\(\\*SuperscriptBox[\\(a2\[Pi]\\), \\(0\\)]\\)\"\>", "0"}
     },
     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
@@ -2142,9 +2838,12 @@ Cell[BoxData[
    3.9452679507686043`*^9, 3.9452680048553333`*^9, 3.9452687367571297`*^9, 
    3.9452698289016953`*^9, 3.9452701612995453`*^9, 3.9452702448675385`*^9, 
    3.9452717359378777`*^9, 3.945271827442356*^9, 3.9452724013477306`*^9, 
-   3.9452726676281433`*^9, 3.9452741433461704`*^9},
+   3.9452726676281433`*^9, 3.9452741433221703`*^9, {3.947152730971874*^9, 
+   3.9471527422624893`*^9}, 3.947152795661747*^9, 3.9488833641456337`*^9, 
+   3.9503408129942646`*^9, 3.9504284455202484`*^9, 3.9504538472468567`*^9, 
+   3.9504560936188393`*^9, 3.950456589434698*^9, 3.9504579802004585`*^9},
  CellLabel->
-  "Out[630]=",ExpressionUUID->"fa673560-9383-f541-a75f-e5ea60cdfc6d"]
+  "Out[134]=",ExpressionUUID->"8ce0ce3e-92fc-b344-9f02-484ba37d2dc9"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
@@ -2175,7 +2874,7 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
    RowBox[{"reduceable", "[", 
-    RowBox[{"mes", ",", "proc"}], "]"}], "=", "True"}], 
+    RowBox[{"mes", ",", "proc"}], "]"}], "=", "False"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -2188,9 +2887,9 @@ Cell[BoxData[{
     RowBox[{"mes", ",", "proc"}], "]"}], "=", 
    RowBox[{"{", 
     RowBox[{
-    "\"\<a\>\"", ",", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(+\)]\)\>\"", 
-     ",", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(-\)]\)\>\""}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(+\)]\)\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(-\)]\)\>\"", ",", "\"\<a\>\""}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"labelList", "[", 
@@ -2235,7 +2934,7 @@ Cell[BoxData[{
    RowBox[{"plistdec", "[", 
     RowBox[{"mes", ",", "proc"}], "]"}], "=", 
    RowBox[{"{", 
-    RowBox[{"\"\<a\>\"", ",", "\"\<A\>\""}], "}"}]}], 
+    RowBox[{"\"\<A\>\"", ",", "\"\<a\>\""}], "}"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -2262,7 +2961,20 @@ Cell[BoxData[{
      RowBox[{"Length", "[", 
       RowBox[{"labelList", "[", 
        RowBox[{"mes", ",", "proc"}], "]"}], "]"}], "]"}]}]}], 
-  ";"}], "\[IndentingNewLine]"}], "Input",
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Omega]\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(+\)]\)\!\(\*SuperscriptBox[\(\
+\[Pi]\), \(-\)]\)\>\""}], "]"}], "=", "\"\<Omega-to-ALP-2PiCh\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{"\"\<\[Omega]\>\"", ",", "\"\<a\[Gamma]\>\""}], "]"}], "=", 
+   "\"\<Omega-to-ALP-gamma\>\""}], ";"}]}], "Input",
  CellChangeTimes->{{3.945243940665119*^9, 3.945243990515604*^9}, {
    3.9452440389514275`*^9, 3.9452440744807854`*^9}, {3.945244124035391*^9, 
    3.945244340118128*^9}, {3.9452443989390507`*^9, 3.9452444001849117`*^9}, {
@@ -2280,9 +2992,11 @@ Cell[BoxData[{
    3.9452680109561577`*^9, 3.9452680152828674`*^9}, {3.9452680722807503`*^9, 
    3.945268072585369*^9}, {3.9452681280324497`*^9, 3.945268144102253*^9}, {
    3.945268740533716*^9, 3.9452687463997993`*^9}, {3.9452702511248207`*^9, 
-   3.9452702517564983`*^9}},
+   3.9452702517564983`*^9}, {3.9471528812418613`*^9, 
+   3.9471528821554413`*^9}, {3.9503407770953865`*^9, 
+   3.9503407865609856`*^9}, {3.9504590716622505`*^9, 3.950459074430441*^9}},
  CellLabel->
-  "In[631]:=",ExpressionUUID->"4c231a7d-2de6-d744-96db-429fa85372ba"]
+  "In[276]:=",ExpressionUUID->"4c231a7d-2de6-d744-96db-429fa85372ba"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2315,90 +3029,24 @@ Cell[BoxData[{
    "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(+\)]\)\!\(\*SuperscriptBox[\(\[Pi]\
 \), \(-\)]\)\>\""}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"MdecayMeson\[Omega]", "=", 
-   RowBox[{"MDecayMeson", "[", 
-    RowBox[{"\"\<V off-shell 3-body\>\"", ",", "mes", ",", "proc"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"MedecayMeson\[Omega]Conjugated", "=", 
-   RowBox[{"ComplexConjugate", "[", "MdecayMeson\[Omega]", "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
   RowBox[{
    RowBox[{"M2decayMeson", "[", 
     RowBox[{"mes", ",", "proc"}], "]"}], "=", 
-   RowBox[{"ruleScalarProductsDecays3body", "[", 
-    RowBox[{
-     RowBox[{"DoPolarizationSums", "[", 
-      RowBox[{
-       RowBox[{"MdecayMeson\[Omega]", "*", "MedecayMeson\[Omega]Conjugated"}],
-        ",", "p0"}], "]"}], ",", "\"\<\[Omega]\>\"", ",", 
-     "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(+\)]\)\!\(\*SuperscriptBox[\(\
-\[Pi]\), \(-\)]\)\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"EffectiveCoupling", "[", 
-    RowBox[{"mes", ",", "proc"}], "]"}], "=", 
-   RowBox[{"(", 
-    RowBox[{
-     RowBox[{"cG", "*", 
-      RowBox[{"(", 
-       RowBox[{"\[Kappa]u", "-", "\[Kappa]d"}], ")"}]}], "+", "\[Pi]0ALP"}], 
-    ")"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"M2decayMeson", "[", 
-    RowBox[{"mes", ",", "proc"}], "]"}], "=", 
-   RowBox[{
-    RowBox[{"M2decayMeson", "[", 
-     RowBox[{"mes", ",", "proc"}], "]"}], "/.", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"EffectiveCoupling", "[", 
-        RowBox[{"mes", ",", "proc"}], "]"}], "->", "1"}], ",", 
-      RowBox[{
-       RowBox[{"Simplify", "[", 
-        RowBox[{"-", 
-         RowBox[{"EffectiveCoupling", "[", 
-          RowBox[{"mes", ",", "proc"}], "]"}]}], "]"}], "->", "1"}], ",", 
-      RowBox[{"\[Epsilon]", "->", "1"}]}], "}"}]}]}], 
+   RowBox[{"Simplify", "/@", 
+    RowBox[{"M2decayMesonCombined", "[", 
+     RowBox[{"mes", ",", "proc", ",", "True", ",", "True"}], "]"}]}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"EffectiveCoupling", "[", 
-    RowBox[{"mes", ",", "proc"}], "]"}], "=", 
-   SuperscriptBox[
-    RowBox[{"Abs", "[", 
-     RowBox[{"ruleSymbolsToNumbersFinal", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"\[Epsilon]", "*", 
-         RowBox[{"EffectiveCoupling", "[", 
-          RowBox[{"mes", ",", "proc"}], "]"}]}], "/.", 
-        RowBox[{
-        "rulem0aTransformationSymbolicToExplicit", "[", 
-         "choiceMixingDescription", "]"}]}], ",", "2"}], "]"}], "]"}], "2"]}],
-   ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"M2mesonNumeric3bodyReduced", "[", 
-    RowBox[{"mes", ",", "proc", ",", "ma_", ",", "m12_", ",", "m23_"}], "]"}],
-    "=", 
+   RowBox[{"M2mesonNumeric3body", "[", 
+    RowBox[{
+    "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "m12_", ",", "m23_", ",",
+      "cu_", ",", "cd_", ",", "cs_", ",", "cc_", ",", "cb_", ",", "ct_", ",", 
+     "cG_", ",", "ce_", ",", "c\[Mu]_", ",", "c\[Tau]_"}], "]"}], "=", 
    RowBox[{"ruleSymbolsToNumbersFinal", "[", 
     RowBox[{
      RowBox[{"M2decayMeson", "[", 
       RowBox[{"mes", ",", "proc"}], "]"}], ",", "2"}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{
-   RowBox[{"BrMesonDecayFactorizable", "[", 
-    RowBox[{
-    "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "cu_", ",", "cd_", ",", 
-     "cs_", ",", "cc_", ",", "cb_", ",", "ct_", ",", "cG_", ",", "ce_", ",", 
-     "c\[Mu]_", ",", "c\[Tau]_"}], "]"}], "=", 
-   RowBox[{"BrMesonDecayFactorizableTemp", "[", 
-    RowBox[{"mes", ",", "proc", ",", "ma"}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"(*", 
@@ -2454,9 +3102,12 @@ Cell[BoxData[{
    3.945268023206196*^9, 3.9452680371280003`*^9}, {3.9452680784602146`*^9, 
    3.945268085547346*^9}, {3.9452685927273827`*^9, 3.945268594186472*^9}, {
    3.9452693036584473`*^9, 3.945269306104601*^9}, {3.9452695553962936`*^9, 
-   3.945269556453745*^9}, {3.945272052833254*^9, 3.945272057500782*^9}},
- CellLabel->
-  "In[644]:=",ExpressionUUID->"e4452641-8733-ad4f-af4f-31f1db1ee75e"]
+   3.945269556453745*^9}, {3.945272052833254*^9, 3.945272057500782*^9}, 
+   3.947141226343443*^9, {3.947152834065502*^9, 3.9471528352853966`*^9}, {
+   3.9471528673956547`*^9, 3.947152879147049*^9}, 3.9471529511840115`*^9, {
+   3.950343323129242*^9, 3.9503433583506756`*^9}, 3.9503563164393177`*^9, {
+   3.9504288065562553`*^9, 3.950428831083042*^9}},
+ CellLabel->"In[86]:=",ExpressionUUID->"e4452641-8733-ad4f-af4f-31f1db1ee75e"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2474,12 +3125,14 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"proc", "=", "\"\<a\[Gamma]\>\""}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"M2decayMeson", "[", 
-   RowBox[{"mes", ",", "proc"}], "]"}], "=", 
   RowBox[{
-   RowBox[{"M2decayMesonArbitrary", "[", 
-    RowBox[{"mes", ",", "proc"}], "]"}], "//", 
-   "Simplify"}]}], "\[IndentingNewLine]", 
+   RowBox[{"M2decayMeson", "[", 
+    RowBox[{"mes", ",", "proc"}], "]"}], "=", 
+   RowBox[{
+    RowBox[{"Simplify", "/@", 
+     RowBox[{"M2decayMesonCombined", "[", 
+      RowBox[{"mes", ",", "proc", ",", "True", ",", "True"}], "]"}]}], "//", 
+    "Simplify"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"M2mesonNumeric2body", "[", 
@@ -2503,64 +3156,27 @@ Cell[BoxData[{
    3.9452685308760357`*^9, 3.945268533351364*^9}, {3.945268584120674*^9, 
    3.945268585777502*^9}, {3.9452692826019993`*^9, 3.9452692860435658`*^9}, 
    3.945269874665716*^9, {3.9452720612677*^9, 3.945272068625225*^9}, {
-   3.9452742582630634`*^9, 
-   3.9452742585059834`*^9}},ExpressionUUID->"f704ce9c-33ab-394b-a0e8-\
-60d3f05219bf"],
+   3.9452742582630634`*^9, 3.9452742585059834`*^9}, 3.947141843608629*^9, {
+   3.947152840636446*^9, 3.9471528449054585`*^9}, {3.947152967020916*^9, 
+   3.947152970350998*^9}, 3.950428412415556*^9},
+ CellLabel->"In[90]:=",ExpressionUUID->"f704ce9c-33ab-394b-a0e8-60d3f05219bf"],
 
 Cell[BoxData[
  FormBox[
   TemplateBox[{
    "PolarizationSum", "notmassless", 
     "\"Warning! You are inserting a polarization sum for massless vector \
-bosons, but the momentum of the external boson \\!\\(\\*FormBox[\\\"p2\\\", \
+bosons, but the momentum of the external boson \\!\\(\\*FormBox[\\\"p1\\\", \
 TraditionalForm]\\) is not on-shell. Please put it on-shell via \
-ScalarProduct[\\!\\(\\*FormBox[\\\"p2\\\", \
-TraditionalForm]\\),\\!\\(\\*FormBox[\\\"p2\\\", TraditionalForm]\\)]=0\"", 2,
-     656, 25, 30508379212123845976, "Local", "FeynCalc`PolarizationSum"},
+ScalarProduct[\\!\\(\\*FormBox[\\\"p1\\\", \
+TraditionalForm]\\),\\!\\(\\*FormBox[\\\"p1\\\", TraditionalForm]\\)]=0\"", 2,
+     154, 2, 26315867777738429168, "Local", "FeynCalc`PolarizationSum"},
    "MessageTemplate2"], TraditionalForm]], "Message", "MSG",
- CellChangeTimes->{3.945272413177828*^9, 3.945272675970173*^9, 
-  3.9452741495537415`*^9},
+ CellChangeTimes->{3.9504274153232517`*^9, 3.950428455092903*^9, 
+  3.9504538567269325`*^9, 3.950456103883875*^9, 3.9504579878010902`*^9},
  CellLabel->
   "During evaluation of \
-In[654]:=",ExpressionUUID->"0f45d591-4a7e-8e46-acf6-1af83469045f"],
-
-Cell[BoxData[
- FormBox[
-  FractionBox[
-   RowBox[{"\[Alpha]EM", " ", 
-    SuperscriptBox["m\[Rho]plus", "2"], " ", 
-    SuperscriptBox["\[Epsilon]", "2"], " ", 
-    SuperscriptBox[
-     RowBox[{"(", 
-      RowBox[{
-       SuperscriptBox["ma", "2"], "-", 
-       SuperscriptBox["m\[Omega]", "2"]}], ")"}], "2"], " ", 
-    SuperscriptBox[
-     RowBox[{"(", 
-      RowBox[{
-       RowBox[{
-        SqrtBox["2"], " ", 
-        RowBox[{"(", 
-         RowBox[{
-          RowBox[{"-", 
-           RowBox[{"6", " ", "cG", " ", "\[Kappa]d"}]}], "+", 
-          RowBox[{"12", " ", "cG", " ", "\[Kappa]u"}], "+", 
-          RowBox[{
-           SqrtBox["3"], " ", "\[Eta]prALP"}], "+", 
-          RowBox[{"9", " ", "\[Pi]0ALP"}]}], ")"}]}], "+", 
-       RowBox[{"2", " ", 
-        SqrtBox["3"], " ", "\[Eta]ALP"}]}], ")"}], "2"]}], 
-   RowBox[{"1152", " ", 
-    SuperscriptBox["\[Pi]", "3"], " ", 
-    SuperscriptBox["f\[Pi]", "4"]}]], TraditionalForm]], "Output",
- CellChangeTimes->{{3.945268164549164*^9, 3.9452681994181194`*^9}, 
-   3.945268378202099*^9, {3.9452685249578323`*^9, 3.9452685337836876`*^9}, 
-   3.945268567229418*^9, 3.945268600980196*^9, 3.945268753531309*^9, 
-   3.9452698769629498`*^9, 3.945270269499569*^9, 3.945271745390085*^9, 
-   3.9452718361232986`*^9, 3.9452724132183514`*^9, 3.94527267600317*^9, 
-   3.9452741495857506`*^9},
- CellLabel->
-  "Out[656]=",ExpressionUUID->"e1fafabf-4720-8e4e-aa45-0e3a4176378d"]
+In[152]:=",ExpressionUUID->"b85f54ae-dab2-a24f-b0ec-7301889b400c"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -2588,7 +3204,7 @@ cc8321ba0ffe"],
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"mes", "=", "\"\<\!\(\*SuperscriptBox[\(K\), \(0\)]\)\>\""}], 
+  RowBox[{"mes", "=", "\"\<\!\(\*SubscriptBox[\(K\), \(S\)]\)\>\""}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"proc", "=", "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(0\)]\)\>\""}], 
@@ -2596,11 +3212,8 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
    RowBox[{"reduceable", "[", 
-    RowBox[{"mes", ",", "proc"}], "]"}], "=", 
-   RowBox[{
-    RowBox[{"reduceable", "[", 
-     RowBox[{"\"\<\!\(\*SubscriptBox[\(K\), \(S\)]\)\>\"", ",", "proc"}], 
-     "]"}], "=", "True"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{"mes", ",", "proc"}], "]"}], "=", "True"}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"SfactorDecay", "[", 
@@ -2612,7 +3225,7 @@ Cell[BoxData[{
     RowBox[{"mes", ",", "proc"}], "]"}], "=", 
    RowBox[{"{", 
     RowBox[{
-    "\"\<a\>\"", ",", "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(0\)]\)\>\""}], 
+    "\"\<\!\(\*SuperscriptBox[\(\[Pi]\), \(0\)]\)\>\"", ",", "\"\<a\>\""}], 
     "}"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -2639,12 +3252,21 @@ Cell[BoxData[{
      RowBox[{"Length", "[", 
       RowBox[{"labelList", "[", 
        RowBox[{"mes", ",", "proc"}], "]"}], "]"}], "]"}]}]}], 
-  ";"}], "\[IndentingNewLine]"}], "Input",
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\!\(\*SubscriptBox[\(K\), \(S\)]\)\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(0\)]\)\>\""}], "]"}], "=", 
+   "\"\<KS-to-ALP-Pi0\>\""}], ";"}]}], "Input",
  CellChangeTimes->{{3.9452687975017223`*^9, 3.9452688242503815`*^9}, {
-  3.945268861353731*^9, 3.9452688735852127`*^9}, {3.9452704045506153`*^9, 
-  3.945270409261936*^9}},
- CellLabel->
-  "In[660]:=",ExpressionUUID->"12a77873-ff13-064a-9e72-5775e19844ba"]
+   3.945268861353731*^9, 3.9452688735852127`*^9}, {3.9452704045506153`*^9, 
+   3.945270409261936*^9}, {3.947152976221529*^9, 3.9471529803518333`*^9}, 
+   3.9471530218459053`*^9, {3.9503408622060184`*^9, 3.950340863990963*^9}, {
+   3.950459078693285*^9, 
+   3.950459080367935*^9}},ExpressionUUID->"12a77873-ff13-064a-9e72-\
+5775e19844ba"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2663,9 +3285,10 @@ Cell[BoxData[{
    RowBox[{"M2decayMeson", "[", 
     RowBox[{"mes", ",", "proc"}], "]"}], "=", 
    RowBox[{
-    RowBox[{"M2decayMesonArbitrary", "[", 
-     RowBox[{"mes", ",", "proc"}], "]"}], "//", "Simplify"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+    RowBox[{"Simplify", "/@", 
+     RowBox[{"M2decayMesonCombined", "[", 
+      RowBox[{"mes", ",", "proc", ",", "True", ",", "True"}], "]"}]}], "//", 
+    "Simplify"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"M2mesonNumeric2body", "[", 
@@ -2688,35 +3311,28 @@ Cell[BoxData[{
        "choiceMixingDescription", "]"}]}], ",", "\[Kappa]u"}], "]"}], "/.", 
    RowBox[{"{", 
     RowBox[{
-     SuperscriptBox["mK0", "2"], "->", 
+     SuperscriptBox["mKS", "2"], "->", 
      RowBox[{
-     "M2relationPureChPT", "[", 
-      "\"\<\!\(\*SuperscriptBox[\(K\), \(0\)]\)\>\"", "]"}]}], "}"}]}], "//", 
-  "Simplify"}], "\[IndentingNewLine]", 
+     "M2relationPureChPT", "[", "\"\<\!\(\*SubscriptBox[\(K\), \(S\)]\)\>\"", 
+      "]"}]}], "}"}]}], "//", "Simplify"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"BrMesonDecayFactorizable", "[", 
     RowBox[{
-    "\"\<\!\(\*SubscriptBox[\(K\), \(S\)]\)\>\"", ",", "proc", ",", "ma_", 
-     ",", "fa_", ",", "cu_", ",", "cd_", ",", "cs_", ",", "cc_", ",", "cb_", 
-     ",", "ct_", ",", "cG_", ",", "ce_", ",", "c\[Mu]_", ",", "c\[Tau]_"}], 
-    "]"}], "=", 
-   RowBox[{
-    FractionBox[
-     RowBox[{
-     "DECAYWIDTH", "[", "\"\<\!\(\*SuperscriptBox[\(K\), \(0\)]\)\>\"", "]"}], 
-     RowBox[{
-     "DECAYWIDTH", "[", "\"\<\!\(\*SubscriptBox[\(K\), \(S\)]\)\>\"", "]"}]], 
-    "2", "*", 
-    RowBox[{"BrMesonDecayFactorizableTemp", "[", 
-     RowBox[{"mes", ",", "proc", ",", "ma"}], "]"}]}]}], ";"}]}], "Input",
+    "mes", ",", "proc", ",", "ma_", ",", "fa_", ",", "cu_", ",", "cd_", ",", 
+     "cs_", ",", "cc_", ",", "cb_", ",", "ct_", ",", "cG_", ",", "ce_", ",", 
+     "c\[Mu]_", ",", "c\[Tau]_"}], "]"}], "=", 
+   RowBox[{"BrMesonDecayFactorizableTemp", "[", 
+    RowBox[{"mes", ",", "proc", ",", "ma"}], "]"}]}], ";"}]}], "Input",
  CellChangeTimes->{
   3.9452688548629856`*^9, {3.9452688941614323`*^9, 3.945268942324724*^9}, {
    3.945269125000553*^9, 3.9452691507130585`*^9}, {3.9452691980070076`*^9, 
    3.945269198023531*^9}, {3.9452692447477036`*^9, 3.945269292374628*^9}, 
-   3.9452695669436283`*^9},
+   3.9452695669436283`*^9, 3.9471418436136284`*^9, {3.9471530165938835`*^9, 
+   3.9471530175736713`*^9}, {3.94715306555567*^9, 3.947153096647106*^9}, 
+   3.950428416641081*^9},
  CellLabel->
-  "In[667]:=",ExpressionUUID->"1387f9ea-eb71-ec4d-96ef-f6a1d6808ac0"],
+  "In[102]:=",ExpressionUUID->"1387f9ea-eb71-ec4d-96ef-f6a1d6808ac0"],
 
 Cell[BoxData[
  FormBox["0", TraditionalForm]], "Output",
@@ -2725,9 +3341,11 @@ Cell[BoxData[
    3.945269215534231*^9}, {3.9452692620847015`*^9, 3.9452692931084423`*^9}, 
    3.945269882489189*^9, 3.94527027413542*^9, 3.945271750368477*^9, 
    3.945271837464836*^9, 3.945272680637497*^9, 3.9452727488183517`*^9, 
-   3.9452727793244667`*^9, 3.945274150915121*^9},
+   3.9452727793244667`*^9, 3.945274150915121*^9, 3.9471531017637386`*^9, 
+   3.9488834367407417`*^9, 3.950427416308056*^9, 3.950428457185793*^9, 
+   3.950453875486431*^9, 3.950456107648121*^9, 3.950457990719385*^9},
  CellLabel->
-  "Out[669]=",ExpressionUUID->"e67c64be-2550-db45-914b-229cf3d1f5f4"]
+  "Out[166]=",ExpressionUUID->"d3fa3810-3d01-3a40-aaa4-63ee5595af37"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
@@ -2749,24 +3367,76 @@ Cell[BoxData[{
     RowBox[{
      RowBox[{
       RowBox[{
-       RowBox[{
-        RowBox[{"Keys", "[", 
-         RowBox[{"DownValues", "@", "SfactorDecay"}], "]"}], "[", 
-        RowBox[{"[", 
-         RowBox[{"All", ",", "1", ",", "#"}], "]"}], "]"}], "&"}], "/@", 
-      RowBox[{"{", 
-       RowBox[{"1", ",", "2"}], "}"}]}], "/.", 
+       RowBox[{"Keys", "[", 
+        RowBox[{"DownValues", "@", "SfactorDecay"}], "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1", ",", "#"}], "]"}], "]"}], "&"}], "/@", 
      RowBox[{"{", 
-      RowBox[{
-      "\"\<\!\(\*SuperscriptBox[\(K\), \(0\)]\)\>\"", "->", 
-       "\"\<\!\(\*SubscriptBox[\(K\), \(S\)]\)\>\""}], "}"}]}], "//", 
-    "Transpose"}]}], ";"}], "\[IndentingNewLine]", 
+      RowBox[{"1", ",", "2"}], "}"}]}], "//", "Transpose"}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"listLightMesons", "=", 
    RowBox[{
     RowBox[{"listAllDecays", "[", 
      RowBox[{"[", 
       RowBox[{"All", ",", "1"}], "]"}], "]"}], "//", "DeleteDuplicates"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Eta]\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a2\[Pi]\), \(0\)]\)\>\""}], "]"}], "=", 
+   "\"\<Eta-to-ALP-2Pi0\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Eta]\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(+\)]\)\!\(\*SuperscriptBox[\(\
+\[Pi]\), \(-\)]\)\>\""}], "]"}], "=", "\"\<Eta-to-ALP-2PiCh\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Eta]'\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a2\[Pi]\), \(0\)]\)\>\""}], "]"}], "=", 
+   "\"\<EtaPr-to-ALP-2Pi0\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Eta]'\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(+\)]\)\!\(\*SuperscriptBox[\(\
+\[Pi]\), \(-\)]\)\>\""}], "]"}], "=", "\"\<EtaPr-to-ALP-2PiCh\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Omega]\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(+\)]\)\!\(\*SuperscriptBox[\(\
+\[Pi]\), \(-\)]\)\>\""}], "]"}], "=", "\"\<Omega-to-ALP-2PiCh\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{"\"\<\[Omega]\>\"", ",", "\"\<a\[Gamma]\>\""}], "]"}], "=", 
+   "\"\<Omega-to-ALP-gamma\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\!\(\*SubscriptBox[\(K\), \(S\)]\)\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(0\)]\)\>\""}], "]"}], "=", 
+   "\"\<KS-to-ALP-Pi0\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\!\(\*SuperscriptBox[\(\[Rho]\), \(+\)]\)\>\"", ",", 
+     "\"\<\[Pi]a\>\""}], "]"}], "=", "\"\<RhoCh-to-ALP-PiCh\>\""}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Do", "[", "\[IndentingNewLine]", 
@@ -2802,56 +3472,58 @@ Cell[BoxData[{
        RowBox[{"model", ",", 
         RowBox[{"\[CapitalLambda]", "//", "N"}]}], "}"}]}], ";", 
      "\[IndentingNewLine]", 
-     RowBox[{"Do", "[", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"Module", "[", 
-        RowBox[{
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{"mes", "=", 
-            RowBox[{
-             RowBox[{"listAllDecays", "[", 
-              RowBox[{"[", "i", "]"}], "]"}], "[", 
-             RowBox[{"[", "1", "]"}], "]"}]}], ",", 
-           RowBox[{"proc", "=", 
-            RowBox[{
-             RowBox[{"listAllDecays", "[", 
-              RowBox[{"[", "i", "]"}], "]"}], "[", 
-             RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], ",", 
-         "\[IndentingNewLine]", 
-         RowBox[{"If", "[", 
-          RowBox[{
-           RowBox[{"reduceable", "[", 
-            RowBox[{"mes", ",", "proc"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"ResourceFunction", "[", "\"\<MonitorProgress\>\"", "]"}], "@", 
+      RowBox[{"Do", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Module", "[", 
+         RowBox[{
+          RowBox[{"{", 
            RowBox[{
-            RowBox[{"BrLightMesons", "[", 
+            RowBox[{"mes", "=", 
              RowBox[{
-             "ma_", ",", "fa_", ",", "mes", ",", "proc", ",", "modval", ",", 
-              "lval"}], "]"}], "=", 
-            RowBox[{
-             RowBox[{"BrMesonDecayFactorizable", "[", 
-              RowBox[{
-              "mes", ",", "proc", ",", "ma", ",", "fa", ",", "cu", ",", "cd", 
-               ",", "cs", ",", "cc", ",", "cb", ",", "ct", ",", "cG", ",", 
-               "ce", ",", "c\[Mu]", ",", "c\[Tau]"}], "]"}], "/.", 
-             RowBox[{"tableValuesReplacement", "[", 
-              RowBox[{"model", ",", "\[CapitalLambda]"}], "]"}]}]}], 
-           "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+              RowBox[{"listAllDecays", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+            RowBox[{"proc", "=", 
+             RowBox[{
+              RowBox[{"listAllDecays", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
            RowBox[{
+            RowBox[{"reduceable", "[", 
+             RowBox[{"mes", ",", "proc"}], "]"}], ",", "\[IndentingNewLine]", 
             RowBox[{
              RowBox[{"BrLightMesons", "[", 
               RowBox[{
               "ma_", ",", "fa_", ",", "mes", ",", "proc", ",", "modval", ",", 
                "lval"}], "]"}], "=", 
-             RowBox[{"BrMesonDecayNonFactorizable", "[", 
-              RowBox[{
-              "mes", ",", "proc", ",", "ma", ",", "fa", ",", "model", ",", 
-               "\[CapitalLambda]"}], "]"}]}], ";"}]}], "\[IndentingNewLine]", 
-          "]"}]}], "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", ",", 
-       RowBox[{"{", 
-        RowBox[{"i", ",", "1", ",", 
-         RowBox[{"Length", "[", "listAllDecays", "]"}], ",", "1"}], "}"}]}], 
-      "]"}], ";", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"BrMesonDecayFactorizable", "[", 
+               RowBox[{
+               "mes", ",", "proc", ",", "ma", ",", "fa", ",", "cu", ",", "cd",
+                 ",", "cs", ",", "cc", ",", "cb", ",", "ct", ",", "cG", ",", 
+                "ce", ",", "c\[Mu]", ",", "c\[Tau]"}], "]"}], "/.", 
+              RowBox[{"tableValuesReplacement", "[", 
+               RowBox[{"model", ",", "\[CapitalLambda]"}], "]"}]}]}], 
+            "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"BrLightMesons", "[", 
+               RowBox[{
+               "ma_", ",", "fa_", ",", "mes", ",", "proc", ",", "modval", ",",
+                 "lval"}], "]"}], "=", 
+              RowBox[{"BrMesonDecayNonFactorizable", "[", 
+               RowBox[{
+               "mes", ",", "proc", ",", "ma", ",", "fa", ",", "model", ",", 
+                "\[CapitalLambda]"}], "]"}]}], ";"}]}], "\[IndentingNewLine]",
+            "]"}]}], "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", 
+          RowBox[{"Length", "[", "listAllDecays", "]"}], ",", "1"}], "}"}]}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
      RowBox[{"Do", "[", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{
@@ -2891,15 +3563,17 @@ Cell[BoxData[{
         RowBox[{"mes", ",", "listLightMesons"}], "}"}]}], "]"}], ";"}]}], 
    "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.945268659302223*^9, 3.945268673818041*^9}, {
-  3.945269900592577*^9, 3.945269905230404*^9}, {3.9452699488019543`*^9, 
-  3.945269970554495*^9}, {3.945270278916975*^9, 3.9452702896028233`*^9}, {
-  3.9452703227908306`*^9, 3.945270514903414*^9}, {3.945270550588524*^9, 
-  3.945270570337641*^9}, {3.945270656784733*^9, 3.945270681335823*^9}, {
-  3.9452707124129143`*^9, 3.9452709387533607`*^9}, {3.9452710339039288`*^9, 
-  3.9452711138865414`*^9}, {3.9452731687372074`*^9, 3.945273169614935*^9}, {
-  3.9452737829291973`*^9, 3.945273790039295*^9}},
+   3.945269900592577*^9, 3.945269905230404*^9}, {3.9452699488019543`*^9, 
+   3.945269970554495*^9}, {3.945270278916975*^9, 3.9452702896028233`*^9}, {
+   3.9452703227908306`*^9, 3.945270514903414*^9}, {3.945270550588524*^9, 
+   3.945270570337641*^9}, {3.945270656784733*^9, 3.945270681335823*^9}, {
+   3.9452707124129143`*^9, 3.9452709387533607`*^9}, {3.9452710339039288`*^9, 
+   3.9452711138865414`*^9}, {3.9452731687372074`*^9, 3.945273169614935*^9}, {
+   3.9452737829291973`*^9, 3.945273790039295*^9}, {3.9471531265379467`*^9, 
+   3.9471531273814716`*^9}, 3.947153178385973*^9, {3.950427414500988*^9, 
+   3.9504274151574783`*^9}, {3.9504547394759064`*^9, 3.950454739712616*^9}},
  CellLabel->
-  "In[671]:=",ExpressionUUID->"71261dbf-ee2a-6242-b5e5-f8c94870843d"],
+  "In[106]:=",ExpressionUUID->"71261dbf-ee2a-6242-b5e5-f8c94870843d"],
 
 Cell[CellGroupData[{
 
@@ -2966,15 +3640,422 @@ Cell[BoxData[
           "]"}], ",", "18", ",", "Black"}], "]"}]}]}], "]"}]}]}], 
   "*)"}]], "Input",
  CellLabel->
-  "In[675]:=",ExpressionUUID->"ed000896-d8f2-fd49-8f64-74d184347e45"]
+  "In[118]:=",ExpressionUUID->"ed000896-d8f2-fd49-8f64-74d184347e45"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Exporting for SensCalc ", "Subsection",
+ CellChangeTimes->{{3.9503402589381065`*^9, 3.950340263380369*^9}, {
+  3.950433445225889*^9, 
+  3.9504334502255726`*^9}},ExpressionUUID->"e6b10cf6-3684-7845-becf-\
+839798dfc73f"],
+
+Cell[CellGroupData[{
+
+Cell["Squared matrix elements", "Subsubsection",
+ CellChangeTimes->{{3.950433457851555*^9, 
+  3.950433458723366*^9}},ExpressionUUID->"16467a4f-3196-1c48-8c69-\
+bab24e216481"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"procs3body", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{"Flatten", "[", 
+      RowBox[{
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"mes", ",", 
+           RowBox[{
+            RowBox[{"listProcessesMeson", "[", "mes", "]"}], "[", 
+            RowBox[{"[", "i", "]"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"mes", ",", "listLightMesons"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "1", ",", 
+           RowBox[{"Length", "[", 
+            RowBox[{"listProcessesMeson", "[", "mes", "]"}], "]"}], ",", 
+           "1"}], "}"}]}], "]"}], ",", "1"}], "]"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Length", "[", 
+        RowBox[{"plistdec", "[", 
+         RowBox[{
+          RowBox[{"#", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], ",", 
+          RowBox[{"#", "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "]"}], "==", "3"}], 
+      "&"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Eta]\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a2\[Pi]\), \(0\)]\)\>\""}], "]"}], "=", 
+   "\"\<Eta-to-ALP-2Pi0\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Eta]\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(+\)]\)\!\(\*SuperscriptBox[\(\
+\[Pi]\), \(-\)]\)\>\""}], "]"}], "=", "\"\<Eta-to-ALP-2PiCh\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Eta]'\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a2\[Pi]\), \(0\)]\)\>\""}], "]"}], "=", 
+   "\"\<EtaPr-to-ALP-2Pi0\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Eta]'\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(+\)]\)\!\(\*SuperscriptBox[\(\
+\[Pi]\), \(-\)]\)\>\""}], "]"}], "=", "\"\<EtaPr-to-ALP-2PiCh\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"replacementRuleMesonDecay", "[", 
+    RowBox[{
+    "\"\<\[Omega]\>\"", ",", 
+     "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(+\)]\)\!\(\*SuperscriptBox[\(\
+\[Pi]\), \(-\)]\)\>\""}], "]"}], "=", "\"\<Omega-to-ALP-2PiCh\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalLambda]ch", "=", 
+   SuperscriptBox["10", "3."]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Do", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Do", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"mes", ",", "proc"}], "}"}], "=", "mod"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"procrepl", "=", 
+        RowBox[{"replacementRuleMesonDecay", "[", 
+         RowBox[{"mes", ",", "proc"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"m12val", "[", 
+           RowBox[{"E1_", ",", "E3_", ",", "mLLP_"}], "]"}], ",", 
+          RowBox[{"m23val", "[", 
+           RowBox[{"E1_", ",", "E3_", ",", "mLLP_"}], "]"}]}], "}"}], "=", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"M12", "[", 
+            RowBox[{"E1", ",", "E3"}], "]"}], ",", 
+           RowBox[{"M23", "[", "E1", "]"}]}], "}"}], "/.", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"m", "->", 
+            RowBox[{"MASS", "[", "mes", "]"}]}], ",", 
+           RowBox[{"m3", "->", "mLLP"}], ",", 
+           RowBox[{"m1", "->", 
+            RowBox[{"MASS", "[", 
+             RowBox[{
+              RowBox[{"plistdec", "[", 
+               RowBox[{"mes", ",", "proc"}], "]"}], "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ",", 
+           RowBox[{"m2", "->", 
+            RowBox[{"MASS", "[", 
+             RowBox[{
+              RowBox[{"plistdec", "[", 
+               RowBox[{"mes", ",", "proc"}], "]"}], "[", 
+              RowBox[{"[", "2", "]"}], "]"}], "]"}]}]}], "}"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"M2numeric", "[", 
+         RowBox[{
+         "model", ",", "procrepl", ",", "mLLP_", ",", "\[CapitalLambda]_", 
+          ",", "E1_", ",", "E3_"}], "]"}], "=", 
+        RowBox[{
+         RowBox[{"Re", "[", 
+          RowBox[{"M2mesonNumeric3body", "[", 
+           RowBox[{"mes", ",", "proc", ",", "mLLP", ",", "1.", ",", 
+            RowBox[{"m12val", "[", 
+             RowBox[{"E1", ",", "E3", ",", "mLLP"}], "]"}], ",", 
+            RowBox[{"m23val", "[", 
+             RowBox[{"E1", ",", "E3", ",", "mLLP"}], "]"}], ",", 
+            RowBox[{"cRGval", "[", 
+             RowBox[{"model", ",", "\[CapitalLambda]", ",", "\"\<cu\>\""}], 
+             "]"}], ",", 
+            RowBox[{"cRGval", "[", 
+             RowBox[{"model", ",", "\[CapitalLambda]", ",", "\"\<cd\>\""}], 
+             "]"}], ",", 
+            RowBox[{"cRGval", "[", 
+             RowBox[{"model", ",", "\[CapitalLambda]", ",", "\"\<cs\>\""}], 
+             "]"}], ",", 
+            RowBox[{"cRGval", "[", 
+             RowBox[{"model", ",", "\[CapitalLambda]", ",", "\"\<cc\>\""}], 
+             "]"}], ",", 
+            RowBox[{"cRGval", "[", 
+             RowBox[{"model", ",", "\[CapitalLambda]", ",", "\"\<cb\>\""}], 
+             "]"}], ",", 
+            RowBox[{"cRGval", "[", 
+             RowBox[{"model", ",", "\[CapitalLambda]", ",", "\"\<ct\>\""}], 
+             "]"}], ",", 
+            RowBox[{"cRGval", "[", 
+             RowBox[{"model", ",", "\[CapitalLambda]", ",", "\"\<cG\>\""}], 
+             "]"}], ",", 
+            RowBox[{"cRGval", "[", 
+             RowBox[{"model", ",", "\[CapitalLambda]", ",", "\"\<ce\>\""}], 
+             "]"}], ",", 
+            RowBox[{"cRGval", "[", 
+             RowBox[{
+             "model", ",", "\[CapitalLambda]", ",", "\"\<c\[Mu]\>\""}], "]"}],
+             ",", 
+            RowBox[{"cRGval", "[", 
+             RowBox[{
+             "model", ",", "\[CapitalLambda]", ",", "\"\<c\[Tau]\>\""}], 
+             "]"}]}], "]"}], "]"}], "/.", 
+         RowBox[{"{", 
+          RowBox[{"ma", "->", "mLLP"}], "}"}]}]}], ";"}], 
+      "\[IndentingNewLine]", ",", 
+      RowBox[{"{", 
+       RowBox[{"mod", ",", "procs3body"}], "}"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", ",", 
+   RowBox[{"{", 
+    RowBox[{"model", ",", "ModelListAll"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.9503403016920967`*^9, 3.9503404041946163`*^9}, {
+  3.95034087221126*^9, 3.950340879089222*^9}, {3.9503409139389706`*^9, 
+  3.950341082514221*^9}, {3.9503411607380924`*^9, 3.9503413021954784`*^9}, {
+  3.950341391828436*^9, 3.9503414995441246`*^9}, {3.9503416552365932`*^9, 
+  3.95034166133354*^9}, {3.9503417121764164`*^9, 3.950341714914343*^9}, {
+  3.9503423041382217`*^9, 3.950342363363407*^9}, {3.950342861542532*^9, 
+  3.950343006342266*^9}, {3.950343041105507*^9, 3.9503430453901463`*^9}, {
+  3.9504292893795376`*^9, 3.9504292909186764`*^9}, {3.9504600280314865`*^9, 
+  3.9504600730584373`*^9}},
+ CellLabel->
+  "In[390]:=",ExpressionUUID->"25f452e0-f8d0-484e-b459-1c5c84c51548"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Weights for calculating the production flux", "Subsubsection",
+ CellChangeTimes->{{3.950433463314949*^9, 3.950433464755146*^9}, {
+  3.950433682555647*^9, 
+  3.950433693609087*^9}},ExpressionUUID->"a4512308-2c4c-d34a-9f0f-\
+e4651076fee1"],
+
+Cell[CellGroupData[{
+
+Cell["Separate decays", "Item",
+ CellChangeTimes->{{3.9504336971034203`*^9, 
+  3.9504336995270786`*^9}},ExpressionUUID->"10ee7960-b4a5-6c4e-8e05-\
+fd6e6c1f8b2c"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"replacementRuleMesonDecay", "[", 
+     RowBox[{
+     "\"\<\[Eta]\>\"", ",", 
+      "\"\<\!\(\*SuperscriptBox[\(a2\[Pi]\), \(0\)]\)\>\""}], "]"}], "=", 
+    "\"\<Eta-to-ALP-2Pi0\>\""}], ";", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"replacementRuleMesonDecay", "[", 
+     RowBox[{
+     "\"\<\[Eta]\>\"", ",", 
+      "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(+\)]\)\!\(\*SuperscriptBox[\(\
+\[Pi]\), \(-\)]\)\>\""}], "]"}], "=", "\"\<Eta-to-ALP-2PiCh\>\""}], ";", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"replacementRuleMesonDecay", "[", 
+     RowBox[{
+     "\"\<\[Eta]'\>\"", ",", 
+      "\"\<\!\(\*SuperscriptBox[\(a2\[Pi]\), \(0\)]\)\>\""}], "]"}], "=", 
+    "\"\<EtaPr-to-ALP-2Pi0\>\""}], ";", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"replacementRuleMesonDecay", "[", 
+     RowBox[{
+     "\"\<\[Eta]'\>\"", ",", 
+      "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(+\)]\)\!\(\*SuperscriptBox[\(\
+\[Pi]\), \(-\)]\)\>\""}], "]"}], "=", "\"\<EtaPr-to-ALP-2PiCh\>\""}], ";", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"replacementRuleMesonDecay", "[", 
+     RowBox[{
+     "\"\<\[Omega]\>\"", ",", 
+      "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(+\)]\)\!\(\*SuperscriptBox[\(\
+\[Pi]\), \(-\)]\)\>\""}], "]"}], "=", "\"\<Omega-to-ALP-2PiCh\>\""}], ";", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"replacementRuleMesonDecay", "[", 
+     RowBox[{"\"\<\[Omega]\>\"", ",", "\"\<a\[Gamma]\>\""}], "]"}], "=", 
+    "\"\<Omega-to-ALP-gamma\>\""}], ";", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"replacementRuleMesonDecay", "[", 
+     RowBox[{
+     "\"\<\!\(\*SubscriptBox[\(K\), \(S\)]\)\>\"", ",", 
+      "\"\<\!\(\*SuperscriptBox[\(a\[Pi]\), \(0\)]\)\>\""}], "]"}], "=", 
+    "\"\<KS-to-ALP-Pi0\>\""}], ";", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"replacementRuleMesonDecay", "[", 
+     RowBox[{
+     "\"\<\!\(\*SuperscriptBox[\(\[Rho]\), \(+\)]\)\>\"", ",", 
+      "\"\<\[Pi]a\>\""}], "]"}], "=", "\"\<RhoCh-to-ALP-PiCh\>\""}], ";", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"YieldsFromLightMesons", "[", 
+     RowBox[{"model_", ",", "\[CapitalLambda]_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"modval", ",", "lval"}], "}"}], "=", 
+         RowBox[{"{", 
+          RowBox[{"model", ",", 
+           RowBox[{"\[CapitalLambda]", "//", "N"}]}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"ResourceFunction", "[", "\"\<MonitorProgress\>\"", "]"}], 
+         "@", 
+         RowBox[{"Do", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Module", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"mes", "=", 
+                RowBox[{
+                 RowBox[{"listAllDecays", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], "[", 
+                 RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+               RowBox[{"proc", "=", 
+                RowBox[{
+                 RowBox[{"listAllDecays", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], "[", 
+                 RowBox[{"[", "2", "]"}], "]"}]}]}], "}"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"procrepl", "=", 
+               RowBox[{"replacementRuleMesonDecay", "[", 
+                RowBox[{"mes", ",", "proc"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"reduceable", "[", 
+                 RowBox[{"mes", ",", "proc"}], "]"}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"BrLightMesonsExport", "[", 
+                  RowBox[{
+                  "ma_", ",", "fa_", ",", "procrepl", ",", "modval", ",", 
+                   "lval"}], "]"}], "=", 
+                 RowBox[{
+                  RowBox[{"BrMesonDecayFactorizable", "[", 
+                   RowBox[{
+                   "mes", ",", "proc", ",", "ma", ",", "fa", ",", "cu", ",", 
+                    "cd", ",", "cs", ",", "cc", ",", "cb", ",", "ct", ",", 
+                    "cG", ",", "ce", ",", "c\[Mu]", ",", "c\[Tau]"}], "]"}], "/.", 
+                  RowBox[{"tableValuesReplacement", "[", 
+                   RowBox[{"model", ",", "\[CapitalLambda]"}], "]"}]}]}], 
+                "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"BrLightMesonsExport", "[", 
+                   RowBox[{
+                   "ma_", ",", "fa_", ",", "procrepl", ",", "modval", ",", 
+                    "lval"}], "]"}], "=", 
+                  RowBox[{"BrMesonDecayNonFactorizable", "[", 
+                   RowBox[{
+                   "mes", ",", "proc", ",", "ma", ",", "fa", ",", "model", 
+                    ",", "\[CapitalLambda]"}], "]"}]}], ";"}]}], 
+               "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+            "]"}], "\[IndentingNewLine]", ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "1", ",", 
+             RowBox[{"Length", "[", "listAllDecays", "]"}], ",", "1"}], 
+            "}"}]}], "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"\[CapitalLambda]ch", "=", 
+      SuperscriptBox["10", "3."]}]}]}], ";", "\[IndentingNewLine]", 
+   RowBox[{"Do", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"YieldsFromLightMesons", "[", 
+       RowBox[{"model", ",", "\[CapitalLambda]ch"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"modass", "=", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"model", "==", "\"\<Gluon\>\""}], ",", "\"\<ALP-gluon\>\"", 
+         ",", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"model", "==", "\"\<Fermion universal\>\""}], ",", 
+           "\"\<ALP-fermion\>\"", ",", "model"}], "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Export", "[", 
+       RowBox[{
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"NotebookDirectory", "[", "]"}], "//", 
+             "ParentDirectory"}], "//", "ParentDirectory"}], ",", 
+           "\"\<phenomenology\>\"", ",", "model", ",", "\"\<For SensCalc\>\"",
+            ",", 
+           RowBox[{
+           "\"\<Weights-for-production-\>\"", "<>", "modass", "<>", 
+            "\"\<.mx\>\""}]}], "}"}], "]"}], ",", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"proc", ",", 
+            RowBox[{"BrLightMesons", "[", 
+             RowBox[{
+             "ma", ",", "1.", ",", "proc", ",", "model", ",", 
+              "\[CapitalLambda]ch"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"proc", ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Keys", "[", 
+               RowBox[{"DownValues", "@", "YielfFromGivenDecay"}], "]"}], "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", "1", ",", "3"}], "]"}], "]"}], "//", 
+             "DeleteDuplicates"}]}], "}"}]}], "]"}], ",", "\"\<MX\>\""}], 
+       "]"}]}], "\[IndentingNewLine]", ",", 
+     RowBox[{"{", 
+      RowBox[{"model", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Gluon\>\"", ",", "\"\<Fermion universal\>\""}], "}"}]}], 
+      "}"}]}], "]"}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.950433500555258*^9, 3.950433662088894*^9}, {
+  3.9504337379832363`*^9, 3.9504338158714085`*^9}, {3.950434160390339*^9, 
+  3.950434163546442*^9}, {3.9504540328865623`*^9, 3.950454037730154*^9}, {
+  3.9504540997511654`*^9, 3.950454123437765*^9}, {3.950454166582615*^9, 
+  3.950454201748888*^9}, {3.9504546510635242`*^9, 3.950454698852564*^9}, {
+  3.9504549035323772`*^9, 3.9504549061074333`*^9}},
+ CellLabel->
+  "In[127]:=",ExpressionUUID->"0ed68765-bcbb-6d44-bbbb-4296acc0003e"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{1142.1, 642.9},
+WindowSize->{1430.25, 741.75},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 Magnification:>0.8 Inherited,
-FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+FrontEndVersion->"14.2 for Microsoft Windows (64-bit) (December 26, 2024)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"989821cb-bb43-2443-afae-0dd465d50f78"
 ]
@@ -2993,127 +4074,153 @@ Cell[CellGroupData[{
 Cell[576, 22, 167, 3, 54, "Chapter",ExpressionUUID->"aa53ae75-e8a1-a741-ac6c-9d6387e9a124"],
 Cell[CellGroupData[{
 Cell[768, 29, 189, 3, 52, "Section",ExpressionUUID->"b7d997b9-3a0e-ec48-8a6a-565cffdd6b7c"],
-Cell[960, 34, 3450, 92, 213, "Input",ExpressionUUID->"7a2dd728-11f7-5241-8311-f83606ef03e1"]
+Cell[960, 34, 3669, 92, 265, "Input",ExpressionUUID->"7a2dd728-11f7-5241-8311-f83606ef03e1"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[4447, 131, 232, 4, 52, "Section",ExpressionUUID->"e57588f9-b005-9740-a8ce-a80717ea4537"],
+Cell[4666, 131, 232, 4, 52, "Section",ExpressionUUID->"e57588f9-b005-9740-a8ce-a80717ea4537"],
 Cell[CellGroupData[{
-Cell[4704, 139, 178, 3, 42, "Subsection",ExpressionUUID->"db6db2e2-ddbc-f148-a09d-7b2c6d618f78"],
-Cell[4885, 144, 6243, 163, 277, "Input",ExpressionUUID->"c247a88d-7c76-9c46-a539-f75649f2aa9e"]
+Cell[4923, 139, 178, 3, 42, "Subsection",ExpressionUUID->"db6db2e2-ddbc-f148-a09d-7b2c6d618f78"],
+Cell[5104, 144, 6187, 160, 262, "Input",ExpressionUUID->"c247a88d-7c76-9c46-a539-f75649f2aa9e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[11165, 312, 214, 4, 42, "Subsection",ExpressionUUID->"645f02f4-c821-cc4f-ada2-3afa8d893e55"],
-Cell[11382, 318, 7217, 173, 403, "Input",ExpressionUUID->"bbb00377-af00-1947-9b4b-384d7b4c35ea"]
+Cell[11328, 309, 214, 4, 42, "Subsection",ExpressionUUID->"645f02f4-c821-cc4f-ada2-3afa8d893e55"],
+Cell[11545, 315, 7670, 183, 387, "Input",ExpressionUUID->"bbb00377-af00-1947-9b4b-384d7b4c35ea"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[18636, 496, 432, 11, 42, "Subsection",ExpressionUUID->"2fef246b-6d03-7b4d-8eb9-a83cfe3a609a"],
-Cell[19071, 509, 15654, 379, 677, "Input",ExpressionUUID->"ca42b1ad-b451-8241-aa4b-a4503aa4c26b"]
+Cell[19252, 503, 432, 11, 42, "Subsection",ExpressionUUID->"2fef246b-6d03-7b4d-8eb9-a83cfe3a609a"],
+Cell[19687, 516, 17083, 405, 687, "Input",ExpressionUUID->"ca42b1ad-b451-8241-aa4b-a4503aa4c26b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36807, 926, 529, 12, 42, "Subsection",ExpressionUUID->"18c29e19-3d71-7240-8de1-e76b7218e3f5"],
+Cell[37339, 940, 15677, 371, 639, "Input",ExpressionUUID->"b79a5d94-8a0c-354d-8f78-969804f1efda"],
+Cell[53019, 1313, 147, 2, 22, "Input",ExpressionUUID->"093acb75-451e-3048-ab65-82333e62688a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53203, 1320, 157, 3, 42, "Subsection",ExpressionUUID->"ace0eee8-3f78-7f40-8eed-46351266a758"],
+Cell[53363, 1325, 9209, 212, 540, "Input",ExpressionUUID->"86b59873-6a23-c544-8277-9ac0a7c87060"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[34774, 894, 168, 3, 52, "Section",ExpressionUUID->"a1cf489a-ae7e-a240-9288-939ffe2dfd5b"],
+Cell[62621, 1543, 168, 3, 52, "Section",ExpressionUUID->"a1cf489a-ae7e-a240-9288-939ffe2dfd5b"],
 Cell[CellGroupData[{
-Cell[34967, 901, 161, 3, 42, "Subsection",ExpressionUUID->"e0cd0ff2-31dc-f447-a27b-55863ebe405e"],
-Cell[35131, 906, 944, 24, 83, "Input",ExpressionUUID->"012d3d1c-c7b8-ae4a-aa51-a59bb9c203dd"]
+Cell[62814, 1550, 161, 3, 42, "Subsection",ExpressionUUID->"e0cd0ff2-31dc-f447-a27b-55863ebe405e"],
+Cell[62978, 1555, 944, 24, 83, "Input",ExpressionUUID->"012d3d1c-c7b8-ae4a-aa51-a59bb9c203dd"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[36112, 935, 301, 7, 42, "Subsection",ExpressionUUID->"5be2444b-fbb1-4d4d-bc0d-c9248aef84e7"],
-Cell[36416, 944, 8163, 194, 443, "Input",ExpressionUUID->"b1dfa02c-ad1b-7f49-8199-a5efee2ee6ee"]
+Cell[63959, 1584, 301, 7, 42, "Subsection",ExpressionUUID->"5be2444b-fbb1-4d4d-bc0d-c9248aef84e7"],
+Cell[64263, 1593, 7930, 192, 390, "Input",ExpressionUUID->"b1dfa02c-ad1b-7f49-8199-a5efee2ee6ee"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[44616, 1143, 183, 3, 42, "Subsection",ExpressionUUID->"1ef58586-683c-f14c-a744-9efac7bbdd7c"],
-Cell[44802, 1148, 5952, 140, 295, "Input",ExpressionUUID->"c68af436-c3ae-b54b-8a8b-4d100a202129"]
+Cell[72230, 1790, 183, 3, 42, "Subsection",ExpressionUUID->"1ef58586-683c-f14c-a744-9efac7bbdd7c"],
+Cell[72416, 1795, 6911, 155, 301, "Input",ExpressionUUID->"c68af436-c3ae-b54b-8a8b-4d100a202129"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[50803, 1294, 180, 3, 52, "Section",ExpressionUUID->"9b0ae1e1-f789-2f4f-84f5-3ad72ea6c7e4"],
+Cell[79376, 1956, 180, 3, 52, "Section",ExpressionUUID->"9b0ae1e1-f789-2f4f-84f5-3ad72ea6c7e4"],
 Cell[CellGroupData[{
-Cell[51008, 1301, 293, 7, 42, "Subsection",ExpressionUUID->"8ab80122-30b3-9740-a90b-4929c28f09fa"],
+Cell[79581, 1963, 293, 7, 42, "Subsection",ExpressionUUID->"8ab80122-30b3-9740-a90b-4929c28f09fa"],
+Cell[79877, 1972, 152, 3, 22, "Input",ExpressionUUID->"9f880d66-be35-0048-a765-95effb5e9376"],
 Cell[CellGroupData[{
-Cell[51326, 1312, 181, 3, 35, "Subsubsection",ExpressionUUID->"7d5dfe28-d640-e448-b90a-ab210ef49626"],
+Cell[80054, 1979, 181, 3, 35, "Subsubsection",ExpressionUUID->"7d5dfe28-d640-e448-b90a-ab210ef49626"],
 Cell[CellGroupData[{
-Cell[51532, 1319, 2110, 56, 113, "Input",ExpressionUUID->"805bd0ab-096e-b04c-91d0-16b78b9cd620"],
-Cell[53645, 1377, 783, 14, 25, "Output",ExpressionUUID->"0b16d77c-be72-9e41-bb10-bcf691befa2d"]
+Cell[80260, 1986, 2434, 65, 129, "Input",ExpressionUUID->"805bd0ab-096e-b04c-91d0-16b78b9cd620"],
+Cell[82697, 2053, 1171, 18, 25, "Output",ExpressionUUID->"709fed1e-b31b-a14a-a7e0-88256ccf1caf"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[54477, 1397, 167, 3, 35, "Subsubsection",ExpressionUUID->"b8280901-3cba-0248-9f43-60bab24db0c2"],
-Cell[54647, 1402, 2169, 44, 83, "Input",ExpressionUUID->"96dbd4d1-a413-d942-b23e-00296927d4ca"]
-}, Open  ]]
-}, Open  ]],
+Cell[83917, 2077, 167, 3, 35, "Subsubsection",ExpressionUUID->"b8280901-3cba-0248-9f43-60bab24db0c2"],
 Cell[CellGroupData[{
-Cell[56865, 1452, 207, 4, 42, "Subsection",ExpressionUUID->"2756f52a-4345-0b47-b3ea-1b9f45f364a2"],
-Cell[CellGroupData[{
-Cell[57097, 1460, 181, 3, 35, "Subsubsection",ExpressionUUID->"6b755082-2d23-094b-b0a8-29d93b6e17e1"],
-Cell[57281, 1465, 3979, 120, 240, "Input",ExpressionUUID->"69d0563f-d54d-4e40-b992-880bc5f020a5"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[61297, 1590, 191, 3, 35, "Subsubsection",ExpressionUUID->"c5acba40-7a29-dd4b-b846-a80a31c13ebc"],
-Cell[CellGroupData[{
-Cell[61513, 1597, 6563, 136, 297, "Input",ExpressionUUID->"908794d4-1eea-1442-8789-c8cd8a71c84a"],
-Cell[68079, 1735, 1223, 20, 25, "Output",ExpressionUUID->"29359984-c86b-2d48-8ac2-bf8a311e2c92"],
-Cell[69305, 1757, 2350, 48, 60, "Output",ExpressionUUID->"a7e51b55-06ea-924e-8792-154e7e8df634"]
+Cell[84109, 2084, 2431, 49, 83, "Input",ExpressionUUID->"96dbd4d1-a413-d942-b23e-00296927d4ca"],
+Cell[86543, 2135, 536, 9, 25, "Output",ExpressionUUID->"750a690f-89bb-6a45-86f9-3da93df94e5e"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[71716, 1812, 249, 4, 42, "Subsection",ExpressionUUID->"1141dcb0-4d41-2840-96cd-69e135c69614"],
+Cell[87140, 2151, 207, 4, 42, "Subsection",ExpressionUUID->"2756f52a-4345-0b47-b3ea-1b9f45f364a2"],
 Cell[CellGroupData[{
-Cell[71990, 1820, 181, 3, 35, "Subsubsection",ExpressionUUID->"8dd7c489-db83-d148-abf7-41d4387b2e8f"],
-Cell[72174, 1825, 4587, 126, 255, "Input",ExpressionUUID->"11fce6f7-61ca-694f-8d04-3cbc3002e7b6"]
+Cell[87372, 2159, 181, 3, 35, "Subsubsection",ExpressionUUID->"6b755082-2d23-094b-b0a8-29d93b6e17e1"],
+Cell[87556, 2164, 4584, 136, 273, "Input",ExpressionUUID->"69d0563f-d54d-4e40-b992-880bc5f020a5"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[76798, 1956, 191, 3, 35, "Subsubsection",ExpressionUUID->"04b98d91-1e0d-c34e-aec9-e809dd510de3"],
+Cell[92177, 2305, 191, 3, 35, "Subsubsection",ExpressionUUID->"c5acba40-7a29-dd4b-b846-a80a31c13ebc"],
 Cell[CellGroupData[{
-Cell[77014, 1963, 6131, 130, 297, "Input",ExpressionUUID->"1e566d89-9b5d-fe45-99a9-b44b6370b895"],
-Cell[83148, 2095, 620, 11, 25, "Output",ExpressionUUID->"7bec72b0-d943-0549-8420-2d6ccadf99ed"],
-Cell[83771, 2108, 1723, 38, 54, "Output",ExpressionUUID->"fa673560-9383-f541-a75f-e5ea60cdfc6d"]
+Cell[92393, 2312, 7415, 148, 282, "Input",ExpressionUUID->"908794d4-1eea-1442-8789-c8cd8a71c84a"],
+Cell[99811, 2462, 314, 7, 25, "Output",ExpressionUUID->"7afed212-49aa-3f4d-874b-2a4eb4e282a6"],
+Cell[100128, 2471, 809, 18, 38, "Output",ExpressionUUID->"0caedcc6-5a92-d540-9043-2531b2c84a7b"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[85555, 2153, 259, 4, 42, "Subsection",ExpressionUUID->"a7b12d5a-35c9-3a47-8431-926213bb9a39"],
+Cell[100998, 2496, 249, 4, 42, "Subsection",ExpressionUUID->"1141dcb0-4d41-2840-96cd-69e135c69614"],
 Cell[CellGroupData[{
-Cell[85839, 2161, 181, 3, 35, "Subsubsection",ExpressionUUID->"623fefad-b3c8-2d4a-87f4-7adbd9bda920"],
-Cell[86023, 2166, 4455, 118, 220, "Input",ExpressionUUID->"4c231a7d-2de6-d744-96db-429fa85372ba"]
+Cell[101272, 2504, 181, 3, 35, "Subsubsection",ExpressionUUID->"8dd7c489-db83-d148-abf7-41d4387b2e8f"],
+Cell[101456, 2509, 5287, 143, 273, "Input",ExpressionUUID->"11fce6f7-61ca-694f-8d04-3cbc3002e7b6"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[90515, 2289, 191, 3, 35, "Subsubsection",ExpressionUUID->"4928dc15-12c9-4741-9db5-f985c8d4d037"],
+Cell[106780, 2657, 191, 3, 35, "Subsubsection",ExpressionUUID->"04b98d91-1e0d-c34e-aec9-e809dd510de3"],
 Cell[CellGroupData[{
-Cell[90731, 2296, 374, 10, 24, "Item",ExpressionUUID->"40f72855-db20-504d-a5b6-3e2b48066db4"],
-Cell[91108, 2308, 5893, 150, 228, "Input",ExpressionUUID->"e4452641-8733-ad4f-af4f-31f1db1ee75e"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[97038, 2463, 167, 3, 24, "Item",ExpressionUUID->"b50e66a5-ff75-5244-b16c-6af0ea67d765"],
-Cell[CellGroupData[{
-Cell[97230, 2470, 1565, 37, 83, "Input",ExpressionUUID->"f704ce9c-33ab-394b-a0e8-60d3f05219bf"],
-Cell[98798, 2509, 752, 15, 20, "Message",ExpressionUUID->"0f45d591-4a7e-8e46-acf6-1af83469045f"],
-Cell[99553, 2526, 1422, 36, 43, "Output",ExpressionUUID->"e1fafabf-4720-8e4e-aa45-0e3a4176378d"]
-}, Open  ]]
+Cell[106996, 2664, 6669, 138, 282, "Input",ExpressionUUID->"1e566d89-9b5d-fe45-99a9-b44b6370b895"],
+Cell[113668, 2804, 867, 14, 25, "Output",ExpressionUUID->"4693d343-5331-a14b-a86d-d9858a711380"],
+Cell[114538, 2820, 1364, 25, 38, "Output",ExpressionUUID->"8ce0ce3e-92fc-b344-9f02-484ba37d2dc9"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[101048, 2570, 436, 9, 42, "Subsection",ExpressionUUID->"33b0980c-dc2b-8641-9574-344801418732"],
+Cell[115963, 2852, 259, 4, 42, "Subsection",ExpressionUUID->"a7b12d5a-35c9-3a47-8431-926213bb9a39"],
 Cell[CellGroupData[{
-Cell[101509, 2583, 181, 3, 35, "Subsubsection",ExpressionUUID->"4de55b13-4e04-a24f-8229-cc8321ba0ffe"],
-Cell[101693, 2588, 1992, 58, 131, "Input",ExpressionUUID->"12a77873-ff13-064a-9e72-5775e19844ba"]
+Cell[116247, 2860, 181, 3, 35, "Subsubsection",ExpressionUUID->"623fefad-b3c8-2d4a-87f4-7adbd9bda920"],
+Cell[116431, 2865, 5087, 133, 235, "Input",ExpressionUUID->"4c231a7d-2de6-d744-96db-429fa85372ba"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[103722, 2651, 219, 4, 35, "Subsubsection",ExpressionUUID->"ae52ecc2-c443-3348-af73-c63414d49af2"],
+Cell[121555, 3003, 191, 3, 35, "Subsubsection",ExpressionUUID->"4928dc15-12c9-4741-9db5-f985c8d4d037"],
 Cell[CellGroupData[{
-Cell[103966, 2659, 2187, 59, 91, "Input",ExpressionUUID->"1387f9ea-eb71-ec4d-96ef-f6a1d6808ac0"],
-Cell[106156, 2720, 552, 9, 25, "Output",ExpressionUUID->"e67c64be-2550-db45-914b-229cf3d1f5f4"]
+Cell[121771, 3010, 374, 10, 24, "Item",ExpressionUUID->"40f72855-db20-504d-a5b6-3e2b48066db4"],
+Cell[122148, 3022, 3837, 87, 136, "Input",ExpressionUUID->"e4452641-8733-ad4f-af4f-31f1db1ee75e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[126022, 3114, 167, 3, 24, "Item",ExpressionUUID->"b50e66a5-ff75-5244-b16c-6af0ea67d765"],
+Cell[CellGroupData[{
+Cell[126214, 3121, 1813, 40, 83, "Input",ExpressionUUID->"f704ce9c-33ab-394b-a0e8-60d3f05219bf"],
+Cell[128030, 3163, 799, 15, 20, "Message",ExpressionUUID->"b85f54ae-dab2-a24f-b0ec-7301889b400c"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[106781, 2737, 220, 5, 52, "Section",ExpressionUUID->"ad9a1a6d-e168-ef4b-9444-a6c57918b2b2"],
-Cell[107004, 2744, 6302, 157, 374, "Input",ExpressionUUID->"71261dbf-ee2a-6242-b5e5-f8c94870843d"],
+Cell[128902, 3186, 436, 9, 42, "Subsection",ExpressionUUID->"33b0980c-dc2b-8641-9574-344801418732"],
 Cell[CellGroupData[{
-Cell[113331, 2905, 154, 3, 42, "Subsection",ExpressionUUID->"c08ff580-dd17-d741-bbf3-c0fc2b0f4f59"],
-Cell[113488, 2910, 2245, 58, 103, "Input",ExpressionUUID->"ed000896-d8f2-fd49-8f64-74d184347e45"]
+Cell[129363, 3199, 181, 3, 35, "Subsubsection",ExpressionUUID->"4de55b13-4e04-a24f-8229-cc8321ba0ffe"],
+Cell[129547, 3204, 2255, 64, 133, "Input",ExpressionUUID->"12a77873-ff13-064a-9e72-5775e19844ba"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[131839, 3273, 219, 4, 35, "Subsubsection",ExpressionUUID->"ae52ecc2-c443-3348-af73-c63414d49af2"],
+Cell[CellGroupData[{
+Cell[132083, 3281, 2114, 53, 70, "Input",ExpressionUUID->"1387f9ea-eb71-ec4d-96ef-f6a1d6808ac0"],
+Cell[134200, 3336, 718, 11, 25, "Output",ExpressionUUID->"d3fa3810-3d01-3a40-aaa4-63ee5595af37"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[134991, 3355, 220, 5, 52, "Section",ExpressionUUID->"ad9a1a6d-e168-ef4b-9444-a6c57918b2b2"],
+Cell[135214, 3362, 8519, 213, 500, "Input",ExpressionUUID->"71261dbf-ee2a-6242-b5e5-f8c94870843d"],
+Cell[CellGroupData[{
+Cell[143758, 3579, 154, 3, 42, "Subsection",ExpressionUUID->"c08ff580-dd17-d741-bbf3-c0fc2b0f4f59"],
+Cell[143915, 3584, 2245, 58, 88, "Input",ExpressionUUID->"ed000896-d8f2-fd49-8f64-74d184347e45"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[146197, 3647, 224, 4, 42, "Subsection",ExpressionUUID->"e6b10cf6-3684-7845-becf-839798dfc73f"],
+Cell[CellGroupData[{
+Cell[146446, 3655, 174, 3, 35, "Subsubsection",ExpressionUUID->"16467a4f-3196-1c48-8c69-bab24e216481"],
+Cell[146623, 3660, 7174, 179, 270, "Input",ExpressionUUID->"25f452e0-f8d0-484e-b459-1c5c84c51548"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[153834, 3844, 243, 4, 35, "Subsubsection",ExpressionUUID->"a4512308-2c4c-d34a-9f0f-e4651076fee1"],
+Cell[CellGroupData[{
+Cell[154102, 3852, 161, 3, 24, "Item",ExpressionUUID->"10ee7960-b4a5-6c4e-8e05-fd6e6c1f8b2c"],
+Cell[154266, 3857, 8061, 190, 438, "Input",ExpressionUUID->"0ed68765-bcbb-6d44-bbbb-4296acc0003e"]
+}, Open  ]]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
