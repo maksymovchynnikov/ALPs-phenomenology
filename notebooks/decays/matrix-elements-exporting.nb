@@ -46,7 +46,8 @@ Cell[BoxData[
       RowBox[{
       "\"\<Pure ChPT\>\"", ",", 
        "\"\<\!\(\*SubscriptBox[\(f\), \(2\)]\)-mediated\>\"", ",", 
-       "\"\<S-mediated\>\"", ",", "\"\<V-mediated\>\""}], "}"}]}], ";", 
+       "\"\<S-mediated\>\"", ",", "\"\<V-mediated\>\"", ",",
+       "\"\<VA-Pheavy\>\""}], "}"}]}], ";",
     "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"Msymbolic3bodyExp", "[", 
@@ -95,6 +96,8 @@ Cell[BoxData[
 }, Open  ]],
 
 Cell[CellGroupData[{
+
+Cell["The exported K Kbar pi shapes omit only the interpolation-based BaBar amplitude, including its interference; VA-Pheavy is retained. If this leaves K_L K_S pi0 with zero amplitude, that channel uses uniform three-body phase space. These shape approximations do not change the separately exported widths or branching fractions.", "Text"],
 
 Cell["Exporting block", "Subsection",
  CellChangeTimes->{{3.9036817921254025`*^9, 
@@ -235,7 +238,7 @@ Cell[BoxData[
             RowBox[{
              RowBox[{
               RowBox[{
-               RowBox[{"M2numeric3bodyExp", "[", 
+               RowBox[{"M2numeric3bodyExp", "[",
                 RowBox[{
                 "process", ",", "ma", ",", "1", ",", "cu", ",", "cd", ",", 
                  "cs", ",", "cc", ",", "cb", ",", "ct", ",", "cG", ",", 
@@ -275,6 +278,7 @@ Cell[BoxData[
        RowBox[{"{", 
         RowBox[{"process", ",", "proclist"}], "}"}]}], "]"}], ";", 
      "\[IndentingNewLine]", 
+     RowBox[{"With", "[", RowBox[{RowBox[{"{", RowBox[{"channel", "=", "\"\\!\\(\\*SubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\""}], "}"}], ",", RowBox[{"If", "[", RowBox[{RowBox[{RowBox[{"MemberQ", "[", RowBox[{"proclist", ",", "channel"}], "]"}], "&&", RowBox[{"TrueQ", "[", RowBox[{RowBox[{"M2numeric3bodyExport", "[", RowBox[{"channel", ",", "ma", ",", "E1", ",", "E3"}], "]"}], "==", "0"}], "]"}]}], ",", RowBox[{RowBox[{"M2numeric3bodyExport", "[", RowBox[{"channel", ",", "ma_", ",", "E1_", ",", "E3_"}], "]"}], "=", "1.`"}]}], "]"}]}], "]"}], ";", "\[IndentingNewLine]",
      RowBox[{"listtoexport", "=", 
       RowBox[{"{", 
        RowBox[{"proclist", ",", 

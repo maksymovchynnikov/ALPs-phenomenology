@@ -520,7 +520,7 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
    RowBox[{"Spropagator", "[", 
-    RowBox[{"mS_", ",", "\[CapitalGamma]S_", ",", "p2_"}], "]"}], "=", 
+    RowBox[{"mS_", ",", "\[CapitalGamma]S_", ",", "p2_"}], "]"}], ":=",
    RowBox[{"-", 
     FractionBox["1", 
      RowBox[{"p2", "-", 
