@@ -1,615 +1,224 @@
-(* Content-type: application/vnd.wolfram.mathematica *)
-
-(*** Wolfram Notebook File ***)
-(* http://www.wolfram.com/nb *)
-
-(* CreatedBy='Mathematica 13.2' *)
-
-(*CacheID: 234*)
-(* Internal cache information:
-NotebookFileLineBreakTest
-NotebookFileLineBreakTest
-NotebookDataPosition[       158,          7]
-NotebookDataLength[     26060,        603]
-NotebookOptionsPosition[     24064,        562]
-NotebookOutlinePosition[     24473,        578]
-CellTagsIndexPosition[     24430,        575]
-WindowFrame->Normal*)
-
-(* Beginning of Notebook Content *)
-Notebook[{
-
-Cell[CellGroupData[{
-Cell["Matrix elements exporting (for SensCalc)", "Section",
- CellChangeTimes->{{3.903670074012594*^9, 3.9036700776811857`*^9}, {
-  3.903713220628409*^9, 
-  3.9037132228001747`*^9}},ExpressionUUID->"16b2340e-d191-4708-80b3-\
-fecd20c3d662"],
-
-Cell[CellGroupData[{
-
-Cell["\<\
-Matrix element for KK\[Pi] processes without the interpolation part \
-(including it would enormously slows down SensCalc calculations)\
-\>", "Subsection",
- CellChangeTimes->{{3.903713192828309*^9, 3.9037132186641583`*^9}, {
-  3.9453300089129877`*^9, 
-  3.945330019258339*^9}},ExpressionUUID->"8586634f-bd39-4384-afc4-\
-77741cc5e765"],
-
-Cell[BoxData[
- RowBox[{"Do", "[", "\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"sublistexport", "=", 
-     RowBox[{"{", 
-      RowBox[{
-      "\"\<Pure ChPT\>\"", ",", 
-       "\"\<\!\(\*SubscriptBox[\(f\), \(2\)]\)-mediated\>\"", ",", 
-       "\"\<S-mediated\>\"", ",", "\"\<V-mediated\>\"", ",",
-       "\"\<VA-Pheavy\>\""}], "}"}]}], ";",
-    "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"Msymbolic3bodyExp", "[", 
-      RowBox[{"process", ",", "\"\<Total\>\""}], "]"}], "=", 
-     RowBox[{"Sum", "[", 
-      RowBox[{
-       RowBox[{"Msymbolic3body", "[", 
-        RowBox[{"process", ",", "sub"}], "]"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"sub", ",", "sublistexport"}], "}"}]}], "]"}]}], ";", 
-    "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"MsymbolicStar3bodyExp", "[", 
-      RowBox[{"process", ",", "\"\<Total\>\""}], "]"}], "=", 
-     RowBox[{"Sum", "[", 
-      RowBox[{
-       RowBox[{"MsymbolicStar3body", "[", 
-        RowBox[{"process", ",", "sub"}], "]"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"sub", ",", "sublistexport"}], "}"}]}], "]"}]}], ";", 
-    "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"M2numeric3bodyExp", "[", 
-      RowBox[{
-      "process", ",", "ma_", ",", "fa_", ",", "cu_", ",", "cd_", ",", "cs_", 
-       ",", "cc_", ",", "cb_", ",", "ct_", ",", "cG_", ",", "c\[Gamma]_", ",",
-        "ce_", ",", "c\[Mu]_", ",", "c\[Tau]_", ",", "m12_", ",", "m23_"}], 
-      "]"}], "=", 
-     RowBox[{
-      RowBox[{"symbolsToNumbersWidths", "[", 
-       RowBox[{
-        RowBox[{"Msymbolic3bodyExp", "[", 
-         RowBox[{"process", ",", "\"\<Total\>\""}], "]"}], "*", 
-        RowBox[{"MsymbolicStar3bodyExp", "[", 
-         RowBox[{"process", ",", "\"\<Total\>\""}], "]"}]}], "]"}], "*", 
-      SuperscriptBox[
-       RowBox[{"Ffunction", "[", "ma", "]"}], "2"]}]}]}], 
-   "\[IndentingNewLine]", ",", 
-   RowBox[{"{", 
-    RowBox[{"process", ",", "proclistKK\[Pi]"}], "}"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.9037131002240477`*^9, 3.9037131624008827`*^9}, 
-   3.9053559495489182`*^9, 3.905409299336919*^9, {3.9056206426455956`*^9, 
-   3.90562064533352*^9}, 3.94532997126798*^9, 3.9540536917251415`*^9, {
-   3.9540537892115593`*^9, 3.954053805237978*^9}},
- CellLabel->"In[1]:=",ExpressionUUID->"be9b0baa-bbc2-4e7c-8bcc-3f3435ea627b"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["The exported K Kbar pi shapes omit only the interpolation-based BaBar amplitude, including its interference; VA-Pheavy is retained. If this leaves K_L K_S pi0 with zero amplitude, that channel uses uniform three-body phase space. These shape approximations do not change the separately exported widths or branching fractions.", "Text"],
-
-Cell["Exporting block", "Subsection",
- CellChangeTimes->{{3.9036817921254025`*^9, 
-  3.903681795741934*^9}},ExpressionUUID->"ba3e669a-c4f1-4d42-9a7a-\
-8926daff3c97"],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"BlockMsquaredTabulation", "[", 
-   RowBox[{"Model_", ",", "\[CapitalLambda]_", ",", "proclist_"}], "]"}], ":=", 
-  RowBox[{"Module", "[", 
-   RowBox[{
-    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
-    RowBox[{"(*", 
-     RowBox[{
-      RowBox[{
-      "Fixing", " ", "the", " ", "values", " ", "of", " ", "the", " ", 
-       "low"}], "-", 
-      RowBox[{
-      "energy", " ", "ALP", " ", "couplings", " ", "given", " ", "the", " ", 
-       "model", " ", "and", " ", "\[CapitalLambda]"}]}], "*)"}], 
-    "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"Do", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"crgval", "[", 
-         RowBox[{"ALPcouplingslist", "[", 
-          RowBox[{"[", "i", "]"}], "]"}], "]"}], "=", 
-        RowBox[{"cRGval", "[", 
-         RowBox[{"Model", ",", "\[CapitalLambda]", ",", 
-          RowBox[{"ALPcouplingslist", "[", 
-           RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], ",", 
-       RowBox[{"{", 
-        RowBox[{"i", ",", "1", ",", 
-         RowBox[{"Length", "[", "ALPcouplingslist", "]"}], ",", "1"}], 
-        "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
-     RowBox[{"rgflow", "=", 
-      RowBox[{"Table", "[", 
-       RowBox[{
-        RowBox[{"crgval", "[", 
-         RowBox[{"ALPcouplingslist", "[", 
-          RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"i", ",", "1", ",", 
-          RowBox[{"Length", "[", "ALPcouplingslist", "]"}], ",", "1"}], 
-         "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"(*", 
-      RowBox[{"The", " ", 
-       SubscriptBox["c", "\[Gamma]\[Gamma]"], " ", "coupling", " ", 
-       "smoothly", " ", "glued", " ", "between", " ", "the", " ", "ChPT", " ",
-        "regime", " ", "and", " ", "the", " ", "QCD", " ", "perturbative", 
-       " ", "regime"}], "*)"}], "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"c\[Gamma]glued", "[", "ma_", "]"}], "=", 
-      RowBox[{"c\[Gamma]Gluing", "[", 
-       RowBox[{"ma", ",", 
-        RowBox[{"crgval", "[", "\"\<cu\>\"", "]"}], ",", 
-        RowBox[{"crgval", "[", "\"\<cd\>\"", "]"}], ",", 
-        RowBox[{"crgval", "[", "\"\<cs\>\"", "]"}], ",", 
-        RowBox[{"crgval", "[", "\"\<cc\>\"", "]"}], ",", 
-        RowBox[{"crgval", "[", "\"\<cb\>\"", "]"}], ",", 
-        RowBox[{"crgval", "[", "\"\<ct\>\"", "]"}], ",", 
-        RowBox[{"crgval", "[", "\"\<cG\>\"", "]"}], ",", 
-        RowBox[{"crgval", "[", "\"\<ce\>\"", "]"}], ",", 
-        RowBox[{"crgval", "[", "\"\<c\[Mu]\>\"", "]"}], ",", 
-        RowBox[{"crgval", "[", "\"\<c\[Tau]\>\"", "]"}]}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"(*", 
-      RowBox[{
-       RowBox[{
-       "Matrix", " ", "elements", " ", "squared", " ", "in", " ", "terms", 
-        " ", "of", " ", "the", " ", "ALP", " ", "mass"}], ",", " ", 
-       RowBox[{
-       "energy", " ", "of", " ", "the", " ", "particle", " ", "1", " ", "and",
-         " ", "the", " ", "energy", " ", "of", " ", "the", " ", "particle", 
-        " ", "3"}]}], "*)"}], "\[IndentingNewLine]", 
-     RowBox[{"Do", "[", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{"!", 
-           RowBox[{"MemberQ", "[", 
-            RowBox[{"proclistKK\[Pi]", ",", "process"}], "]"}]}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"M2numeric3bodyExport", "[", 
-             RowBox[{"process", ",", "ma_", ",", "E1_", ",", "E3_"}], "]"}], 
-            "=", 
-            RowBox[{
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                RowBox[{"M2numeric3body", "[", 
-                 RowBox[{
-                 "process", ",", "ma", ",", "1", ",", "cu", ",", "cd", ",", 
-                  "cs", ",", "cc", ",", "cb", ",", "ct", ",", "cG", ",", 
-                  "c\[Gamma]", ",", "ce", ",", "c\[Mu]", ",", "c\[Tau]", ",", 
-                  "m12", ",", "m23"}], "]"}], "/.", 
-                RowBox[{"tableValuesReplacement", "[", 
-                 RowBox[{"Model", ",", "\[CapitalLambda]"}], "]"}]}], "/.", 
-               RowBox[{"{", 
-                RowBox[{
-                 RowBox[{"m12", "->", 
-                  RowBox[{"M12", "[", 
-                   RowBox[{"E1", ",", "E3"}], "]"}]}], ",", 
-                 RowBox[{"m23", "->", 
-                  RowBox[{"M23", "[", "E1", "]"}]}]}], "}"}]}], "/.", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"m", "->", "ma"}], ",", 
-                RowBox[{"m1", "->", 
-                 RowBox[{"MASS", "[", 
-                  RowBox[{
-                   RowBox[{"particleslist", "[", "process", "]"}], "[", 
-                   RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ",", 
-                RowBox[{"m2", "->", 
-                 RowBox[{"MASS", "[", 
-                  RowBox[{
-                   RowBox[{"particleslist", "[", "process", "]"}], "[", 
-                   RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ",", 
-                RowBox[{"m3", "->", 
-                 RowBox[{"MASS", "[", 
-                  RowBox[{
-                   RowBox[{"particleslist", "[", "process", "]"}], "[", 
-                   RowBox[{"[", "3", "]"}], "]"}], "]"}]}]}], "}"}]}], "/.", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"Ffunction", "[", "ma", "]"}], "->", "1"}], "}"}]}]}], 
-           ";"}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{"M2numeric3bodyExport", "[", 
-            RowBox[{"process", ",", "ma_", ",", "E1_", ",", "E3_"}], "]"}], 
-           "=", 
-           RowBox[{
-            RowBox[{
-             RowBox[{
-              RowBox[{
-               RowBox[{"M2numeric3bodyExp", "[",
-                RowBox[{
-                "process", ",", "ma", ",", "1", ",", "cu", ",", "cd", ",", 
-                 "cs", ",", "cc", ",", "cb", ",", "ct", ",", "cG", ",", 
-                 "c\[Gamma]", ",", "ce", ",", "c\[Mu]", ",", "c\[Tau]", ",", 
-                 "m12", ",", "m23"}], "]"}], "/.", 
-               RowBox[{"tableValuesReplacement", "[", 
-                RowBox[{"Model", ",", "\[CapitalLambda]"}], "]"}]}], "/.", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"m12", "->", 
-                 RowBox[{"M12", "[", 
-                  RowBox[{"E1", ",", "E3"}], "]"}]}], ",", 
-                RowBox[{"m23", "->", 
-                 RowBox[{"M23", "[", "E1", "]"}]}]}], "}"}]}], "/.", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"m", "->", "ma"}], ",", 
-               RowBox[{"m1", "->", 
-                RowBox[{"MASS", "[", 
-                 RowBox[{
-                  RowBox[{"particleslist", "[", "process", "]"}], "[", 
-                  RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ",", 
-               RowBox[{"m2", "->", 
-                RowBox[{"MASS", "[", 
-                 RowBox[{
-                  RowBox[{"particleslist", "[", "process", "]"}], "[", 
-                  RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ",", 
-               RowBox[{"m3", "->", 
-                RowBox[{"MASS", "[", 
-                 RowBox[{
-                  RowBox[{"particleslist", "[", "process", "]"}], "[", 
-                  RowBox[{"[", "3", "]"}], "]"}], "]"}]}]}], "}"}]}], "/.", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"Ffunction", "[", "ma", "]"}], "->", "1"}], "}"}]}]}]}],
-          "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", ",", 
-       RowBox[{"{", 
-        RowBox[{"process", ",", "proclist"}], "}"}]}], "]"}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"With", "[", RowBox[{RowBox[{"{", RowBox[{"channel", "=", "\"\\!\\(\\*SubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\\(π\\), \\(0\\)]\\)\""}], "}"}], ",", RowBox[{"If", "[", RowBox[{RowBox[{RowBox[{"MemberQ", "[", RowBox[{"proclist", ",", "channel"}], "]"}], "&&", RowBox[{"TrueQ", "[", RowBox[{RowBox[{"M2numeric3bodyExport", "[", RowBox[{"channel", ",", "ma", ",", "E1", ",", "E3"}], "]"}], "==", "0"}], "]"}]}], ",", RowBox[{RowBox[{"M2numeric3bodyExport", "[", RowBox[{"channel", ",", "ma_", ",", "E1_", ",", "E3_"}], "]"}], "=", "1.`"}]}], "]"}]}], "]"}], ";", "\[IndentingNewLine]",
-     RowBox[{"listtoexport", "=", 
-      RowBox[{"{", 
-       RowBox[{"proclist", ",", 
-        RowBox[{"Table", "[", 
-         RowBox[{
-          RowBox[{"particleslist", "[", "proc", "]"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"proc", ",", "proclist"}], "}"}]}], "]"}], ",", 
-        RowBox[{"Table", "[", 
-         RowBox[{
-          RowBox[{"M2numeric3bodyExport", "[", 
-           RowBox[{"process", ",", "mLLP", ",", "E1", ",", "E3"}], "]"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"process", ",", "proclist"}], "}"}]}], "]"}]}], "}"}]}], 
-     ";", "\[IndentingNewLine]", 
-     RowBox[{"modexp", "=", 
-      RowBox[{"If", "[", 
-       RowBox[{"If\[Kappa]Inv", ",", "Model", ",", 
-        RowBox[{"Model", "<>", "\"\<-kappa\>\""}]}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"modexp", "=", 
-      RowBox[{"If", "[", 
-       RowBox[{"IfPheavy", ",", "modexp", ",", 
-        RowBox[{"Model", "<>", "\"\<-No-Pheavy\>\""}]}], "]"}]}], ";", 
-     "\[IndentingNewLine]", 
-     RowBox[{"Export", "[", 
-      RowBox[{
-       RowBox[{"FileNameJoin", "[", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{
-           RowBox[{
-            RowBox[{"NotebookDirectory", "[", "]"}], "//", 
-            "ParentDirectory"}], "//", "ParentDirectory"}], ",", 
-          "\"\<phenomenology\>\"", ",", "modexp", ",", "\"\<decays\>\"", ",", 
-          RowBox[{"ToString", "@", 
-           RowBox[{"StringForm", "[", 
-            RowBox[{
-            "\"\<Matrix-elements-squared-model-``-scale-``-GeV.m\>\"", ",", 
-             RowBox[{"Sequence", "@@", 
-              RowBox[{"{", 
-               RowBox[{"modexp", ",", 
-                RowBox[{
-                 RowBox[{"\[CapitalLambda]", "//", "CForm"}], "//", 
-                 "ToString"}]}], "}"}]}]}], "]"}]}]}], "}"}], "]"}], ",", 
-       "listtoexport", ",", "\"\<MX\>\""}], "]"}]}]}], "\[IndentingNewLine]", 
-   "]"}]}]], "Input",
- CellChangeTimes->{{3.9036916696444283`*^9, 3.9036916741147547`*^9}, {
-   3.9036917074163575`*^9, 3.903691753589872*^9}, {3.9036918183257847`*^9, 
-   3.90369182909859*^9}, {3.903691861863367*^9, 3.9036919817389007`*^9}, {
-   3.903692088538625*^9, 3.9036921465682077`*^9}, {3.9036921950220623`*^9, 
-   3.903692197389823*^9}, {3.903692245431984*^9, 3.9036922914021*^9}, {
-   3.9036932645517817`*^9, 3.9036932669094515`*^9}, 3.903712955949992*^9, {
-   3.903713238887355*^9, 3.903713277206834*^9}, 3.9038913517892976`*^9, {
-   3.9453299797980585`*^9, 3.9453299837335167`*^9}, {3.9540535689818573`*^9, 
-   3.954053571891981*^9}, {3.9540538238753014`*^9, 3.954053879484394*^9}, {
-   3.954054133045826*^9, 3.9540541487063065`*^9}, {3.9542941433367805`*^9, 
-   3.95429417530398*^9}, {3.9543028787752857`*^9, 
-   3.9543028792496567`*^9}},ExpressionUUID->"57d05496-25a6-41ad-a60c-\
-9d7e498933e4"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Exporting", "Subsection",
- CellChangeTimes->{{3.903670206639786*^9, 
-  3.9036702075210395`*^9}},ExpressionUUID->"9f347caa-1143-48ec-a0f1-\
-8f4428b0c1be"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.9540539320407257`*^9, 3.9540539595017223`*^9}, {
-  3.9540540686868954`*^9, 3.954054080764494*^9}},
- CellLabel->"In[3]:=",ExpressionUUID->"9d1b85b2-0fd6-1e4e-b301-7642bd2516c1"],
-
-Cell[BoxData[
- FormBox[
-  RowBox[{"{", 
-   RowBox[{"\<\"2\\!\\(\\*SubscriptBox[\\(K\\), \
-\\(L\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"2\\!\\(\\*SubscriptBox[\\(K\\), \
-\\(S\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"2\\!\\(\\*SuperscriptBox[\\(\[Eta]\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"3\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"3\[Eta]\"\>", 
-    ",", "\<\"\\!\\(\\*SubscriptBox[\\(K\\), \
-\\(L\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\
-\\(\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(K\\), \
-\\(-\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SuperscriptBox[\
-\\(\[Pi]\\), \\(+\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(K\\), \
-\\(+\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SuperscriptBox[\
-\\(\[Pi]\\), \\(-\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(K\\), \
-\\(-\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\
-\\(\[Pi]\\), \\(+\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(K\\), \
-\\(+\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\
-\\(\[Pi]\\), \\(-\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(K\\), \
-\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(K\\), \
-\\(-\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(\[Gamma]\[Pi]\\), \
-\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(-\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(\[Eta]2\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(\[Eta]\[Pi]\\), \
-\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(-\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \
-\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \
-\\(-\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(\[Omega]\[Pi]\\), \
-\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(-\\)]\\)\"\>", 
-    ",", "\<\"\[Eta]'2\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"\[Eta]'\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \
-\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(-\\)]\\)\"\>"}], "}"}], 
-  TraditionalForm]], "Output",
- CellChangeTimes->{3.9540538981453266`*^9, 3.95405393245072*^9, 
-  3.95405407797431*^9},
- CellLabel->"Out[86]=",ExpressionUUID->"ccd36ea5-0783-914a-bc27-255bafceff44"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[{
- RowBox[{"Print", "[", "\"\<Model for exporting:\>\"", "]"}], "\[IndentingNewLine]", 
- RowBox[{"ModelForExporting", "=", 
-  RowBox[{"dropdownDialog", "[", 
-   RowBox[{
-   "ModelListAll", 
-    ",", "\"\<Select the model for squared matrix elements exporting:\>\""}], 
-   "]"}]}], "\[IndentingNewLine]", 
- RowBox[{"Print", "[", "\"\<Scale \[CapitalLambda]:\>\"", "]"}], "\[IndentingNewLine]", 
- RowBox[{"\[CapitalLambda]Choice", "=", 
-  RowBox[{
-   RowBox[{"DialogInput", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"cut", "=", "1000"}], "}"}], ",", 
-     RowBox[{"Column", "[", 
-      RowBox[{"{", 
-       RowBox[{"\"\<Enter the scale \[CapitalLambda] in GeV:\>\"", ",", 
-        RowBox[{"InputField", "[", 
-         RowBox[{
-          RowBox[{"Dynamic", "[", "cut", "]"}], ",", "Expression"}], "]"}], ",", 
-        RowBox[{"Button", "[", 
-         RowBox[{"\"\<Proceed\>\"", ",", 
-          RowBox[{"DialogReturn", "[", "cut", "]"}], ",", 
-          RowBox[{"ImageSize", "\[Rule]", "Automatic"}]}], "]"}]}], "}"}], 
-      "]"}]}], "]"}], "//", "N"}]}], "\[IndentingNewLine]", 
- RowBox[{"Print", 
-  "[", "\"\<For which processes the matrix elements will be exported:\>\"", 
-  "]"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"DecayProcessesList3body", "=", 
-   RowBox[{"Select", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"Keys", "[", 
-       RowBox[{"DownValues", "@", "particleslist"}], "]"}], "[", 
-      RowBox[{"[", 
-       RowBox[{"All", ",", "1", ",", "1"}], "]"}], "]"}], ",", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"Length", "[", 
-        RowBox[{"particleslist", "[", "#", "]"}], "]"}], "==", "3"}], "&"}]}],
-     "]"}]}], ";"}], "\[IndentingNewLine]", 
- RowBox[{"DecayProcessesForExporting", "=", 
-  RowBox[{"(*", 
-   RowBox[{"selectionDialog", "[", 
-    RowBox[{
-    "DecayProcessesList", 
-     ",", "\"\<Select the list of decays for which the matrix elements will \
-be exported:\>\""}], "]"}], "*)"}], "DecayProcessesList3body"}], "\[IndentingNewLine]", 
- RowBox[{"BlockMsquaredTabulation", "[", 
-  RowBox[{
-  "ModelForExporting", ",", "\[CapitalLambda]Choice", ",", 
-   "DecayProcessesForExporting"}], "]"}]}], "Input",
- CellChangeTimes->{{3.9036702170197754`*^9, 3.9036702931034517`*^9}, {
-  3.9036703392444696`*^9, 3.903670341181238*^9}, {3.903670406442659*^9, 
-  3.9036704075483503`*^9}, {3.9036916936588993`*^9, 3.9036916985804043`*^9}, {
-  3.9036919887445607`*^9, 3.9036920204843435`*^9}, {3.905620968292121*^9, 
-  3.9056209738738003`*^9}, {3.9157730056084967`*^9, 3.9157730060012875`*^9}, {
-  3.954053950303192*^9, 3.9540539532213783`*^9}, {3.954054085267126*^9, 
-  3.954054086345831*^9}},
- CellLabel->"In[4]:=",ExpressionUUID->"1932db1a-ec17-4136-af0b-6b7ff41fff6b"],
-
-Cell[BoxData[
- FormBox["\<\"Model for exporting:\"\>", TraditionalForm]], "Print",
- CellChangeTimes->{3.9540538826189995`*^9, 3.9540540890589676`*^9, 
-  3.954054178042982*^9},
- CellLabel->
-  "During evaluation of \
-In[96]:=",ExpressionUUID->"60977154-249d-484f-9b1c-8489c91b1369"],
-
-Cell[BoxData[
- FormBox["\<\"Gluon\"\>", TraditionalForm]], "Output",
- CellChangeTimes->{3.954053886301861*^9, 3.954054104045206*^9, 
-  3.9540541810269356`*^9},
- CellLabel->"Out[97]=",ExpressionUUID->"055b7f0c-84fb-964d-9e87-b3ccc447a458"],
-
-Cell[BoxData[
- FormBox["\<\"Scale \[CapitalLambda]:\"\>", TraditionalForm]], "Print",
- CellChangeTimes->{3.9540538826189995`*^9, 3.9540540890589676`*^9, 
-  3.9540541810269356`*^9},
- CellLabel->
-  "During evaluation of \
-In[96]:=",ExpressionUUID->"2a3c4bb8-5c8d-a242-af28-4e80f9811a65"],
-
-Cell[BoxData[
- FormBox["1000.`", TraditionalForm]], "Output",
- CellChangeTimes->{3.954053886301861*^9, 3.954054104045206*^9, 
-  3.954054182354828*^9},
- CellLabel->"Out[99]=",ExpressionUUID->"fbd5ce79-e343-ec4f-b2e1-4bd0b4ce98d1"],
-
-Cell[BoxData[
- FormBox["\<\"For which processes the matrix elements will be exported:\"\>", 
-  TraditionalForm]], "Print",
- CellChangeTimes->{3.9540538826189995`*^9, 3.9540540890589676`*^9, 
-  3.954054182357338*^9},
- CellLabel->
-  "During evaluation of \
-In[96]:=",ExpressionUUID->"e625db29-2035-9144-b706-315597f4cba5"],
-
-Cell[BoxData[
- FormBox[
-  RowBox[{"{", 
-   RowBox[{"\<\"2\\!\\(\\*SubscriptBox[\\(K\\), \
-\\(L\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"2\\!\\(\\*SubscriptBox[\\(K\\), \
-\\(S\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"2\\!\\(\\*SuperscriptBox[\\(\[Eta]\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"3\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"3\[Eta]\"\>", 
-    ",", "\<\"\\!\\(\\*SubscriptBox[\\(K\\), \
-\\(L\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\
-\\(\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(K\\), \
-\\(-\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SuperscriptBox[\
-\\(\[Pi]\\), \\(+\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(K\\), \
-\\(+\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SuperscriptBox[\
-\\(\[Pi]\\), \\(-\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(K\\), \
-\\(-\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\
-\\(\[Pi]\\), \\(+\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(K\\), \
-\\(+\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \\(S\\)]\\)\\!\\(\\*SuperscriptBox[\
-\\(\[Pi]\\), \\(-\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(K\\), \
-\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(K\\), \
-\\(-\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(\[Gamma]\[Pi]\\), \
-\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(-\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(\[Eta]2\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(\[Eta]\[Pi]\\), \
-\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(-\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \
-\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \
-\\(-\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"\\!\\(\\*SuperscriptBox[\\(\[Omega]\[Pi]\\), \
-\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(-\\)]\\)\"\>", 
-    ",", "\<\"\[Eta]'2\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(0\\)]\\)\"\>", 
-    ",", "\<\"\[Eta]'\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \
-\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(-\\)]\\)\"\>"}], "}"}], 
-  TraditionalForm]], "Output",
- CellChangeTimes->{3.954053886301861*^9, 3.954054104045206*^9, 
-  3.954054182357338*^9},
- CellLabel->
-  "Out[102]=",ExpressionUUID->"638b5f1b-dc7d-4543-ac96-a38277293c7e"],
-
-Cell[BoxData[
- FormBox["\<\"C:\\\\Users\\\\miksi\\\\Dropbox\\\\Science 2\\\\HNL and scalar \
-phenomenology\\\\ALP \
-phenomenology\\\\Temp\\\\phenomenology\\\\Gluon\\\\decays\\\\Matrix-elements-\
-squared-model-Gluon-scale-1000.-GeV.m\"\>", TraditionalForm]], "Output",
- CellChangeTimes->{3.954053886301861*^9, 3.954054104045206*^9, 
-  3.9540541825369167`*^9},
- CellLabel->
-  "Out[103]=",ExpressionUUID->"5bb3fe9d-02d2-6642-8bf5-47cbc162e1f0"]
-}, Open  ]]
-}, Open  ]]
-}, Open  ]]
-},
-WindowSize->{1440, 832.5},
-WindowMargins->{{-4.875, Automatic}, {Automatic, -4.875}},
-FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
-StyleDefinitions->"Default.nb",
-ExpressionUUID->"737f3964-7ee1-4759-a301-28c089b460de"
-]
-(* End of Notebook Content *)
-
-(* Internal cache information *)
-(*CellTagsOutline
-CellTagsIndex->{}
-*)
-(*CellTagsIndex
-CellTagsIndex->{}
-*)
-(*NotebookFileOutline
-Notebook[{
-Cell[CellGroupData[{
-Cell[580, 22, 238, 4, 66, "Section",ExpressionUUID->"16b2340e-d191-4708-80b3-fecd20c3d662"],
-Cell[CellGroupData[{
-Cell[843, 30, 343, 7, 53, "Subsection",ExpressionUUID->"8586634f-bd39-4384-afc4-77741cc5e765"],
-Cell[1189, 39, 2274, 54, 147, "Input",ExpressionUUID->"be9b0baa-bbc2-4e7c-8bcc-3f3435ea627b"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[3500, 98, 165, 3, 53, "Subsection",ExpressionUUID->"ba3e669a-c4f1-4d42-9a7a-8926daff3c97"],
-Cell[3668, 103, 10430, 233, 466, "Input",ExpressionUUID->"57d05496-25a6-41ad-a60c-9d7e498933e4"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[14135, 341, 159, 3, 53, "Subsection",ExpressionUUID->"9f347caa-1143-48ec-a0f1-8f4428b0c1be"],
-Cell[CellGroupData[{
-Cell[14319, 348, 225, 3, 28, "Input",ExpressionUUID->"9d1b85b2-0fd6-1e4e-b301-7642bd2516c1"],
-Cell[14547, 353, 2450, 44, 33, "Output",ExpressionUUID->"ccd36ea5-0783-914a-bc27-255bafceff44"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[17034, 402, 2722, 61, 161, "Input",ExpressionUUID->"1932db1a-ec17-4136-af0b-6b7ff41fff6b"],
-Cell[19759, 465, 280, 6, 21, "Print",ExpressionUUID->"60977154-249d-484f-9b1c-8489c91b1369"],
-Cell[20042, 473, 238, 4, 31, "Output",ExpressionUUID->"055b7f0c-84fb-964d-9e87-b3ccc447a458"],
-Cell[20283, 479, 285, 6, 21, "Print",ExpressionUUID->"2a3c4bb8-5c8d-a242-af28-4e80f9811a65"],
-Cell[20571, 487, 229, 4, 31, "Output",ExpressionUUID->"fbd5ce79-e343-ec4f-b2e1-4bd0b4ce98d1"],
-Cell[20803, 493, 320, 7, 21, "Print",ExpressionUUID->"e625db29-2035-9144-b706-315597f4cba5"],
-Cell[21126, 502, 2454, 45, 33, "Output",ExpressionUUID->"638b5f1b-dc7d-4543-ac96-a38277293c7e"],
-Cell[23583, 549, 441, 8, 31, "Output",ExpressionUUID->"5bb3fe9d-02d2-6642-8bf5-47cbc162e1f0"]
-}, Open  ]]
-}, Open  ]]
-}, Open  ]]
-}
-]
-*)
-
+Notebook[{Cell[CellGroupData[{Cell["Matrix elements exporting (for SensCalc)", "Section",
+      ExpressionUUID -> "16b2340e-d191-4708-80b3-fecd20c3d662"],
+     Cell[CellGroupData[{Cell["Matrix element for KK\[Pi] processes without the interpolation part \
+(including it would enormously slows down SensCalc calculations)", "Subsection",
+         ExpressionUUID -> "8586634f-bd39-4384-afc4-77741cc5e765"],
+        Cell[BoxData[RowBox[{"Do", "[", "\[IndentingNewLine]",
+            RowBox[{RowBox[{RowBox[{"sublistexport", "=", RowBox[{"{", RowBox[{"\"Pure ChPT\"",
+                      ",", "\"\!\(\*SubscriptBox[\(f\), \(2\)]\)-mediated\"", ",",
+                      "\"S-mediated\"", ",", "\"V-mediated\"", ",", "\"VA-Pheavy\""}], "}"}]}],
+                ";", "\[IndentingNewLine]", RowBox[{RowBox[{"Msymbolic3bodyExp", "[",
+                    RowBox[{"process", ",", "\"Total\""}], "]"}], "=", RowBox[{"Sum", "[",
+                    RowBox[{RowBox[{"Msymbolic3body", "[", RowBox[{"process", ",", "sub"}], "]"}],
+                      ",", RowBox[{"{", RowBox[{"sub", ",", "sublistexport"}], "}"}]}], "]"}]}],
+                ";", "\[IndentingNewLine]", RowBox[{RowBox[{"MsymbolicStar3bodyExp", "[",
+                    RowBox[{"process", ",", "\"Total\""}], "]"}], "=", RowBox[{"Sum", "[",
+                    RowBox[{RowBox[{"MsymbolicStar3body", "[", RowBox[{"process", ",", "sub"}],
+                        "]"}], ",", RowBox[{"{", RowBox[{"sub", ",", "sublistexport"}], "}"}]}],
+                    "]"}]}], ";", "\[IndentingNewLine]", RowBox[{RowBox[{"M2numeric3bodyExp", "[",
+                    RowBox[{"process", ",", "ma_", ",", "fa_", ",", "cu_", ",", "cd_", ",", "cs_",
+                      ",", "cc_", ",", "cb_", ",", "ct_", ",", "cG_", ",", "c\[Gamma]_", ",",
+                      "ce_", ",", "c\[Mu]_", ",", "c\[Tau]_", ",", "m12_", ",", "m23_"}], "]"}],
+                  "=", RowBox[{RowBox[{"symbolsToNumbersWidths", "[", RowBox[{RowBox[
+                         {"Msymbolic3bodyExp", "[", RowBox[{"process", ",", "\"Total\""}], "]"}],
+                        "*", RowBox[{"MsymbolicStar3bodyExp", "[", RowBox[{"process", ",",
+                            "\"Total\""}], "]"}]}], "]"}], "*", SuperscriptBox[RowBox[{"Ffunction",
+                       "[", "ma", "]"}], "2"]}]}]}], "\[IndentingNewLine]", ",",
+              RowBox[{"{", RowBox[{"process", ",", "proclistKK\[Pi]"}], "}"}]}], "]"}]], "Input",
+         ExpressionUUID -> "be9b0baa-bbc2-4e7c-8bcc-3f3435ea627b"]}, Open]],
+     Cell[CellGroupData[{Cell["The exported K Kbar pi shapes omit only the interpolation-based \
+BaBar amplitude, including its interference; VA-Pheavy is retained. If this leaves K_L K_S pi0 with \
+zero amplitude, that channel uses uniform three-body phase space. These shape approximations do not \
+change the separately exported widths or branching fractions.", "Text"],
+        Cell["Exporting block", "Subsection", ExpressionUUID ->
+          "ba3e669a-c4f1-4d42-9a7a-8926daff3c97"],
+        Cell[BoxData[RowBox[{RowBox[{"BlockMsquaredTabulation", "[", RowBox[{"Model_", ",",
+                "\[CapitalLambda]_", ",", "proclist_"}], "]"}], ":=",
+            RowBox[{"Module", "[", RowBox[{RowBox[{"{", RowBox[{"M2numeric3bodyExport", ",",
+                    "listtoexport", ",", "modexp"}], "}"}], ",", "\[IndentingNewLine]",
+                RowBox[{"(*", RowBox[{RowBox[{"Fixing", " ", "the", " ", "values", " ", "of", " ",
+                      "the", " ", "low"}], "-", RowBox[{"energy", " ", "ALP", " ", "couplings",
+                      " ", "given", " ", "the", " ", "model", " ", "and", " ",
+                      "\[CapitalLambda]"}]}], "*)"}], "\[IndentingNewLine]",
+                RowBox[{RowBox[{"Do", "[", RowBox[{RowBox[{RowBox[{"crgval", "[", RowBox[
+                           {"ALPcouplingslist", "[", RowBox[{"[", "i", "]"}], "]"}], "]"}], "=",
+                        RowBox[{"cRGval", "[", RowBox[{"Model", ",", "\[CapitalLambda]", ",",
+                            RowBox[{"ALPcouplingslist", "[", RowBox[{"[", "i", "]"}], "]"}]}],
+                          "]"}]}], ",", RowBox[{"{", RowBox[{"i", ",", "1", ",", RowBox[{"Length",
+                            "[", "ALPcouplingslist", "]"}], ",", "1"}], "}"}]}], "]"}], ";",
+                  "\[IndentingNewLine]", RowBox[{"rgflow", "=", RowBox[{"Table", "[",
+                      RowBox[{RowBox[{"crgval", "[", RowBox[{"ALPcouplingslist", "[", RowBox[
+                             {"[", "i", "]"}], "]"}], "]"}], ",", RowBox[{"{", RowBox[{"i", ",",
+                            "1", ",", RowBox[{"Length", "[", "ALPcouplingslist", "]"}], ",", "1"}],
+                          "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", RowBox[{"(*",
+                    RowBox[{"The", " ", SubscriptBox["c", "\[Gamma]\[Gamma]"], " ", "coupling",
+                      " ", "smoothly", " ", "glued", " ", "between", " ", "the", " ", "ChPT", " ",
+                      "regime", " ", "and", " ", "the", " ", "QCD", " ", "perturbative", " ",
+                      "regime"}], "*)"}], "\[IndentingNewLine]", RowBox[{RowBox[{"c\[Gamma]glued",
+                      "[", "ma_", "]"}], "=", RowBox[{"c\[Gamma]Gluing", "[", RowBox[{"ma", ",",
+                        RowBox[{"crgval", "[", "\"cu\"", "]"}], ",", RowBox[{"crgval", "[",
+                          "\"cd\"", "]"}], ",", RowBox[{"crgval", "[", "\"cs\"", "]"}], ",",
+                        RowBox[{"crgval", "[", "\"cc\"", "]"}], ",", RowBox[{"crgval", "[",
+                          "\"cb\"", "]"}], ",", RowBox[{"crgval", "[", "\"ct\"", "]"}], ",",
+                        RowBox[{"crgval", "[", "\"cG\"", "]"}], ",", RowBox[{"crgval", "[",
+                          "\"ce\"", "]"}], ",", RowBox[{"crgval", "[", "\"c\[Mu]\"", "]"}], ",",
+                        RowBox[{"crgval", "[", "\"c\[Tau]\"", "]"}]}], "]"}]}], ";",
+                  "\[IndentingNewLine]", RowBox[{"(*", RowBox[{RowBox[{"Matrix", " ", "elements",
+                        " ", "squared", " ", "in", " ", "terms", " ", "of", " ", "the", " ", "ALP",
+                        " ", "mass"}], ",", " ", RowBox[{"energy", " ", "of", " ", "the", " ",
+                        "particle", " ", "1", " ", "and", " ", "the", " ", "energy", " ", "of",
+                        " ", "the", " ", "particle", " ", "3"}]}], "*)"}], "\[IndentingNewLine]",
+                  RowBox[{"Do", "[", "\[IndentingNewLine]", RowBox[{RowBox[{RowBox[{"If", "[",
+                          RowBox[{RowBox[{"!", RowBox[{"MemberQ", "[", RowBox[{"proclistKK\[Pi]",
+                                 ",", "process"}], "]"}]}], ",", "\[IndentingNewLine]", RowBox[
+                             {RowBox[{RowBox[{"M2numeric3bodyExport", "[", RowBox[{"process", ",",
+                                 "ma_", ",", "E1_", ",", "E3_"}], "]"}], "=", RowBox[{RowBox[
+                                 {RowBox[{RowBox[{RowBox[{"M2numeric3body", "[", RowBox[{"process",
+                                 ",", "ma", ",", "1", ",", "cu", ",", "cd", ",", "cs", ",", "cc",
+                                 ",", "cb", ",", "ct", ",", "cG", ",", "c\[Gamma]", ",", "ce", ",",
+                                 "c\[Mu]", ",", "c\[Tau]", ",", "m12", ",", "m23"}], "]"}], "/.",
+                                 RowBox[{"tableValuesReplacement", "[", RowBox[{"Model", ",",
+                                 "\[CapitalLambda]"}], "]"}]}], "/.", RowBox[{"{", RowBox[{RowBox[
+                                 {"m12", "->", RowBox[{"M12", "[", RowBox[{"E1", ",", "E3"}],
+                                 "]"}]}], ",", RowBox[{"m23", "->", RowBox[{"M23", "[", "E1",
+                                 "]"}]}]}], "}"}]}], "/.", RowBox[{"{", RowBox[{RowBox[{"m", "->",
+                                 "ma"}], ",", RowBox[{"m1", "->", RowBox[{"MASS", "[", RowBox[
+                                 {RowBox[{"particleslist", "[", "process", "]"}], "[", RowBox[{"[",
+                                 "1", "]"}], "]"}], "]"}]}], ",", RowBox[{"m2", "->", RowBox[
+                                 {"MASS", "[", RowBox[{RowBox[{"particleslist", "[", "process",
+                                 "]"}], "[", RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ",", RowBox[
+                                 {"m3", "->", RowBox[{"MASS", "[", RowBox[{RowBox[{"particleslist",
+                                 "[", "process", "]"}], "[", RowBox[{"[", "3", "]"}], "]"}],
+                                 "]"}]}]}], "}"}]}], "/.", RowBox[{"{", RowBox[{RowBox[
+                                 {"Ffunction", "[", "ma", "]"}], "->", "1"}], "}"}]}]}], ";"}],
+                            "\[IndentingNewLine]", ",", "\[IndentingNewLine]", RowBox[
+                             {RowBox[{"M2numeric3bodyExport", "[", RowBox[{"process", ",", "ma_",
+                                 ",", "E1_", ",", "E3_"}], "]"}], "=", RowBox[{RowBox[{RowBox[
+                                 {RowBox[{RowBox[{"M2numeric3bodyExp", "[", RowBox[{"process", ",",
+                                 "ma", ",", "1", ",", "cu", ",", "cd", ",", "cs", ",", "cc", ",",
+                                 "cb", ",", "ct", ",", "cG", ",", "c\[Gamma]", ",", "ce", ",",
+                                 "c\[Mu]", ",", "c\[Tau]", ",", "m12", ",", "m23"}], "]"}], "/.",
+                                 RowBox[{"tableValuesReplacement", "[", RowBox[{"Model", ",",
+                                 "\[CapitalLambda]"}], "]"}]}], "/.", RowBox[{"{", RowBox[
+                                 {RowBox[{"m12", "->", RowBox[{"M12", "[", RowBox[{"E1", ",",
+                                 "E3"}], "]"}]}], ",", RowBox[{"m23", "->", RowBox[{"M23", "[",
+                                 "E1", "]"}]}]}], "}"}]}], "/.", RowBox[{"{", RowBox[{RowBox[
+                                 {"m", "->", "ma"}], ",", RowBox[{"m1", "->", RowBox[{"MASS", "[",
+                                 RowBox[{RowBox[{"particleslist", "[", "process", "]"}], "[",
+                                 RowBox[{"[", "1", "]"}], "]"}], "]"}]}], ",", RowBox[{"m2", "->",
+                                 RowBox[{"MASS", "[", RowBox[{RowBox[{"particleslist", "[",
+                                 "process", "]"}], "[", RowBox[{"[", "2", "]"}], "]"}], "]"}]}],
+                                 ",", RowBox[{"m3", "->", RowBox[{"MASS", "[", RowBox[{RowBox[
+                                 {"particleslist", "[", "process", "]"}], "[", RowBox[{"[", "3",
+                                 "]"}], "]"}], "]"}]}]}], "}"}]}], "/.", RowBox[{"{", RowBox[
+                                 {RowBox[{"Ffunction", "[", "ma", "]"}], "->", "1"}], "}"}]}]}]}],
+                          "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", ",",
+                      RowBox[{"{", RowBox[{"process", ",", "proclist"}], "}"}]}], "]"}], ";",
+                  "\[IndentingNewLine]", RowBox[{RowBox[{"With", "[", RowBox[{RowBox[{"{",
+                          RowBox[{"channel", "=", "\"\\!\\(\\*SuperscriptBox[\\(\[Omega]\[Pi]\\), \
+\\(+\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(-\\)]\\)\""}], "}"}], ",", RowBox[{"If", "[",
+                          RowBox[{RowBox[{"MemberQ", "[", RowBox[{"proclist", ",", "channel"}],
+                              "]"}], ",", RowBox[{"With", "[", RowBox[{RowBox[{"{", RowBox[
+                                 {"coefficient", "=", RowBox[{"symbolsToNumbersWidths", "[",
+                                 RowBox[{"Cancel", "[", RowBox[{"-", FractionBox[RowBox[
+                                 {"Coefficient", "[", RowBox[{RowBox[{"M2symbolic3body", "[",
+                                 "channel", "]"}], ",", "m12", ",", "2"}], "]"}], "m23"]}], "]"}],
+                                 "]"}]}], "}"}], ",", RowBox[{RowBox[{"M2numeric3bodyExport", "[",
+                                 RowBox[{"channel", ",", "mass_", ",", "E1_", ",", "E3_"}], "]"}],
+                                 "=", RowBox[{"With", "[", RowBox[{RowBox[{"{", RowBox[{RowBox[
+                                 {"s", "=", RowBox[{SuperscriptBox["mass", "2"], "+",
+                                 SuperscriptBox[RowBox[{"MASS", "[", "\"\[Omega]\"", "]"}], "2"],
+                                 "-", RowBox[{"2", " ", "mass", " ", "E1"}]}]}], ",", RowBox[
+                                 {"centre", "=", FractionBox[RowBox[{"mass", "-", "E1"}], "2"]}]}],
+                                 "}"}], ",", RowBox[{"With", "[", RowBox[{RowBox[{"{", RowBox[
+                                 {"halfRange", "=", RowBox[{FractionBox["1", "2"], " ", SqrtBox[
+                                 FractionBox[RowBox[{RowBox[{"(", RowBox[{"E1", "-", RowBox[
+                                 {"MASS", "[", "\"\[Omega]\"", "]"}]}], ")"}], " ", RowBox[{"(",
+                                 RowBox[{"E1", "+", RowBox[{"MASS", "[", "\"\[Omega]\"", "]"}]}],
+                                 ")"}], " ", RowBox[{"(", RowBox[{"s", "-", RowBox[{"4", " ",
+                                 SuperscriptBox[RowBox[{"MASS", "[", RowBox[{RowBox[{
+                                 "particleslist", "[", "channel", "]"}], "\[LeftDoubleBracket]",
+                                 "2", "\[RightDoubleBracket]"}], "]"}], "2"]}]}], ")"}]}],
+                                 "s"]]}]}], "}"}], ",", RowBox[{"4", " ", SuperscriptBox["mass",
+                                 "2"], " ", "s", " ", RowBox[{"(", RowBox[{"centre", "+",
+                                 "halfRange", "-", "E3"}], ")"}], " ", RowBox[{"(", RowBox[{"E3",
+                                 "-", "centre", "+", "halfRange"}], ")"}], " ", RowBox[{"(", RowBox[
+                                 {RowBox[{"coefficient", "/.", "\[VeryThinSpace]", RowBox[
+                                 {"tableValuesReplacement", "[", RowBox[{"Model", ",",
+                                 "\[CapitalLambda]"}], "]"}]}], "/.", "\[VeryThinSpace]", RowBox[
+                                 {"{", RowBox[{RowBox[{"fa", "\[Rule]", "1"}], ",", RowBox[{"ma",
+                                 "\[Rule]", "mass"}], ",", RowBox[{"m23", "\[Rule]", "s"}]}],
+                                 "}"}]}], ")"}]}]}], "]"}]}], "]"}]}]}], "]"}]}], "]"}]}], "]"}],
+                    ";"}], ";", "\[IndentingNewLine]", RowBox[{"listtoexport", "=", RowBox[
+                     {"{", RowBox[{"proclist", ",", RowBox[{"Table", "[", RowBox[{RowBox[
+                             {"particleslist", "[", "proc", "]"}], ",", RowBox[{"{", RowBox[
+                               {"proc", ",", "proclist"}], "}"}]}], "]"}], ",", RowBox[{"Table",
+                          "[", RowBox[{RowBox[{"With", "[", RowBox[{RowBox[{"{", RowBox[{"value",
+                                 "=", RowBox[{"M2numeric3bodyExport", "[", RowBox[{"process", ",",
+                                 "mLLP", ",", "E1", ",", "E3"}], "]"}]}], "}"}], ",", RowBox[
+                                 {"If", "[", RowBox[{RowBox[{RowBox[{"process", "==", "\"\\!\\(\\*S\
+ubscriptBox[\\(K\\), \\(L\\)]\\)\\!\\(\\*SubscriptBox[\\(K\\), \
+\\(S\\)]\\)\\!\\(\\*SuperscriptBox[\\(\[Pi]\\), \\(0\\)]\\)\""}], "&&", RowBox[{"TrueQ", "[",
+                                 RowBox[{"value", "==", "0"}], "]"}]}], ",", "1.`", ",", "value"}],
+                                 "]"}]}], "]"}], ",", RowBox[{"{", RowBox[{"process", ",",
+                                "proclist"}], "}"}]}], "]"}]}], "}"}]}], ";",
+                  "\[IndentingNewLine]", RowBox[{StyleBox[RowBox[{"BlockMsquaredTabulation", "::",
+                       "invalid"}], "MessageName"], "=", "\"Export cancelled: a matrix element \
+contains an interpolation or an invalid expression.\""}], ";", "\[IndentingNewLine]",
+                  RowBox[{"If", "[", RowBox[{RowBox[{"!", RowBox[{"FreeQ", "[", RowBox[
+                           {"listtoexport", ",", RowBox[{"_InterpolatingFunction", "|", "_Pyramid",
+                              "|", "Indeterminate", "|", "_DirectedInfinity"}]}], "]"}]}], ",",
+                      RowBox[{RowBox[{"Message", "[", StyleBox[RowBox[{"BlockMsquaredTabulation",
+                             "::", "invalid"}], "MessageName"], "]"}], ";", RowBox[{"Return", "[",
+                          "$Failed", "]"}]}]}], "]"}], ";", "\[IndentingNewLine]",
+                  RowBox[{"modexp", "=", RowBox[{"If", "[", RowBox[{"If\[Kappa]Inv", ",", "Model",
+                        ",", RowBox[{"Model", "<>", "\"-kappa\""}]}], "]"}]}], ";",
+                  "\[IndentingNewLine]", RowBox[{"modexp", "=", RowBox[{"If", "[", RowBox[
+                       {"IfPheavy", ",", "modexp", ",", RowBox[{"Model", "<>",
+                          "\"-No-Pheavy\""}]}], "]"}]}], ";", "\[IndentingNewLine]",
+                  RowBox[{"Export", "[", RowBox[{RowBox[{"FileNameJoin", "[", RowBox[{"{",
+                          RowBox[{RowBox[{RowBox[{RowBox[{"NotebookDirectory", "[", "]"}], "//",
+                                "ParentDirectory"}], "//", "ParentDirectory"}], ",",
+                            "\"phenomenology\"", ",", "modexp", ",", "\"decays\"", ",", RowBox[
+                             {"ToString", "@", RowBox[{"StringForm", "[", RowBox[
+                                 {"\"Matrix-elements-squared-model-``-scale-``-GeV.m\"", ",",
+                                 RowBox[{"Sequence", "@@", RowBox[{"{", RowBox[{"modexp", ",",
+                                 RowBox[{RowBox[{"\[CapitalLambda]", "//", "CForm"}], "//",
+                                 "ToString"}]}], "}"}]}]}], "]"}]}]}], "}"}], "]"}], ",",
+                      "listtoexport", ",", "\"MX\""}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}]],
+         "Input", ExpressionUUID -> "57d05496-25a6-41ad-a60c-9d7e498933e4"]}, Open]],
+     Cell[CellGroupData[{Cell["Exporting", "Subsection", ExpressionUUID ->
+          "9f347caa-1143-48ec-a0f1-8f4428b0c1be"],
+        Cell[CellGroupData[{Cell[BoxData[""], "Input", ExpressionUUID ->
+             "9d1b85b2-0fd6-1e4e-b301-7642bd2516c1"]}, Open]],
+        Cell[CellGroupData[{Cell[BoxData[{RowBox[{"Print", "[", "\"Model for exporting:\"", "]"}],
+              "\[IndentingNewLine]", RowBox[{"ModelForExporting", "=", RowBox[{"dropdownDialog",
+                  "[", RowBox[{"ModelListAll", ",",
+                    "\"Select the model for squared matrix elements exporting:\""}], "]"}]}],
+              "\[IndentingNewLine]", RowBox[{"Print", "[", "\"Scale \[CapitalLambda]:\"", "]"}],
+              "\[IndentingNewLine]", RowBox[{"\[CapitalLambda]Choice", "=", RowBox[
+                 {RowBox[{"DialogInput", "[", RowBox[{RowBox[{"{", RowBox[{"cut", "=", "1000"}],
+                        "}"}], ",", RowBox[{"Column", "[", RowBox[{"{", RowBox[
+                           {"\"Enter the scale \[CapitalLambda] in GeV:\"", ",", RowBox[
+                             {"InputField", "[", RowBox[{RowBox[{"Dynamic", "[", "cut", "]"}], ",",
+                                "Expression"}], "]"}], ",", RowBox[{"Button", "[", RowBox[
+                               {"\"Proceed\"", ",", RowBox[{"DialogReturn", "[", "cut", "]"}], ",",
+                                RowBox[{"ImageSize", "\[Rule]", "Automatic"}]}], "]"}]}], "}"}],
+                        "]"}]}], "]"}], "//", "N"}]}], "\[IndentingNewLine]", RowBox[{"Print", "[",
+                "\"For which processes the matrix elements will be exported:\"", "]"}],
+              "\[IndentingNewLine]", RowBox[{RowBox[{"DecayProcessesList3body", "=",
+                  RowBox[{"Select", "[", RowBox[{RowBox[{RowBox[{"Keys", "[", RowBox[{"DownValues",
+                            "@", "particleslist"}], "]"}], "[", RowBox[{"[", RowBox[{"All", ",",
+                            "1", ",", "1"}], "]"}], "]"}], ",", RowBox[{RowBox[{RowBox[{"Length",
+                            "[", RowBox[{"particleslist", "[", "#", "]"}], "]"}], "==", "3"}],
+                        "&"}]}], "]"}]}], ";"}], "\[IndentingNewLine]",
+              RowBox[{"DecayProcessesForExporting", "=", RowBox[{"(*", RowBox[{"selectionDialog",
+                    "[", RowBox[{"DecayProcessesList", ",",
+                      "\"Select the list of decays for which the matrix elements will be \
+exported:\""}], "]"}], "*)"}], "DecayProcessesList3body"}], "\[IndentingNewLine]",
+              RowBox[{"BlockMsquaredTabulation", "[", RowBox[{"ModelForExporting", ",",
+                  "\[CapitalLambda]Choice", ",", "DecayProcessesForExporting"}], "]"}]}], "Input",
+            ExpressionUUID -> "1932db1a-ec17-4136-af0b-6b7ff41fff6b"]}, Open]]}, Open]]}, Open]]},
+ WindowSize -> {1440, 832.5}, WindowMargins -> {{-4.875, Automatic}, {Automatic, -4.875}},
+ FrontEndVersion -> "14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+ StyleDefinitions -> "Default.nb", ExpressionUUID -> "737f3964-7ee1-4759-a301-28c089b460de"]
